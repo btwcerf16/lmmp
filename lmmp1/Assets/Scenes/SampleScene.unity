@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 90300736}
   - component: {fileID: 90300737}
   - component: {fileID: 90300738}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -900,7 +900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 512
   attack1point: {fileID: 608332747}
   attackArea: 0.71
 --- !u!1 &2014192457
