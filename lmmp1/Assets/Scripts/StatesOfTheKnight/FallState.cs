@@ -13,20 +13,30 @@ public class FallState : State
     {
         base.Enter();
         _player.animator.SetBool("Fall", true);
-        
+        _player.canAttack = false;
     }
 
     
     public override void Update()
     {
         base.Update();
-      
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            _player.transform.position = new Vector2(_player.transform.position.x +
+            (_player.speed * Time.deltaTime * _player.moveVector.x) / 3, _player.transform.position.y);
+        }
+
+
+        if (_player.moveVector.x > 0 && !_player.faceRight || _player.moveVector.x < 0 && _player.faceRight)
+        {
+            _player.Flip();
+        }
     }
 
     public override void Exit()
     {
         base.Exit();
         _player.animator.SetBool("Fall", false);
-        
+        _player.canAttack = true;
     }
 }

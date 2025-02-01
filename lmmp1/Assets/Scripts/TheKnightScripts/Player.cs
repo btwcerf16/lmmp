@@ -19,6 +19,7 @@ public class Player : MonoBehaviour, IDamageable
     public bool canAttack = true;
     public bool canJump = true;
     public bool canRoll = true;
+    
 
     public Transform groundCheck;
     public float groundCheckRadius = 0.3f; 
@@ -65,7 +66,12 @@ public class Player : MonoBehaviour, IDamageable
         {
             _SM.ChangeState(new JumpState(this));
         }
-        
+        if (rigidbody2D.velocity.y < 0)
+        {
+            _SM.ChangeState(new FallState(this));
+            
+        }
+
 
     }
 
