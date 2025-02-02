@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class DummyEnemy : MonoBehaviour, IDamageable
 {
-    private float _maxHealth = 10.0f;
-    public float currentHealth;
+
+
+    public float maxHealth { get; set; } = 15.0f;
+    public float currentHealth { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = _maxHealth;   
+        currentHealth = maxHealth;   
     }
 
     // Update is called once per frame
@@ -24,7 +23,12 @@ public class DummyEnemy : MonoBehaviour, IDamageable
 
         if (currentHealth <= 0)
         {
-            Debug.Log("Pomer");
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        Debug.Log("Pomer");
     }
 }

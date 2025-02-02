@@ -14,7 +14,7 @@ public class RollState : State
         base.Enter();
         _player.assailable = false;
         _player.animator.SetTrigger("Roll");
-        _player.rigidbody2D.velocity = new Vector2((_player.moveVector.x * _player.speed) + 10, _player.rigidbody2D.velocity.y);
+        _player.rigidbody2D.velocity = new Vector2(_player.transform.localScale.x * _player.dashPower, 0.0f);
         _player.canRoll = false;
     }
     public override void Update()

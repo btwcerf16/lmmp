@@ -10,10 +10,11 @@ public class Player : MonoBehaviour, IDamageable
     public Vector2 moveVector;
     private StateMachine _SM;
 
-    private float _maxHealth = 15.0f;
-    public float currentHealth;
+    
+    
     public float jumpForce = 10.0f;
     public float speed = 10.0f;
+    public float dashPower = 16.0f;
 
     public bool assailable = true;
     public bool canAttack = true;
@@ -27,7 +28,8 @@ public class Player : MonoBehaviour, IDamageable
 
     public LayerMask groundMask;
 
-    
+    public float maxHealth { get; set; } = 15.0f;
+    public float currentHealth { get; set; }
 
     private void Start()
     {
@@ -37,7 +39,7 @@ public class Player : MonoBehaviour, IDamageable
         _SM = new StateMachine();
         _SM.Initialize(new IdleState(this));
 
-        currentHealth = _maxHealth;
+        currentHealth = maxHealth;
     }
     private void Update()
     {
@@ -92,7 +94,7 @@ public class Player : MonoBehaviour, IDamageable
 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
     }
     private void CheckingGround()
@@ -100,4 +102,8 @@ public class Player : MonoBehaviour, IDamageable
         canJump = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundMask);
     }
 
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 }
