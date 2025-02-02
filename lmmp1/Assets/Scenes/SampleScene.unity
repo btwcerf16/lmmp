@@ -293,7 +293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167b3ee2a6ab61d4db82cd3bd71dfd93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,7 +554,7 @@ GameObject:
   - component: {fileID: 815371271}
   - component: {fileID: 815371270}
   - component: {fileID: 815371272}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Square
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -689,7 +688,7 @@ GameObject:
   - component: {fileID: 1698167667}
   - component: {fileID: 1698167670}
   - component: {fileID: 1698167672}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: PlayerEmpty
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -822,9 +821,9 @@ MonoBehaviour:
   rigidbody2D: {fileID: 0}
   faceRight: 1
   moveVector: {x: 0, y: 0}
-  currentHealth: 0
   jumpForce: 10
   speed: 10
+  dashPower: 6
   assailable: 1
   canAttack: 1
   canJump: 1
@@ -833,7 +832,7 @@ MonoBehaviour:
   groundCheckRadius: 0.3
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
 --- !u!212 &1698167671
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -902,7 +901,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   attack1point: {fileID: 608332747}
-  attackArea: 0.71
+  attackArea: 1.24
 --- !u!1 &2014192457
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +928,7 @@ Transform:
   m_GameObject: {fileID: 2014192457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.2, z: 0}
+  m_LocalPosition: {x: 0, y: -0.998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
