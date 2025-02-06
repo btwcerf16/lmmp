@@ -819,15 +819,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   rigidbody2D: {fileID: 0}
+  attack1: {fileID: 1698167672}
   faceRight: 1
   moveVector: {x: 0, y: 0}
+  baseGravityScale: 1
   jumpForce: 10
   speed: 10
-  dashPower: 6
+  dashPower: 2
   assailable: 1
   canAttack: 1
   canJump: 1
   canRoll: 1
+  canMove: 1
+  State: 
   groundCheck: {fileID: 2014192458}
   groundCheckRadius: 0.3
   groundMask:
@@ -902,6 +906,7 @@ MonoBehaviour:
     m_Bits: 512
   attack1point: {fileID: 608332747}
   attackArea: 1.24
+  coolDown: 0.7
 --- !u!1 &2014192457
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class RunState : State
     public override void Update()
     {
         base.Update();
-
+        _player.State = "Run";
 
         _player.transform.position = new Vector2(_player.transform.position.x + (_player.speed * Time.deltaTime * _player.moveVector.x), _player.transform.position.y);
         

@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using static UnityEditor.Experimental.GraphView.GraphView;
@@ -6,11 +8,13 @@ public class Player : MonoBehaviour, IDamageable
 {
     [HideInInspector] public Animator animator;
     [HideInInspector] public new Rigidbody2D rigidbody2D;
+     public Attack1 attack1;
+
     public bool faceRight = true;
     public Vector2 moveVector;
     private StateMachine _SM;
 
-    
+    public float baseGravityScale = 1.0f; 
     
     public float jumpForce = 10.0f;
     public float speed = 10.0f;
@@ -20,7 +24,9 @@ public class Player : MonoBehaviour, IDamageable
     public bool canAttack = true;
     public bool canJump = true;
     public bool canRoll = true;
-    
+    public bool canMove = true;
+
+    public string State = "";
 
     public Transform groundCheck;
     public float groundCheckRadius = 0.3f; 
@@ -35,11 +41,14 @@ public class Player : MonoBehaviour, IDamageable
     {
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        attack1 = GetComponent<Attack1>();
 
         _SM = new StateMachine();
         _SM.Initialize(new IdleState(this));
 
         currentHealth = maxHealth;
+
+        rigidbody2D.gravityScale = baseGravityScale;
     }
     private void Update()
     {
@@ -48,19 +57,23 @@ public class Player : MonoBehaviour, IDamageable
         CheckingGround();
         
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && canMove)
         {
+            
             _SM.ChangeState(new RunState(this));
+
         }
-        else
-        {
-            _SM.ChangeState(new IdleState(this));
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canAttack)
+        
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canAttack && attack1.timer == 0)
         {
             _SM.ChangeState(new Attack1State(this));
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canRoll)
+        if(canJump && canRoll && canAttack)
+        {
+            _SM.ChangeState(new IdleState(this));
+        }
+        if (Input.GetKey(KeyCode.LeftShift) && canRoll)
         {
             _SM.ChangeState(new RollState(this));
         }
@@ -71,9 +84,9 @@ public class Player : MonoBehaviour, IDamageable
         if (rigidbody2D.velocity.y < 0)
         {
             _SM.ChangeState(new FallState(this));
-            
         }
-
+        
+        
 
     }
 
@@ -106,4 +119,5 @@ public class Player : MonoBehaviour, IDamageable
     {
         Destroy(gameObject);
     }
+    
 }

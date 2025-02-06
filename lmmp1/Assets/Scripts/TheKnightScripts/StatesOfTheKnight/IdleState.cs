@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 public class IdleState : State
 {
     private Player _player;
@@ -15,7 +17,7 @@ public class IdleState : State
     public override void Update()
     {
         base.Update();
-        
+        _player.State = "Idle";
     }
     public override void Exit()
     {

@@ -20,6 +20,7 @@ public class FallState : State
     public override void Update()
     {
         base.Update();
+        _player.State = "Fall";
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             _player.transform.position = new Vector2(_player.transform.position.x +
@@ -38,5 +39,6 @@ public class FallState : State
         base.Exit();
         _player.animator.SetBool("Fall", false);
         _player.canAttack = true;
+        _player.canMove = true;
     }
 }
