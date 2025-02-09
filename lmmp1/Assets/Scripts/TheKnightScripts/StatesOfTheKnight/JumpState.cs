@@ -17,13 +17,15 @@ public class JumpState : State
         _player.animator.SetBool("Jump", true);
         _player.rigidbody2D.AddForce(_player.jumpForce * Vector2.up, ForceMode2D.Impulse);
         _player.canMove = false;
+        _player.canAttack = false;
+        
     }
 
 
     public override void Update()
     {
         base.Update();
-        _player.State = "Jump";
+        
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) { _player.transform.position = new Vector2(_player.transform.position.x + 
             (_player.speed * Time.deltaTime * _player.moveVector.x) / 3, _player.transform.position.y); 
         }
@@ -39,6 +41,6 @@ public class JumpState : State
     {
         base.Exit();
         _player.animator.SetBool("Jump", false);
-        
+
     }
 }

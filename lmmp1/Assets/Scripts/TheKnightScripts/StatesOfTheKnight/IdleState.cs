@@ -12,12 +12,13 @@ public class IdleState : State
     {
         base.Enter();
         _player.animator.SetBool("Idle", true);
+        _player.State = "Idle";
 
     }
     public override void Update()
     {
         base.Update();
-        _player.State = "Idle";
+        
     }
     public override void Exit()
     {

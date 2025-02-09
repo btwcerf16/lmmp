@@ -21,11 +21,12 @@ public class RollState : State
 
         _player.rigidbody2D.gravityScale = 0.0f;
         _player.canRoll = false;
+        _player.State = "Roll";
     }
     public override void Update()
     {
         base.Update();
-        _player.State = "Roll";
+        
         
     }
     public override void Exit()

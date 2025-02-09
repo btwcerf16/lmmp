@@ -14,11 +14,12 @@ public class RunState : State
         base.Enter();
         _player.animator.SetBool("Run", true);
         _player.canAttack = false;
+        _player.State = "Run";
     }
     public override void Update()
     {
         base.Update();
-        _player.State = "Run";
+        
 
         _player.transform.position = new Vector2(_player.transform.position.x + (_player.speed * Time.deltaTime * _player.moveVector.x), _player.transform.position.y);
         

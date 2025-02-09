@@ -63,29 +63,29 @@ public class Player : MonoBehaviour, IDamageable
             _SM.ChangeState(new RunState(this));
 
         }
-        
+        if (rigidbody2D.velocity.y == 0 && rigidbody2D.velocity.x == 0 && canAttack)
+        {
+            _SM.ChangeState(new IdleState(this));
+        }
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && canAttack && attack1.timer == 0)
         {
             _SM.ChangeState(new Attack1State(this));
         }
-        if(canJump && canRoll && canAttack)
+        if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
-            _SM.ChangeState(new IdleState(this));
+            _SM.ChangeState(new JumpState(this));
         }
         if (Input.GetKey(KeyCode.LeftShift) && canRoll)
         {
             _SM.ChangeState(new RollState(this));
         }
-        if (Input.GetKeyDown(KeyCode.Space) && canJump)
-        {
-            _SM.ChangeState(new JumpState(this));
-        }
+        
         if (rigidbody2D.velocity.y < 0)
         {
             _SM.ChangeState(new FallState(this));
         }
-        
+
         
 
     }
