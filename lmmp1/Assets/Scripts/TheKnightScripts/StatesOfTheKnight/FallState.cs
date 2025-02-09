@@ -14,7 +14,7 @@ public class FallState : State
         base.Enter();
         _player.animator.SetBool("Fall", true);
         _player.canAttack = false;
-        
+        _player.State = "Fall";
     }
 
     

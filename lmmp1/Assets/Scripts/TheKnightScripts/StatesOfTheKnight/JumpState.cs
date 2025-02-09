@@ -18,7 +18,7 @@ public class JumpState : State
         _player.rigidbody2D.AddForce(_player.jumpForce * Vector2.up, ForceMode2D.Impulse);
         _player.canMove = false;
         _player.canAttack = false;
-        
+        _player.State = "Jump";
     }
 
 

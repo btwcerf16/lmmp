@@ -63,7 +63,8 @@ public class Player : MonoBehaviour, IDamageable
             _SM.ChangeState(new RunState(this));
 
         }
-        if (rigidbody2D.velocity.y == 0 && rigidbody2D.velocity.x == 0 && canAttack)
+        //if (rigidbody2D.velocity.y == 0 && rigidbody2D.velocity.x == 0 && canAttack)
+        if(moveVector.x == 0 && rigidbody2D.velocity.x == 0 && canAttack)
         {
             _SM.ChangeState(new IdleState(this));
         }
