@@ -825,7 +825,7 @@ MonoBehaviour:
   baseGravityScale: 1
   jumpForce: 10
   speed: 10
-  dashPower: 2
+  dashPower: 100
   assailable: 1
   canAttack: 1
   canJump: 1

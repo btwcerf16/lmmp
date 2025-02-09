@@ -40,15 +40,16 @@ public class RollState : State
     {
         base.Update();
         _player.rigidbody2D.velocity = new Vector2(0, 0);
+        _player.canRoll = true;
 
     }
     public override void Exit()
     {
         base.Exit();
-        _player.animator.SetBool("Roll", false);
 
+        _player.animator.SetBool("Roll", false);
         _player.assailable = true;
-        _player.canRoll = true;
+        
 
     }
 
