@@ -688,6 +688,7 @@ GameObject:
   - component: {fileID: 1698167667}
   - component: {fileID: 1698167670}
   - component: {fileID: 1698167672}
+  - component: {fileID: 1698167673}
   m_Layer: 8
   m_Name: PlayerEmpty
   m_TagString: Player
@@ -820,12 +821,12 @@ MonoBehaviour:
   animator: {fileID: 0}
   rigidbody2D: {fileID: 0}
   attack1: {fileID: 1698167672}
+  dash: {fileID: 1698167673}
   faceRight: 1
   moveVector: {x: 0, y: 0}
   baseGravityScale: 1
-  jumpForce: 10
+  jumpForce: 100
   speed: 10
-  dashPower: 100
   assailable: 1
   canAttack: 1
   canJump: 1
@@ -906,6 +907,20 @@ MonoBehaviour:
     m_Bits: 512
   attack1point: {fileID: 608332747}
   attackArea: 1.24
+  coolDown: 0.7
+--- !u!114 &1698167673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698167665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8726b4668c27134c92fddee420b1455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashPower: 100
   coolDown: 0.7
 --- !u!1 &2014192457
 GameObject:

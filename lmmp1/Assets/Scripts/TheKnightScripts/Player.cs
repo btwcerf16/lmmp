@@ -8,7 +8,8 @@ public class Player : MonoBehaviour, IDamageable
 {
     [HideInInspector] public Animator animator;
     [HideInInspector] public new Rigidbody2D rigidbody2D;
-     public Attack1 attack1;
+    public Attack1 attack1;
+    public Dash dash;
 
     public bool faceRight = true;
     public Vector2 moveVector;
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour, IDamageable
     
     public float jumpForce = 10.0f;
     public float speed = 10.0f;
-    public float dashPower = 16.0f;
+    
 
     public bool assailable = true;
     public bool canAttack = true;
@@ -77,7 +78,7 @@ public class Player : MonoBehaviour, IDamageable
         {
             _SM.ChangeState(new JumpState(this));
         }
-        if (Input.GetKey(KeyCode.LeftShift) && canRoll)
+        if (Input.GetKey(KeyCode.LeftShift) && canRoll && dash.timer == 0)
         {
             _SM.ChangeState(new RollState(this));
         }

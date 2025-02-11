@@ -25,21 +25,13 @@ public class RollState : State
         _player.assailable = false;
         _player.animator.SetBool("Roll", true);
         _player.canRoll = false;
-
-        _player.rigidbody2D.velocity = new Vector2(0, 0);
-        if (_player.faceRight)
-        {
-            _player.rigidbody2D.AddForce(Vector2.right * _player.dashPower);
-        }
-        else
-        {
-            _player.rigidbody2D.AddForce(Vector2.left * _player.dashPower);
-        }
+        _player.dash.DodgeDash();
+        
     }
     public override void Update()
     {
         base.Update();
-        _player.rigidbody2D.velocity = new Vector2(0, 0);
+        
         _player.canRoll = true;
 
     }
