@@ -24,7 +24,7 @@ public class Player : MonoBehaviour, IDamageable
     public bool assailable = true;
     public bool canAttack = true;
     public bool canJump = true;
-    public bool canRoll = true;
+    public bool canRoll;
     public bool canMove = true;
 
     public string State = "";
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour, IDamageable
 
         }
         //if (rigidbody2D.velocity.y == 0 && rigidbody2D.velocity.x == 0 && canAttack)
-        if(moveVector.x == 0 && rigidbody2D.velocity.x == 0 && canAttack)
+        if(moveVector.x == 0 && rigidbody2D.velocity.x == 0 && canAttack && canRoll)
         {
             _SM.ChangeState(new IdleState(this));
         }
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour, IDamageable
         {
             _SM.ChangeState(new JumpState(this));
         }
-        if (Input.GetKey(KeyCode.LeftShift) && canRoll && dash.timer == 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canRoll && dash.timer == 0)
         {
             _SM.ChangeState(new RollState(this));
         }
@@ -88,7 +88,10 @@ public class Player : MonoBehaviour, IDamageable
             _SM.ChangeState(new FallState(this));
         }
 
-        
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            canRoll = true;    
+        }
 
     }
 
