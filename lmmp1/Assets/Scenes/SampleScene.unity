@@ -836,6 +836,7 @@ MonoBehaviour:
   State: 1
   groundCheck: {fileID: 2014192458}
   groundCheckRadius: 0.3
+  isGrounded: 0
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -998,8 +999,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.23529413, g: 0.23529413, b: 0.23529413, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.54901963, g: 0.5254902, b: 0.47058827, a: 1}
+      key1: {r: 0.27450982, g: 0.24313727, b: 0.23137257, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

@@ -13,7 +13,6 @@ public class Attack1State : State
     {
         base.Enter();
         _player.animator.SetTrigger("Attack1");
-        _player.groundCheckRadius = 0;
         _player.State = "Attack";
 
     }
@@ -25,8 +24,7 @@ public class Attack1State : State
     public override void Exit()
     {
         base.Exit();
-        _player.groundCheckRadius = 0.3f;
-        
+        _player.canJump = true;
     }
 
 }

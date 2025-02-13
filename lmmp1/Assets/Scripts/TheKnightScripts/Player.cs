@@ -30,7 +30,9 @@ public class Player : MonoBehaviour, IDamageable
     public string State = "";
 
     public Transform groundCheck;
-    public float groundCheckRadius = 0.3f; 
+    public float groundCheckRadius = 0.3f;
+    public bool isGrounded;
+        
     
 
     public LayerMask groundMask;
@@ -74,7 +76,7 @@ public class Player : MonoBehaviour, IDamageable
         {
             _SM.ChangeState(new Attack1State(this));
         }
-        if (Input.GetKeyDown(KeyCode.Space) && canJump)
+        if (Input.GetKeyDown(KeyCode.Space) && canJump && isGrounded)
         {
             _SM.ChangeState(new JumpState(this));
         }
@@ -117,7 +119,7 @@ public class Player : MonoBehaviour, IDamageable
     }
     private void CheckingGround()
     {
-        canJump = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundMask);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundMask);
     }
 
     public void Die()
