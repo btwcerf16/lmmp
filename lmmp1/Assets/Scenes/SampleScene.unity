@@ -823,9 +823,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2035505794}
   - component: {fileID: 2035505793}
-  - component: {fileID: 2035505792}
   - component: {fileID: 2035505795}
   - component: {fileID: 2035505796}
+  - component: {fileID: 2035505797}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Untagged
@@ -833,22 +833,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2035505792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2035505791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbd730792c825b745a021d162812e406, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <maxHealth>k__BackingField: 20
-  <currentHealth>k__BackingField: 0
-  randomMofmentRange: 5
-  speed: 7.93
 --- !u!212 &2035505793
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -931,7 +915,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -988,6 +972,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0461397, y: 1.78669}
   m_EdgeRadius: 0
+--- !u!114 &2035505797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035505791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd730792c825b745a021d162812e406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <maxHealth>k__BackingField: 10
+  <currentHealth>k__BackingField: 0
+  idleSpeed: 1.02
+  idleRange: 7
 --- !u!1001 &3106161940636179397
 PrefabInstance:
   m_ObjectHideFlags: 0

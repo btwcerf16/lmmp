@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyState
 {
-    public EnemyAttackState(Enemy _enemy, EnemyStateMachine _enemyStateMachine) : base(_enemy, _enemyStateMachine)
+    public EnemyAttackState(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
     }
 
-    public override void AnimationTriggerEvent(Enemy.AnimationTriggerType _triggerType)
+    public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
-        base.AnimationTriggerEvent(_triggerType);
+        base.AnimationTriggerEvent(triggerType);
     }
 
     public override void EnterState()

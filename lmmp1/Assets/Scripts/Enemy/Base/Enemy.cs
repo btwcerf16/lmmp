@@ -7,50 +7,56 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
     [field: SerializeField] public float maxHealth { get; set; }
     [field: SerializeField] public float currentHealth { get; set; }
     public bool IsFacingRight { get; set; } = true;
-    public Rigidbody2D rigidbody2D { get; set; }
+    public Rigidbody2D rigidBody2D { get; set; }
 
 
-    #region States
+    #region State Machine
 
-
-    public EnemyStateMachine enemyStateMachine { get; set; }
-    public EnemyAttackState enemyAttackState { get; set; }
-    public EnemyChaseState enemyChaseState { get; set; }
-    public EnemyIdleState enemyIdleState { get; set; }
-    #endregion
-
-    #region Idle Variables
-
-    public float randomMofmentRange = 5.0f;
-    public float speed = 1.0f;
+    public EnemyStateMachine StateMachine { get; set; }
+    public EnemyChaseState ChaseState { get; set; }
+    public EnemyAttackState AttackState { get; set; }
+    public EnemyIdleState IdleState { get; set; }
 
     #endregion
+
+    #region Idle
+
+    public float idleSpeed = 1.0f;
+    public float idleRange = 6.0f;
+
+    #endregion
+
 
     private void Awake()
     {
-        enemyStateMachine = new EnemyStateMachine();
-        enemyIdleState = new EnemyIdleState(this, enemyStateMachine);
-        enemyChaseState = new EnemyChaseState(this, enemyStateMachine);
-        enemyAttackState = new EnemyAttackState(this, enemyStateMachine);
+        StateMachine = new EnemyStateMachine();
+
+        IdleState = new EnemyIdleState(this, StateMachine);
+        ChaseState = new EnemyChaseState(this, StateMachine);
+        AttackState = new EnemyAttackState(this, StateMachine);
     }
 
    
     private void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidBody2D = GetComponent<Rigidbody2D>();
 
         currentHealth = maxHealth;
 
-        enemyStateMachine.Initialize(enemyIdleState);
+        StateMachine.Initialize(IdleState);
     }
-    private void Update()
+
+    public void Update()
     {
-        enemyStateMachine.currentEnemyState.FrameUpdate();
+        StateMachine.CurrentEnemyState.FrameUpdate();
     }
-    private void FixedUpdate()
+
+    public void FixedUpdate()
     {
-        enemyStateMachine.currentEnemyState.PhysicsUpdate();
+        StateMachine.CurrentEnemyState.PhysicsUpdate();
     }
+
+    #region Damage/Die
     public void Damage(float damageAmount)
     {
        currentHealth -= damageAmount;
@@ -63,20 +69,14 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
 
     public void Die()
     {
-        Debug.Log("Ìåðòâ");
+        Debug.Log("ÐœÐµÑ€Ñ‚Ð²");
     }
+    #endregion
 
-    public enum AnimationTriggerType
-    {
-        EnemyDamaged
-    }
-    private void AnimationTriggerEvent(AnimationTriggerType _triggerType) 
-    {
-        enemyStateMachine.currentEnemyState.AnimationTriggerEvent(_triggerType);
-    }
+    #region Move functions
     public void MoveEnemy(Vector2 velocity)
     {
-        rigidbody2D.velocity = velocity;
+        rigidBody2D.velocity = velocity;
         CheckRotateOfFace(velocity);
     }
 
@@ -85,15 +85,27 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
         if (IsFacingRight && velocity.x < 0) {
 
             Vector2 rotaror = new Vector2(transform.rotation.x, 180.0f);
-            transform.rotation = Quaternion.Euler(rotaror.x, rotaror.y, 0);
+            transform.rotation = Quaternion.Euler(rotaror);
             IsFacingRight = !IsFacingRight;
         }
         else if (!IsFacingRight && velocity.x > 0)
         {
             Vector2 rotaror = new Vector2(transform.rotation.x, 0.0f);
-            transform.rotation = Quaternion.Euler(rotaror.x, rotaror.y, 0);
+            transform.rotation = Quaternion.Euler(rotaror);
             IsFacingRight = !IsFacingRight;
         }
         
+    }
+    #endregion
+
+    private void AnimationTriggerEvent(AnimationTriggerType triggerType) {
+    
+        StateMachine.CurrentEnemyState.AnimationTriggerEvent(triggerType);
+
+    }
+
+    public enum AnimationTriggerType
+    {
+        EnemyDamaged
     }
 }

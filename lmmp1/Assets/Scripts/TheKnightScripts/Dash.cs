@@ -8,7 +8,7 @@ public class Dash : MonoBehaviour
     
 
     private Player _player;
-    private bool _isDashing;
+    //private bool _isDashing;
     public float dashTime;
     public float dashPower;
 
@@ -50,14 +50,14 @@ public class Dash : MonoBehaviour
     }
     IEnumerator CanRoll() {
         
-        _isDashing = true;
+        //_isDashing = true;
         _player.rigidbody2D.gravityScale = 0.0f;
         _player.rigidbody2D.velocity = new Vector2(transform.localScale.x * dashPower, 0f);
         trailRenderer.emitting = true;
         yield return new WaitForSeconds(dashTime);
         trailRenderer.emitting = false;
         _player.rigidbody2D.gravityScale = _player.baseGravityScale;
-        _isDashing = false;
+        //_isDashing = false;
         _player.canMove = true;
         _player.rigidbody2D.velocity = new Vector2(0f, 0f);
         yield return new WaitForSeconds(coolDown);
