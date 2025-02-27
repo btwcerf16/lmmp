@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyIdleState : EnemyState
 {
-    private Vector3 _targetPos;
-    private Vector3 _direction;
+    private Vector3z _targetPos;
+    private Vector2 _direction;
     public EnemyIdleState(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
     }
@@ -30,10 +30,10 @@ public class EnemyIdleState : EnemyState
     {
         base.FrameUpdate();
 
-        _direction = (_targetPos- enemy.transform.position).normalized;
+        _direction = (_targetPos- enemy.transform.position);
 
-        enemy.MoveEnemy(_direction * enemy.idleSpeed);
-        if ((enemy.transform.position - _targetPos).sqrMagnitude > 0.01f) ;
+        enemy.MoveEnemy(_direction * enemy.idleSpeed * Time.deltaTime);
+        if ((enemy.transform.position - _targetPos).sqrMagnitude < 0.1f);
         {
             _targetPos = GetRandomPos() ;
         }
@@ -43,7 +43,7 @@ public class EnemyIdleState : EnemyState
     {
         base.PhysicsUpdate();
     }
-    private Vector3 GetRandomPos()
+    private Vector2 GetRandomPos()
     {
         return enemy.transform.position + (Vector3)UnityEngine.Random.insideUnitCircle * enemy.idleSpeed;
     }

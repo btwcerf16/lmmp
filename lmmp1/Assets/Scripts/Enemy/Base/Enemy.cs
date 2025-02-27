@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
         AttackState = new EnemyAttackState(this, StateMachine);
     }
 
-   
+
     private void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
     #region Damage/Die
     public void Damage(float damageAmount)
     {
-       currentHealth -= damageAmount;
+        currentHealth -= damageAmount;
 
         if (currentHealth <= 0) {
             Die();
@@ -82,19 +82,13 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
 
     public void CheckRotateOfFace(Vector2 velocity)
     {
-        if (IsFacingRight && velocity.x < 0) {
-
-            Vector2 rotaror = new Vector2(transform.rotation.x, 180.0f);
-            transform.rotation = Quaternion.Euler(rotaror);
-            IsFacingRight = !IsFacingRight;
-        }
-        else if (!IsFacingRight && velocity.x > 0)
+        if ((IsFacingRight && velocity.x < 0) || (!IsFacingRight && velocity.x > 0))
         {
-            Vector2 rotaror = new Vector2(transform.rotation.x, 0.0f);
-            transform.rotation = Quaternion.Euler(rotaror);
+
+            transform.localScale *= new Vector2(-1, 1);
             IsFacingRight = !IsFacingRight;
         }
-        
+
     }
     #endregion
 
