@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class EnemyChaseState : EnemyState
 {
+    private Transform _playerTransform;
+    
     public EnemyChaseState(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
@@ -16,6 +19,8 @@ public class EnemyChaseState : EnemyState
     public override void EnterState()
     {
         base.EnterState();
+        Debug.Log("ימממף");
+        enemy.MoveEnemy(Vector2.zero);
     }
 
     public override void ExitState()
@@ -26,6 +31,16 @@ public class EnemyChaseState : EnemyState
     public override void FrameUpdate()
     {
         base.FrameUpdate();
+
+       
+
+        Vector2 moveDirection = (_playerTransform.position - enemy.transform.position).normalized;
+        enemy.MoveEnemy(moveDirection * enemy.chaseSpeed);
+
+        if (enemy.IsWithinStrikingDistance)
+        {
+            enemy.StateMachine.ChangeState(enemy.AttackState);
+        }
     }
 
     public override void PhysicsUpdate()

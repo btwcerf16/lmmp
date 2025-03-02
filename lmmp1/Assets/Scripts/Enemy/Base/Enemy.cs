@@ -2,13 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
+public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
     [field: SerializeField] public float maxHealth { get; set; }
     [field: SerializeField] public float currentHealth { get; set; }
-    public bool IsFacingRight { get; set; } = true;
+
+    [field: SerializeField] public bool IsFacingRight { get; set; } = true;
+    public Vector2 vel;
+
+    [HideInInspector] public Animator animator;
+    public bool canRotate;
     public Rigidbody2D rigidBody2D { get; set; }
 
+    public bool IsAggroed { get; set; }
+    public bool IsWithinStrikingDistance { get; set; }
 
     #region State Machine
 
@@ -16,13 +23,24 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
     public EnemyChaseState ChaseState { get; set; }
     public EnemyAttackState AttackState { get; set; }
     public EnemyIdleState IdleState { get; set; }
+    
 
     #endregion
 
-    #region Idle
+    #region Idle variables
 
     public float idleSpeed = 1.0f;
     public float idleRange = 6.0f;
+    public float waitTime = 0.5f;
+    public Transform rightPos;
+    public Transform leftPos;
+
+    #endregion
+
+    #region Chase variables
+
+
+    public float chaseSpeed = 2.0f;
 
     #endregion
 
@@ -34,11 +52,14 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
         IdleState = new EnemyIdleState(this, StateMachine);
         ChaseState = new EnemyChaseState(this, StateMachine);
         AttackState = new EnemyAttackState(this, StateMachine);
+        
     }
 
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
+
         rigidBody2D = GetComponent<Rigidbody2D>();
 
         currentHealth = maxHealth;
@@ -46,12 +67,12 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
         StateMachine.Initialize(IdleState);
     }
 
-    public void Update()
+    private void Update()
     {
         StateMachine.CurrentEnemyState.FrameUpdate();
     }
 
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
         StateMachine.CurrentEnemyState.PhysicsUpdate();
     }
@@ -75,31 +96,54 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
 
     #region Move functions
     public void MoveEnemy(Vector2 velocity)
-    {
+    {   
+        vel = velocity;
         rigidBody2D.velocity = velocity;
         CheckRotateOfFace(velocity);
     }
 
     public void CheckRotateOfFace(Vector2 velocity)
     {
-        if ((IsFacingRight && velocity.x < 0) || (!IsFacingRight && velocity.x > 0))
+        
+        if ((IsFacingRight && velocity.x < 0) && canRotate)
         {
 
-            transform.localScale *= new Vector2(-1, 1);
+            transform.eulerAngles = new Vector3 (0, 180, 0);
             IsFacingRight = !IsFacingRight;
         }
+        else if ((!IsFacingRight && velocity.x > 0) && canRotate)
+        {
+
+            transform.eulerAngles = new Vector3(0, 0, 0);
+            IsFacingRight = !IsFacingRight;
+        }
+
 
     }
     #endregion
 
+    #region Animation Events
+    public enum AnimationTriggerType
+    {
+        EnemyDamaged
+    }
     private void AnimationTriggerEvent(AnimationTriggerType triggerType) {
     
         StateMachine.CurrentEnemyState.AnimationTriggerEvent(triggerType);
 
     }
+    #endregion
 
-    public enum AnimationTriggerType
+    #region Distance Check
+    public void SetAggroStatus(bool isAggroed)
     {
-        EnemyDamaged
+        IsAggroed = isAggroed;
     }
+
+    public void SetStrikingDistanceBool(bool isWithinStrikingDistance)
+    {
+        IsWithinStrikingDistance = isWithinStrikingDistance;
+    }
+    #endregion
+
 }
