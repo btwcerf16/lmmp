@@ -7,7 +7,7 @@ public class EnemyIdleState : EnemyState
 {
     
     private Vector2 _direction;
-    private Vector3 _targetPos;
+    
     private float _currentWaitTime;
     private float speedBuffer = 1.0f; //нужно дл€ остановки у точкиё дабы предотвратить тр€ску
     public EnemyIdleState(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
@@ -23,7 +23,7 @@ public class EnemyIdleState : EnemyState
     public override void EnterState()
     {
         base.EnterState();
-        _targetPos = enemy.rightPos.transform.position;
+        enemy.targetPos = enemy.rightPos.transform.position;
         _currentWaitTime = enemy.waitTime;
         enemy.animator.SetBool("Walk", true);
         
@@ -44,7 +44,7 @@ public class EnemyIdleState : EnemyState
             enemy.StateMachine.ChangeState(enemy.ChaseState);
 
         }
-        if (Vector2.Distance(enemy.transform.position, _targetPos) < 0.6f && enemy.IsFacingRight)
+        if (Vector2.Distance(enemy.transform.position, enemy.targetPos) < 0.6f && enemy.IsFacingRight)
         {
             if(_currentWaitTime <= 0) 
             {
@@ -52,8 +52,8 @@ public class EnemyIdleState : EnemyState
                 enemy.animator.SetBool("Walk", true);
                 enemy.animator.SetBool("Idle", false);
                 _currentWaitTime = enemy.waitTime;
-                
-                _targetPos = enemy.leftPos.transform.position;
+
+                enemy.targetPos = enemy.leftPos.transform.position;
                 
                 
                 Debug.Log("право");
@@ -71,14 +71,14 @@ public class EnemyIdleState : EnemyState
                 
         }
         
-        if (Vector2.Distance(enemy.transform.position, _targetPos) < 0.6f && !enemy.IsFacingRight)
+        if (Vector2.Distance(enemy.transform.position, enemy.targetPos) < 0.6f && !enemy.IsFacingRight)
         {
             if (_currentWaitTime <= 0)
             {
                 enemy.animator.SetBool("Walk", true);
                 enemy.animator.SetBool("Idle", false);
                 _currentWaitTime = enemy.waitTime;
-                _targetPos = enemy.rightPos.transform.position;
+                enemy.targetPos = enemy.rightPos.transform.position;
                 
                 Debug.Log("Ћево");
             }
@@ -92,7 +92,7 @@ public class EnemyIdleState : EnemyState
             }
         }
         
-        _direction = (_targetPos - enemy.transform.position).normalized;
+        _direction = (enemy.targetPos - enemy.transform.position).normalized;
         enemy.MoveEnemy(_direction * enemy.idleSpeed * speedBuffer);
     }
 

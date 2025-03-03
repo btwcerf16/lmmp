@@ -14,8 +14,8 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public bool canRotate;
     public Rigidbody2D rigidBody2D { get; set; }
 
-    public bool IsAggroed { get; set; }
-    public bool IsWithinStrikingDistance { get; set; }
+    [field: SerializeField] public bool IsAggroed { get; set; }
+    [field: SerializeField] public bool IsWithinStrikingDistance { get; set; }
 
     #region State Machine
 
@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public float waitTime = 0.5f;
     public Transform rightPos;
     public Transform leftPos;
+    public Vector3 targetPos;
 
     #endregion
 

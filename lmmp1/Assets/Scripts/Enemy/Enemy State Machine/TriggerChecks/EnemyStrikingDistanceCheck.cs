@@ -27,7 +27,7 @@ public class EnemyStrikingDistanceCheck : MonoBehaviour
         {
 
             _enemy.SetStrikingDistanceBool(false);
-
+            _enemy.StateMachine.ChangeState(_enemy.ChaseState);
         }
     }
 }

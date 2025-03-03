@@ -21,6 +21,7 @@ public class EnemyChaseState : EnemyState
         base.EnterState();
         Debug.Log("ימממף");
         enemy.MoveEnemy(Vector2.zero);
+        enemy.canRotate = true;
     }
 
     public override void ExitState()
