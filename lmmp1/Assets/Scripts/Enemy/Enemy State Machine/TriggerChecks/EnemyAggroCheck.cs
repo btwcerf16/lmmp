@@ -27,16 +27,20 @@ public class EnemyAggroCheck : MonoBehaviour
         {
 
             _enemy.SetAggroStatus(false);
-            if (Vector2.Distance(_enemy.transform.position, _enemy.rightPos.position) >= 0)
+            _enemy.StateMachine.ChangeState(_enemy.IdleState);
+            if (Vector2.Distance(_enemy.transform.position, _enemy.leftPos.position) < 0)
+            {
+                
+                _enemy.targetPos = _enemy.rightPos.position;
+                Debug.Log("Правая точка");
+            }
+            if (Vector2.Distance(_enemy.transform.position, _enemy.rightPos.position) > 0)
             {
                 _enemy.targetPos = _enemy.leftPos.position;
+                Debug.Log("Левая точка");
             }
             
-            _enemy.StateMachine.ChangeState(_enemy.IdleState);
-            if (Vector2.Distance(_enemy.leftPos.position, _enemy.transform.position) <= 0)
-            {
-                _enemy.targetPos = _enemy.rightPos.position;
-            }
+            
         }
     }
 }
