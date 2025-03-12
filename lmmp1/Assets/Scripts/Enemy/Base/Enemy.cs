@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     [HideInInspector] public Animator animator;
     public bool canRotate;
+    public bool canMove;
     public Rigidbody2D rigidBody2D { get; set; }
 
     [field: SerializeField] public bool IsAggroed { get; set; }
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public EnemyAttackState AttackState { get; set; }
     public EnemyIdleState IdleState { get; set; }
     
+
 
     #endregion
 
@@ -59,6 +61,8 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     private void Start()
     {
+        canMove = true;
+
         animator = GetComponent<Animator>();
 
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -98,9 +102,14 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     #region Move functions
     public void MoveEnemy(Vector2 velocity)
     {   
+
         vel = velocity;
-        rigidBody2D.velocity = velocity;
-        CheckRotateOfFace(velocity);
+        if (canMove) 
+        {
+            rigidBody2D.velocity = velocity;
+            CheckRotateOfFace(velocity);
+        }
+        
     }
 
     public void CheckRotateOfFace(Vector2 velocity)

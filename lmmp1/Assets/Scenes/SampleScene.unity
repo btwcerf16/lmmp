@@ -386,8 +386,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 345613889}
-  - component: {fileID: 345613890}
   - component: {fileID: 345613891}
+  - component: {fileID: 345613892}
   m_Layer: 0
   m_Name: AggroRadius
   m_TagString: Untagged
@@ -410,8 +410,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 778417448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &345613890
-CircleCollider2D:
+--- !u!114 &345613891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345613888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5b1287cef22094ab24302b34ba7d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &345613892
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -442,21 +454,19 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.26494074}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 5
---- !u!114 &345613891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345613888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd5b1287cef22094ab24302b34ba7d37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 10, y: 1.88725}
+  m_EdgeRadius: 0
 --- !u!1 &368845780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,6 +1323,7 @@ MonoBehaviour:
   vel: {x: 0, y: 0}
   animator: {fileID: 0}
   canRotate: 0
+  canMove: 0
   <IsAggroed>k__BackingField: 0
   <IsWithinStrikingDistance>k__BackingField: 0
   idleSpeed: 1
@@ -1390,6 +1401,10 @@ PrefabInstance:
     - target: {fileID: 4247552690938173698, guid: 2a6db2507d029e343beb82e47a4f1f4c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389397501965966868, guid: 2a6db2507d029e343beb82e47a4f1f4c, type: 3}
+      propertyPath: jumpForce
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8218874997577805778, guid: 2a6db2507d029e343beb82e47a4f1f4c, type: 3}
       propertyPath: m_Name

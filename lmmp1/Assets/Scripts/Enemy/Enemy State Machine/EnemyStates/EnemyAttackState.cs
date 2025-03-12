@@ -27,17 +27,20 @@ public class EnemyAttackState : EnemyState
     public override void FrameUpdate()
     {
         base.FrameUpdate();
-        if (enemy.IsWithinStrikingDistance)
-        {
-            enemy.animator.SetTrigger("Attack");
-            enemy.animator.SetBool("Walk", false);
-            enemy.animator.SetBool("Idle", false);
-            enemy.MoveEnemy(Vector2.zero);
-        }
+        
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+        if (enemy.IsWithinStrikingDistance)
+        {
+            enemy.canMove = false;
+            enemy.animator.SetTrigger("Attack");
+            enemy.animator.SetBool("Walk", false);
+            enemy.animator.SetBool("Idle", false);
+            
+        }
+        
     }
 }
