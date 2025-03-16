@@ -23,6 +23,7 @@ public class EnemyIdleState : EnemyState
     public override void EnterState()
     {
         base.EnterState();
+        enemy.canMove = true;
         enemy.targetPos = enemy.rightPos.transform.position;
         _currentWaitTime = enemy.waitTime;
         enemy.animator.SetBool("Walk", true);

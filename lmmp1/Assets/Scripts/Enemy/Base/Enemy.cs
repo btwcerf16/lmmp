@@ -104,7 +104,15 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     {   
 
         vel = velocity;
+<<<<<<< Updated upstream
         if (canMove) 
+=======
+<<<<<<< HEAD
+        if (canMove)
+=======
+        if (canMove) 
+>>>>>>> 6b704074400ac4bcc94aba01855d2432e4c92d9c
+>>>>>>> Stashed changes
         {
             rigidBody2D.velocity = velocity;
             CheckRotateOfFace(velocity);
