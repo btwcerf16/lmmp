@@ -23,7 +23,6 @@ public class EnemyAggroCheck : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _enemy.canMove = true;
         if (collision.gameObject == playerTarget)
         {
 
