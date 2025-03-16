@@ -454,15 +454,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-<<<<<<< Updated upstream
   m_Offset: {x: 0, y: -0.26494074}
-=======
-<<<<<<< HEAD
-  m_Offset: {x: 0, y: 0}
-=======
-  m_Offset: {x: 0, y: -0.26494074}
->>>>>>> 6b704074400ac4bcc94aba01855d2432e4c92d9c
->>>>>>> Stashed changes
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -473,15 +465,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-<<<<<<< Updated upstream
   m_Size: {x: 10, y: 1.88725}
-=======
-<<<<<<< HEAD
-  m_Size: {x: 10, y: 2}
-=======
-  m_Size: {x: 10, y: 1.88725}
->>>>>>> 6b704074400ac4bcc94aba01855d2432e4c92d9c
->>>>>>> Stashed changes
   m_EdgeRadius: 0
 --- !u!1 &368845780
 GameObject:

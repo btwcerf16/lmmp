@@ -17,33 +17,17 @@ public class EnemyAttackState : EnemyState
     {
         base.EnterState();
         Debug.Log("Тут атака");
-        enemy.canMove = false;
-        enemy.animator.SetBool("Walk", false);
-        enemy.animator.SetBool("Idle", false);
     }
 
     public override void ExitState()
     {
         base.ExitState();
-        enemy.StartCoroutine(CanMoveAgain(1f));
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
-<<<<<<< Updated upstream
         
-=======
-<<<<<<< HEAD
-       
-            
-            enemy.animator.SetTrigger("Attack");
-            
-         
-=======
-        
->>>>>>> 6b704074400ac4bcc94aba01855d2432e4c92d9c
->>>>>>> Stashed changes
     }
 
     public override void PhysicsUpdate()
@@ -58,13 +42,5 @@ public class EnemyAttackState : EnemyState
             
         }
         
-<<<<<<< Updated upstream
-=======
-    }
-    IEnumerator CanMoveAgain(float timeDelay)
-    {
-        yield return new WaitForSeconds(timeDelay);
-        enemy.canMove = true;
->>>>>>> Stashed changes
     }
 }
