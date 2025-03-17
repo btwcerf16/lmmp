@@ -21,11 +21,12 @@ public class EnemyAggroCheck : MonoBehaviour
 
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject == playerTarget)
         {
-
+            
             _enemy.SetAggroStatus(false);
             _enemy.StateMachine.ChangeState(_enemy.IdleState);
             if (Vector2.Distance(_enemy.transform.position, _enemy.leftPos.position) < 0)
