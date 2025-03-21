@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
+    
     [field: SerializeField] public float maxHealth { get; set; }
     [field: SerializeField] public float currentHealth { get; set; }
 
     [field: SerializeField] public bool IsFacingRight { get; set; } = true;
-    public Vector2 vel;
 
     [HideInInspector] public Animator animator;
+
+    [Header("States Settings")]
+    
     public bool canRotate;
     public bool canMove;
+    public bool attackInСooldown;
     public Rigidbody2D rigidBody2D { get; set; }
 
     [field: SerializeField] public bool IsAggroed { get; set; }
@@ -24,16 +28,16 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public EnemyChaseState ChaseState { get; set; }
     public EnemyAttackState AttackState { get; set; }
     public EnemyIdleState IdleState { get; set; }
-    
+
 
 
     #endregion
 
     #region Idle variables
-
+    [Header("Idle Settings")]
     public float idleSpeed = 1.0f;
     public float idleRange = 6.0f;
-    public float waitTime = 0.5f;
+    public float waitIdleTime = 0.5f;
     public Transform rightPos;
     public Transform leftPos;
     public Vector3 targetPos;
@@ -41,7 +45,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     #endregion
 
     #region Chase variables
-
+    [Header("Chase Settings")]
 
     public float chaseSpeed = 2.0f;
 
@@ -70,11 +74,15 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         currentHealth = maxHealth;
 
         StateMachine.Initialize(IdleState);
+        
     }
 
     private void Update()
     {
         StateMachine.CurrentEnemyState.FrameUpdate();
+        
+            
+        
     }
 
     private void FixedUpdate()
@@ -102,14 +110,11 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     #region Move functions
     public void MoveEnemy(Vector2 velocity)
     {   
-
-        vel = velocity;
         if (canMove) 
         {
             rigidBody2D.velocity = velocity;
             CheckRotateOfFace(velocity);
-        }
-        
+        }     
     }
 
     public void CheckRotateOfFace(Vector2 velocity)

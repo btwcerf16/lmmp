@@ -498,6 +498,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1013990615}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &470351510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 470351511}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &470351511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470351510}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1674589176}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,10 +972,11 @@ Transform:
   m_GameObject: {fileID: 1674589175}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.62, y: -0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 470351511}
   m_Father: {fileID: 778417448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1674589177
@@ -979,9 +1011,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.28364348, y: -0.07508206}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.122946
+  m_Radius: 1
 --- !u!114 &1674589178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1259,7 +1291,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!61 &2035505796
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1320,19 +1352,26 @@ MonoBehaviour:
   <maxHealth>k__BackingField: 10
   <currentHealth>k__BackingField: 0
   <IsFacingRight>k__BackingField: 1
-  vel: {x: 0, y: 0}
   animator: {fileID: 0}
   canRotate: 0
   canMove: 0
+  "attackIn\u0421ooldown": 0
   <IsAggroed>k__BackingField: 0
   <IsWithinStrikingDistance>k__BackingField: 0
   idleSpeed: 1
   idleRange: 7
-  waitTime: 0.5
+  waitIdleTime: 0.5
   rightPos: {fileID: 1838126108}
   leftPos: {fileID: 368845781}
   targetPos: {x: 0, y: 0, z: 0}
   chaseSpeed: 3
+  damage: -25.13
+  <enemyLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 256
+  <attack1point>k__BackingField: {fileID: 470351511}
+  <attackArea>k__BackingField: 1
+  <coolDown>k__BackingField: 2
 --- !u!95 &2035505798
 Animator:
   serializedVersion: 5
@@ -1401,10 +1440,6 @@ PrefabInstance:
     - target: {fileID: 4247552690938173698, guid: 2a6db2507d029e343beb82e47a4f1f4c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6389397501965966868, guid: 2a6db2507d029e343beb82e47a4f1f4c, type: 3}
-      propertyPath: jumpForce
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8218874997577805778, guid: 2a6db2507d029e343beb82e47a4f1f4c, type: 3}
       propertyPath: m_Name

@@ -24,7 +24,7 @@ public class EnemyIdleState : EnemyState
     {
         base.EnterState();
         enemy.targetPos = enemy.rightPos.transform.position;
-        _currentWaitTime = enemy.waitTime;
+        _currentWaitTime = enemy.waitIdleTime;
         enemy.animator.SetBool("Walk", true);
         
     }
@@ -51,7 +51,7 @@ public class EnemyIdleState : EnemyState
                 enemy.canRotate = false;
                 enemy.animator.SetBool("Walk", true);
                 enemy.animator.SetBool("Idle", false);
-                _currentWaitTime = enemy.waitTime;
+                _currentWaitTime = enemy.waitIdleTime;
 
                 enemy.targetPos = enemy.leftPos.transform.position;
                 
@@ -63,7 +63,7 @@ public class EnemyIdleState : EnemyState
             else
             {
                 enemy.canRotate = false;
-                enemy.StartCoroutine(MoveToNextPos(enemy.waitTime));
+                enemy.StartCoroutine(MoveToNextPos(enemy.waitIdleTime));
                 enemy.animator.SetBool("Walk", false);
                 enemy.animator.SetBool("Idle", true);
                 _currentWaitTime -= Time.deltaTime;
@@ -77,7 +77,7 @@ public class EnemyIdleState : EnemyState
             {
                 enemy.animator.SetBool("Walk", true);
                 enemy.animator.SetBool("Idle", false);
-                _currentWaitTime = enemy.waitTime;
+                _currentWaitTime = enemy.waitIdleTime;
                 enemy.targetPos = enemy.rightPos.transform.position;
                 
                 Debug.Log("Лево");
@@ -85,7 +85,7 @@ public class EnemyIdleState : EnemyState
             else
             {
                 enemy.canRotate = false;
-                enemy.StartCoroutine(MoveToNextPos(enemy.waitTime));
+                enemy.StartCoroutine(MoveToNextPos(enemy.waitIdleTime));
                 enemy.animator.SetBool("Walk", false);
                 enemy.animator.SetBool("Idle", true);
                 _currentWaitTime -= Time.deltaTime;

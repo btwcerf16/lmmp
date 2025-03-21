@@ -3,28 +3,30 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
-public class Attack1 : MonoBehaviour
+public class Attack1 : MonoBehaviour, IAttacker
 {
-    [SerializeField] private LayerMask enemyLayer;
-    public Transform attack1point;
-    public float attackArea = 0.5f;
-    public float coolDown = 0.7f;
-    private float _timer;
-    public float timer {
+    public LayerMask enemyLayer { get; set; }
+    public Transform attack1point { get; set; }
+    public float attackArea { get; set; }
+    public float coolDown { get; set; }
+    public float attackCooldown { get; set; }
+    private float _waitTime;
+    public float waitTime {
         get {
-            return _timer;
+            return _waitTime;
         }
         set {
-            _timer = Mathf.Max(0, value);
+            _waitTime = Mathf.Max(0, value);
         } 
     }
 
 
+
     private void Update()
     {
-        if (timer > 0)
+        if (waitTime > 0)
         {
-            timer -= Time.deltaTime;
+            waitTime -= Time.deltaTime;
 
         }
         
@@ -41,7 +43,7 @@ public class Attack1 : MonoBehaviour
                 enemy.GetComponent<IDamageable>().Damage(5.0f);
             }
         }
-        timer = coolDown;
+        waitTime = coolDown;
     }
     private void OnDrawGizmosSelected()
     {
@@ -52,5 +54,10 @@ public class Attack1 : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attack1point.position, attackArea);
+    }
+
+    public void Reloading()
+    {
+        throw new System.NotImplementedException();
     }
 }
