@@ -199,7 +199,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -302,21 +302,25 @@ MonoBehaviour:
   dash: {fileID: 2702121651282502742}
   faceRight: 1
   moveVector: {x: 0, y: 0}
-  baseGravityScale: 1
-  jumpForce: 4
   speed: 10
-  assailable: 1
-  canAttack: 1
-  canJump: 1
-  canRoll: 1
-  canMove: 1
-  State: 1
+  baseGravityScale: 1
+  jumpForce: 12
+  jumpHeight: 10
   groundCheck: {fileID: 5097291018381385691}
   groundCheckRadius: 0.3
   isGrounded: 0
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
+  assailable: 1
+  canAttack: 1
+  canJump: 1
+  canRoll: 1
+  canMove: 1
+  State: 1
+  visibleCurrentlyHealth: 0
+  <maxHealth>k__BackingField: 15
+  <currentHealth>k__BackingField: 0
 --- !u!114 &7708816049558792373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d95d122ca99134594f329bac1b996d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <attack1point>k__BackingField: {fileID: 7199227092056820065}
+  <attackArea>k__BackingField: 1.2
+  <attackCooldown>k__BackingField: 1
 --- !u!114 &2702121651282502742
 MonoBehaviour:
   m_ObjectHideFlags: 0

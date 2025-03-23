@@ -7,7 +7,8 @@ public class Skeleton : Enemy, IAttacker
 {
 
     [Header("Attack Settigs")]
-    public float damage;
+    private float _waitTime;
+    [field: SerializeField] public float damage { get; set; }
 
     [field: SerializeField] public LayerMask enemyLayer { get; set; }
     [field: SerializeField] public Transform attack1point { get; set; }
@@ -15,7 +16,6 @@ public class Skeleton : Enemy, IAttacker
     [field: SerializeField] public float coolDown { get; set; }
 
     public float attackCooldown { get; set; }
-    private float _waitTime;
     public float waitTime
     {
         get

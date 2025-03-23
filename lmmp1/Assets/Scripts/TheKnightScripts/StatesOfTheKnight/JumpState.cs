@@ -5,30 +5,33 @@ using UnityEngine;
 public class JumpState : State
 {
     private Player _player;
+    
     public JumpState(Player player)
     {
         _player = player;
-
+        
     }
 
 
     public override void Enter()
     {
         base.Enter();
-
+       
         _player.animator.SetBool("Jump", true);
-        float playerAltitude = _player.transform.position.y; 
+        
         _player.rigidbody2D.AddForce(_player.jumpForce * Vector2.up, ForceMode2D.Impulse);
         _player.canMove = false;
         _player.canAttack = false;
         _player.State = "Jump";
-
+       
     }
 
 
     public override void Update()
     {
         base.Update();
+        float currentPlayerAtitude = _player.transform.position.y;
+        
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
@@ -50,10 +53,5 @@ public class JumpState : State
 
     }
 
-    IEnumerator StopJumpForce(float startAltitude, float endAltitude)
-    {
-        yield return new WaitForSeconds((endAltitude - startAltitude)/_player.jumpForce);
-
-        if()
-    }
+    
 }

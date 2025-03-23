@@ -12,6 +12,7 @@ public class Player : MonoBehaviour, IDamageable
     [HideInInspector] public Animator animator;
     [HideInInspector] public new Rigidbody2D rigidbody2D;
     [Header("Type of Attack")]
+
     public Attack1 attack1;
     [Header("Dash Specimen")]
     public Dash dash;
@@ -22,7 +23,7 @@ public class Player : MonoBehaviour, IDamageable
     public float speed = 10.0f;
 
     [Header("Jump Settings")]
-    public float baseGravityScale = 1.0f;  
+    public float baseGravityScale;  
     public float jumpForce = 10.0f;
     public float jumpHeight = 10.0f;
     public Transform groundCheck;
@@ -63,7 +64,7 @@ public class Player : MonoBehaviour, IDamageable
 
         currentHealth = maxHealth;
 
-        rigidbody2D.gravityScale = baseGravityScale;
+        baseGravityScale = rigidbody2D.gravityScale;
     }
     private void Update()
     {
