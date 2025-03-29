@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public EnemyChaseState ChaseState { get; set; }
     public EnemyAttackState AttackState { get; set; }
     public EnemyIdleState IdleState { get; set; }
+    public EnemyDeathState DeathState { get; set; }
 
 
 
@@ -59,7 +60,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         IdleState = new EnemyIdleState(this, StateMachine);
         ChaseState = new EnemyChaseState(this, StateMachine);
         AttackState = new EnemyAttackState(this, StateMachine);
-        
+        DeathState = new EnemyDeathState(this, StateMachine);
     }
 
 
@@ -96,7 +97,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         currentHealth -= damageAmount;
 
         if (currentHealth <= 0) {
-            Die();
+            StateMachine.ChangeState(DeathState);
         }
 
     }
@@ -104,6 +105,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public void Die()
     {
         Debug.Log("Мертв");
+        Destroy(gameObject);
     }
     #endregion
 

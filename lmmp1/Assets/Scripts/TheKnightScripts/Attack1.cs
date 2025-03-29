@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Attack1 : MonoBehaviour, IAttacker
 {
-    public LayerMask enemyLayer { get; set; }
-    [field:SerializeField]public Transform attack1point { get; set; }
+    
+    [field: SerializeField ]public LayerMask enemyLayer { get; set; }
+    [field:SerializeField] public Transform attack1point { get; set; }
     [field: SerializeField] public float attackArea { get; set; }
     [field: SerializeField] public float attackCooldown { get; set; }
     private float _waitTime;
@@ -19,7 +20,7 @@ public class Attack1 : MonoBehaviour, IAttacker
         } 
     }
 
-    public float damage { get ; set; }
+    [field: SerializeField]public float damage { get ; set; }
 
     private void Update()
     {
@@ -39,7 +40,7 @@ public class Attack1 : MonoBehaviour, IAttacker
         {
             if (enemy.GetComponent<IDamageable>() != null)
             {
-                enemy.GetComponent<IDamageable>().Damage(5.0f);
+                enemy.GetComponent<IDamageable>().Damage(damage);
             }
         }
         waitTime = attackCooldown;

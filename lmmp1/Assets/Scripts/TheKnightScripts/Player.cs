@@ -44,7 +44,7 @@ public class Player : MonoBehaviour, IDamageable
     [Header("Health Settings")]
     public float visibleCurrentlyHealth;
     [field:SerializeField] public float maxHealth { get; set; } = 15.0f;
-    [field:SerializeField] public float currentHealth { get; set; }
+    public float currentHealth { get; set; }
 
 
     
