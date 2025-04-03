@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -47,14 +48,17 @@ public class Player : MonoBehaviour, IDamageable
     public float currentHealth { get; set; }
 
 
+    [Header("Player Attributes")]
+   
+    public List<PlayerAttributes> Attribute = new List<PlayerAttributes>();
+    
     
 
-  
-    
 
 
     private void Start()
     {
+        
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         attack1 = GetComponent<Attack1>();
@@ -72,23 +76,25 @@ public class Player : MonoBehaviour, IDamageable
         _SM.currentState.Update();
         moveVector.x = Input.GetAxis("Horizontal");
         CheckingGround();
-        
+
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && canMove)
         {
-            
+
             _SM.ChangeState(new RunState(this));
 
         }
         //if (rigidbody2D.velocity.y == 0 && rigidbody2D.velocity.x == 0 && canAttack)
-        if(moveVector.x == 0 && rigidbody2D.velocity.x == 0 && canAttack && canRoll)
+        if (moveVector.x == 0 && rigidbody2D.velocity.x == 0 && canAttack && canRoll && attack1.waitTime == 0)
         {
             _SM.ChangeState(new IdleState(this));
         }
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canAttack && attack1.waitTime == 0)
-        {
-            _SM.ChangeState(new Attack1State(this));
+        if (attack1.waitTime == 0) { 
+            if (Input.GetKeyDown(KeyCode.Mouse0) && canAttack)
+            {
+                _SM.ChangeState(new Attack1State(this));
+            }
+        
         }
         if (Input.GetKeyDown(KeyCode.Space) && canJump && isGrounded)
         {

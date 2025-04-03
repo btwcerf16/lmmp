@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Agility
   m_EditorClassIdentifier: 
   description: +attack speed
-  image: {fileID: 1231404652, guid: 32337045c0535a04087096259aada950, type: 3}
+  attributeImage: {fileID: -409148895, guid: 32337045c0535a04087096259aada950, type: 3}
