@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
+public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable, ITeamable
 {
     
     [field: SerializeField] public float maxHealth { get; set; }
@@ -14,11 +14,13 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     [Header("States Settings")]
     
+
     public bool canRotate;
     public bool canMove;
+    
     public bool attackInСooldown;
     public Rigidbody2D rigidBody2D { get; set; }
-
+    public bool isPlayer { get; set; }
     [field: SerializeField] public bool IsAggroed { get; set; }
     [field: SerializeField] public bool IsWithinStrikingDistance { get; set; }
 
@@ -91,7 +93,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         StateMachine.CurrentEnemyState.PhysicsUpdate();
     }
 
-    #region Damage/Die
+    #region Damage/Die/Heal
     public void Damage(float damageAmount)
     {
         currentHealth -= damageAmount;
@@ -101,7 +103,10 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         }
 
     }
-
+    public void Heal(float healAmount)
+    {
+        currentHealth += healAmount;
+    }
     public void Die()
     {
         Debug.Log("Мертв");
@@ -161,6 +166,8 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     {
         IsWithinStrikingDistance = isWithinStrikingDistance;
     }
+
+   
     #endregion
 
 }

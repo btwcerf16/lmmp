@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class Player : MonoBehaviour, IDamageable
+public class Player : MonoBehaviour, IDamageable, ITeamable
 {
     
     
@@ -38,15 +38,16 @@ public class Player : MonoBehaviour, IDamageable
     public bool canJump = true;
     public bool canRoll;
     public bool canMove = true;
+    public bool isPlayer { get; set; }
 
     [Header("Currently State")]
     public string State = "";
 
-    [Header("Health Settings")]
-    public float visibleCurrentlyHealth;
+   
+    
     [field:SerializeField] public float maxHealth { get; set; } = 15.0f;
-    public float currentHealth { get; set; }
-
+    [field:SerializeField] public float currentHealth { get; set; }
+    
 
     [Header("Player Attributes")]
    
@@ -72,12 +73,17 @@ public class Player : MonoBehaviour, IDamageable
     }
     private void Update()
     {
-        visibleCurrentlyHealth = currentHealth;
+        
         _SM.currentState.Update();
         moveVector.x = Input.GetAxis("Horizontal");
         CheckingGround();
 
+        if (Input.GetKey(KeyCode.V))
+        {
 
+            Heal(1);
+
+        }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && canMove)
         {
 
@@ -136,6 +142,10 @@ public class Player : MonoBehaviour, IDamageable
         {
             Die();
         }
+    }
+    public void Heal(float healAmount)
+    {
+        currentHealth += healAmount;
     }
     private void CheckingGround()
     {

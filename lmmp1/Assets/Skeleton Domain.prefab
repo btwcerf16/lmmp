@@ -377,7 +377,7 @@ Transform:
   m_GameObject: {fileID: 5900214616070830107}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -485,13 +485,8 @@ MonoBehaviour:
   leftPos: {fileID: 8391562714409172804}
   targetPos: {x: 0, y: 0, z: 0}
   chaseSpeed: 3
-  <damage>k__BackingField: 0
-  <enemyLayer>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 256
-  <attack1point>k__BackingField: {fileID: 7642980230579543208}
-  <attackArea>k__BackingField: 1
-  <coolDown>k__BackingField: 2
+  _waitTime: 0
+  <damage>k__BackingField: 3
 --- !u!95 &7191555696159466622
 Animator:
   serializedVersion: 5

@@ -31,4 +31,9 @@ public class DummyEnemy : MonoBehaviour, IDamageable
     {
         Debug.Log("Pomer");
     }
+
+    public void Heal(float healAmount)
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -1213,7 +1213,6 @@ GameObject:
   - component: {fileID: 6389397501965966868}
   - component: {fileID: 7708816049558792373}
   - component: {fileID: 2702121651282502742}
-  - component: {fileID: 22750188865595629}
   - component: {fileID: 9180389348985231776}
   m_Layer: 8
   m_Name: PlayerEmpty
@@ -1419,8 +1418,8 @@ MonoBehaviour:
   canRoll: 1
   canMove: 1
   State: 1
-  visibleCurrentlyHealth: 0
   <maxHealth>k__BackingField: 15
+  <currentHealth>k__BackingField: 0
   Attribute:
   - atribute: {fileID: 11400000, guid: f864ec8ad4651354db44bca956c6af18, type: 2}
     amount: 690
@@ -1428,9 +1427,6 @@ MonoBehaviour:
     amount: 771
   - atribute: {fileID: 11400000, guid: 8b53041ce846596459ad978596597c0e, type: 2}
     amount: 5185
-  playerSkills:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &7708816049558792373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1466,20 +1462,6 @@ MonoBehaviour:
   dashPower: 20
   trailRenderer: {fileID: 9180389348985231776}
   coolDown: 1.5
---- !u!114 &22750188865595629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8218874997577805778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf125dd68deb7e4ab22d7cb522d2716, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 6389397501965966868}
-  SkillsMenuCanvas: {fileID: 4989585293428215470}
 --- !u!96 &9180389348985231776
 TrailRenderer:
   serializedVersion: 3
