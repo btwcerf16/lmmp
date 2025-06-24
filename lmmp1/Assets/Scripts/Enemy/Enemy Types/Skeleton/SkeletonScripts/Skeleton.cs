@@ -32,18 +32,21 @@ public class Skeleton : Enemy, IAttacker
 
     public void Attack()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attack1point.position, attackArea, enemyLayer);
-
-
-        foreach (Collider2D enemy in hitEnemies)
+        if (attack1point != null)
         {
-            if (enemy.GetComponent<IDamageable>() != null)
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attack1point.position, attackArea, enemyLayer);
+
+
+            foreach (Collider2D enemy in hitEnemies)
             {
-                enemy.GetComponent<IDamageable>().Damage(damage);
+                if (enemy.GetComponent<IDamageable>() != null)
+                {
+                    enemy.GetComponent<IDamageable>().Damage(damage);
+                }
             }
+            waitTime = attackCooldown;
+            Invoke("Reloading", attackCooldown);
         }
-        waitTime = attackCooldown;
-        Invoke("Reloading", attackCooldown);
     }
 
     public void Reloading()

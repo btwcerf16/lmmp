@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerAttributes
 {
     public Attributes atribute;
-    public int amount;
+    public float amount;
 
-    public PlayerAttributes(Attributes atribute, int amount)
+    public PlayerAttributes(Attributes atribute, float amount)
     {
        
         this.amount = amount;

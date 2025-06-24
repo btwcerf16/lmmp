@@ -95,13 +95,19 @@ public class Player : MonoBehaviour, IDamageable, ITeamable
         {
             _SM.ChangeState(new IdleState(this));
         }
-        if (attack1.waitTime == 0) { 
-            if (Input.GetKeyDown(KeyCode.Mouse0) && canAttack)
+        if ((Input.GetKey(KeyCode.Mouse0)))
+        {
+            if ((attack1.waitTime == 0))
             {
-                _SM.ChangeState(new Attack1State(this));
+                if (canAttack)
+                {
+                    _SM.ChangeState(new Attack1State(this));
+                }
             }
-        
+           
+                
         }
+        
         if (Input.GetKeyDown(KeyCode.Space) && canJump && isGrounded)
         {
             _SM.ChangeState(new JumpState(this));
