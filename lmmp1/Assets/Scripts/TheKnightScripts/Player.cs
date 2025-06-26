@@ -7,13 +7,12 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour, IDamageable, ITeamable
 {
-    
-    
 
+
+    private StaminaBar staminaBar;
     [HideInInspector] public Animator animator;
     [HideInInspector] public new Rigidbody2D rigidbody2D;
     [Header("Type of Attack")]
-
     public Attack1 attack1;
     [Header("Dash Specimen")]
     public Dash dash;
@@ -43,8 +42,8 @@ public class Player : MonoBehaviour, IDamageable, ITeamable
     [Header("Currently State")]
     public string State = "";
 
-   
-    
+
+    public float Stamina = 100.0f;
     [field:SerializeField] public float maxHealth { get; set; } = 15.0f;
     [field:SerializeField] public float currentHealth { get; set; }
     
@@ -59,7 +58,7 @@ public class Player : MonoBehaviour, IDamageable, ITeamable
 
     private void Start()
     {
-        
+        staminaBar = GetComponentInChildren<StaminaBar>();
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         attack1 = GetComponent<Attack1>();
@@ -80,7 +79,7 @@ public class Player : MonoBehaviour, IDamageable, ITeamable
 
         if (Input.GetKey(KeyCode.V))
         {
-
+            
             Heal(1);
 
         }
@@ -102,6 +101,7 @@ public class Player : MonoBehaviour, IDamageable, ITeamable
                 if (canAttack)
                 {
                     _SM.ChangeState(new Attack1State(this));
+                    
                 }
             }
            
@@ -162,5 +162,8 @@ public class Player : MonoBehaviour, IDamageable, ITeamable
     {
         Destroy(gameObject);
     }
-    
+    public void ChangeStaminaAmount(float amount)
+    {
+        Stamina -= amount;
+    }
 }

@@ -596,6 +596,7 @@ GameObject:
   - component: {fileID: 3110077773983897099}
   - component: {fileID: 5935061191372640036}
   - component: {fileID: 3281059956028974225}
+  - component: {fileID: 6495409077409384103}
   m_Layer: 8
   m_Name: StaminaCanvas
   m_TagString: Untagged
@@ -686,6 +687,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6495409077409384103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3021204092310859154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c8c0ee877e8c34493cc62338ee906f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaImage: {fileID: 6528945055178987039}
 --- !u!1 &4776350746142585937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,7 +1051,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 225aac867f1967d47bef4ac8a044bb7a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab99b162977ee2a4ea76c00d8b3a1990, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1476,7 +1490,7 @@ RectTransform:
   m_GameObject: {fileID: 7500911555715613508}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6518964387325217768}
@@ -1485,7 +1499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 202, y: 40}
+  m_AnchoredPosition: {x: 165, y: 40}
   m_SizeDelta: {x: 404, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1643804827348664633
@@ -1765,6 +1779,7 @@ MonoBehaviour:
   canRoll: 1
   canMove: 1
   State: 1
+  Stamina: 100
   <maxHealth>k__BackingField: 15
   <currentHealth>k__BackingField: 0
   Attribute:
