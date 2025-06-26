@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class Player : MonoBehaviour, IDamageable, ITeamable
+public class Player : MonoBehaviour, IDamageable
 {
 
 
-    private StaminaBar staminaBar;
+    [HideInInspector] public Stamina stamina; 
     [HideInInspector] public Animator animator;
     [HideInInspector] public new Rigidbody2D rigidbody2D;
     [Header("Type of Attack")]
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour, IDamageable, ITeamable
     public float speed = 10.0f;
 
     [Header("Jump Settings")]
-    public float baseGravityScale;  
+    public float baseGravityScale;
     public float jumpForce = 10.0f;
     public float jumpHeight = 10.0f;
     public Transform groundCheck;
@@ -37,51 +37,60 @@ public class Player : MonoBehaviour, IDamageable, ITeamable
     public bool canJump = true;
     public bool canRoll;
     public bool canMove = true;
-    public bool isPlayer { get; set; }
+
 
     [Header("Currently State")]
     public string State = "";
 
+    public float maxStamina = 100.0f;
+    public float currentStamina;
+    public float staminaRegeneration;
+    [field: SerializeField] public float maxHealth { get; set; } = 15.0f;
+    [field: SerializeField] public float currentHealth { get; set; }
 
-    public float Stamina = 100.0f;
-    [field:SerializeField] public float maxHealth { get; set; } = 15.0f;
-    [field:SerializeField] public float currentHealth { get; set; }
-    
 
     [Header("Player Attributes")]
-   
+
     public List<PlayerAttributes> Attribute = new List<PlayerAttributes>();
-    
-    
 
 
+
+    private void Awake()
+    {
+        
+    }
 
     private void Start()
     {
-        staminaBar = GetComponentInChildren<StaminaBar>();
+        
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         attack1 = GetComponent<Attack1>();
+        stamina = GetComponent<Stamina>();
 
         _SM = new StateMachine();
         _SM.Initialize(new IdleState(this));
 
         currentHealth = maxHealth;
+        currentStamina = maxStamina;
 
         baseGravityScale = rigidbody2D.gravityScale;
     }
     private void Update()
     {
+       
         
         _SM.currentState.Update();
         moveVector.x = Input.GetAxis("Horizontal");
         CheckingGround();
 
+        
+
         if (Input.GetKey(KeyCode.V))
         {
-            
-            Heal(1);
 
+            Heal(1);
+            
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && canMove)
         {
@@ -89,7 +98,7 @@ public class Player : MonoBehaviour, IDamageable, ITeamable
             _SM.ChangeState(new RunState(this));
 
         }
-        //if (rigidbody2D.velocity.y == 0 && rigidbody2D.velocity.x == 0 && canAttack)
+       
         if (moveVector.x == 0 && rigidbody2D.velocity.x == 0 && canAttack && canRoll && attack1.waitTime == 0)
         {
             _SM.ChangeState(new IdleState(this));
@@ -101,13 +110,13 @@ public class Player : MonoBehaviour, IDamageable, ITeamable
                 if (canAttack)
                 {
                     _SM.ChangeState(new Attack1State(this));
-                    
+
                 }
             }
-           
-                
+
+
         }
-        
+
         if (Input.GetKeyDown(KeyCode.Space) && canJump && isGrounded)
         {
             _SM.ChangeState(new JumpState(this));
@@ -116,17 +125,20 @@ public class Player : MonoBehaviour, IDamageable, ITeamable
         {
             _SM.ChangeState(new RollState(this));
         }
-        
+
         if (rigidbody2D.velocity.y < 0)
         {
             _SM.ChangeState(new FallState(this));
         }
 
-        if(Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            canRoll = true;    
+            canRoll = true;
         }
-
+        if (currentStamina < maxStamina)
+        {
+            stamina.RechargeStaminaAmount();
+        }
     }
 
 
@@ -162,8 +174,5 @@ public class Player : MonoBehaviour, IDamageable, ITeamable
     {
         Destroy(gameObject);
     }
-    public void ChangeStaminaAmount(float amount)
-    {
-        Stamina -= amount;
-    }
+
 }

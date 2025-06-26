@@ -596,7 +596,6 @@ GameObject:
   - component: {fileID: 3110077773983897099}
   - component: {fileID: 5935061191372640036}
   - component: {fileID: 3281059956028974225}
-  - component: {fileID: 6495409077409384103}
   m_Layer: 8
   m_Name: StaminaCanvas
   m_TagString: Untagged
@@ -687,19 +686,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6495409077409384103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3021204092310859154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c8c0ee877e8c34493cc62338ee906f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  staminaImage: {fileID: 6528945055178987039}
 --- !u!1 &4776350746142585937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,6 +1539,7 @@ GameObject:
   - component: {fileID: 2376032578666518494}
   - component: {fileID: 4722386234126243690}
   - component: {fileID: 1382891254230233947}
+  - component: {fileID: 1176420940619416247}
   - component: {fileID: 398574908514996646}
   - component: {fileID: 6389397501965966868}
   - component: {fileID: 7708816049558792373}
@@ -1729,6 +1716,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1176420940619416247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8218874997577805778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f9934811db0b7c4fb008a209288cb4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaImage: {fileID: 6528945055178987039}
 --- !u!114 &398574908514996646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1757,6 +1757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cc2663460f43540ae11283ae7f0309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stamina: {fileID: 0}
   animator: {fileID: 0}
   rigidbody2D: {fileID: 0}
   attack1: {fileID: 7708816049558792373}
@@ -1778,8 +1779,10 @@ MonoBehaviour:
   canJump: 1
   canRoll: 1
   canMove: 1
-  State: 1
-  Stamina: 100
+  State: Run
+  maxStamina: 100
+  currentStamina: 0
+  staminaRegeneration: 0.01
   <maxHealth>k__BackingField: 15
   <currentHealth>k__BackingField: 0
   Attribute:
@@ -1866,7 +1869,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
