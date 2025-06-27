@@ -38,14 +38,19 @@ public class Player : MonoBehaviour, IDamageable
     public bool canRoll;
     public bool canMove = true;
 
+    public bool isAttacked;
 
-    [Header("Currently State")]
+
+ 
     public string State = "";
 
     public float maxStamina = 100.0f;
     public float currentStamina;
     public float staminaRegeneration;
-    [field: SerializeField] public float maxHealth { get; set; } = 15.0f;
+
+    public float invincibleTimeFrame = 0.1f;
+
+    [field: SerializeField] public float maxHealth { get; set; }
     [field: SerializeField] public float currentHealth { get; set; }
 
 
@@ -57,7 +62,8 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        
+        currentHealth = maxHealth;
+        currentStamina = maxStamina;
     }
 
     private void Start()
@@ -71,8 +77,7 @@ public class Player : MonoBehaviour, IDamageable
         _SM = new StateMachine();
         _SM.Initialize(new IdleState(this));
 
-        currentHealth = maxHealth;
-        currentStamina = maxStamina;
+       
 
         baseGravityScale = rigidbody2D.gravityScale;
     }
@@ -89,7 +94,7 @@ public class Player : MonoBehaviour, IDamageable
         if (Input.GetKey(KeyCode.V))
         {
 
-            Heal(1);
+            Debug.Log(currentHealth);
             
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && canMove)
@@ -135,7 +140,7 @@ public class Player : MonoBehaviour, IDamageable
         {
             canRoll = true;
         }
-        if (currentStamina < maxStamina)
+        if (currentStamina < maxStamina && assailable && !isAttacked)
         {
             stamina.RechargeStaminaAmount();
         }
@@ -150,9 +155,14 @@ public class Player : MonoBehaviour, IDamageable
 
     public void Damage(float damageAmount)
     {
+       
+
         if (assailable)
         {
             currentHealth -= damageAmount;
+            isAttacked = true;
+            assailable = false;
+            StartCoroutine(IFrame(invincibleTimeFrame));
         }
 
 
@@ -174,5 +184,10 @@ public class Player : MonoBehaviour, IDamageable
     {
         Destroy(gameObject);
     }
-
+    IEnumerator IFrame(float invincibleTimeFrame)
+    {
+        yield return new WaitForSeconds(invincibleTimeFrame);
+        isAttacked = false;
+        assailable = true;
+    }
 }

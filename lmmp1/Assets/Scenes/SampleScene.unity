@@ -341,10 +341,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6826800435840088798, guid: 37c6c4fc0f98f6b4083388cd49613a52, type: 3}
-      propertyPath: <maxHealth>k__BackingField
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8876219349346043447, guid: 37c6c4fc0f98f6b4083388cd49613a52, type: 3}
       propertyPath: m_Name
       value: Skeleton Domain
@@ -4201,6 +4197,14 @@ PrefabInstance:
     - target: {fileID: 4247552690938173698, guid: 2a6db2507d029e343beb82e47a4f1f4c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389397501965966868, guid: 2a6db2507d029e343beb82e47a4f1f4c, type: 3}
+      propertyPath: invincibleTimeFrame
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389397501965966868, guid: 2a6db2507d029e343beb82e47a4f1f4c, type: 3}
+      propertyPath: <maxHealth>k__BackingField
+      value: 15000
       objectReference: {fileID: 0}
     - target: {fileID: 8218874997577805778, guid: 2a6db2507d029e343beb82e47a4f1f4c, type: 3}
       propertyPath: m_Name

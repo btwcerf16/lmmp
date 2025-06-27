@@ -10,10 +10,10 @@ public class Skeleton : Enemy, IAttacker
     [SerializeField] private float _waitTime;
     [field:SerializeField]public float damage { get; set; }
 
-    public LayerMask enemyLayer { get; set; }
-    public Transform attack1point { get; set; }
-    public float attackArea { get; set; }
-    public float coolDown { get; set; }
+    [field: SerializeField] public LayerMask enemyLayer { get; set; }
+    [field: SerializeField] public Transform attack1point { get; set; }
+    [field: SerializeField] public float attackArea { get; set; }
+    [field: SerializeField] public float coolDown { get; set; }
 
     public float attackCooldown { get; set; }
     public float waitTime

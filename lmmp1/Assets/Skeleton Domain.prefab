@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd730792c825b745a021d162812e406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHealth>k__BackingField: 10
+  <maxHealth>k__BackingField: 100
   <currentHealth>k__BackingField: 0
   <IsFacingRight>k__BackingField: 1
   animator: {fileID: 0}
@@ -487,6 +487,12 @@ MonoBehaviour:
   chaseSpeed: 3
   _waitTime: 0
   <damage>k__BackingField: 3
+  <enemyLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 256
+  <attack1point>k__BackingField: {fileID: 7642980230579543208}
+  <attackArea>k__BackingField: 1.05
+  <coolDown>k__BackingField: 0
 --- !u!95 &7191555696159466622
 Animator:
   serializedVersion: 5

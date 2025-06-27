@@ -7,7 +7,7 @@ public class Stamina : MonoBehaviour
 {
     private Player player;
     public Image staminaImage;
-    
+    public Image weaknessStaminaImage;
     private void Awake()
     {
         player = GetComponent<Player>();
@@ -15,18 +15,25 @@ public class Stamina : MonoBehaviour
     }
     public void Update()
     {
-        staminaImage.fillAmount = player.currentStamina / 100.0f;
         
     }
     public void ChangeStaminaAmount(float amount)
     {
+
         player.currentStamina -= amount;
-        staminaImage.fillAmount -= amount/100.0f;
+        staminaImage.fillAmount = (player.currentStamina) / 100.0f;
+        if (player.currentStamina <= 0)
+        {
+            weaknessStaminaImage.fillAmount += (-(player.currentStamina) / 100.0f);
+        }
+
+
+        
     }
     public void RechargeStaminaAmount()
     {
 
-        player.currentStamina += player.staminaRegeneration; 
-        
+        player.currentStamina += player.staminaRegeneration;
+        staminaImage.fillAmount = (player.currentStamina) / 100.0f;
     }
 }
