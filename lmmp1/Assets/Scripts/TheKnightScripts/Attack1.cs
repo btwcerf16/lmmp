@@ -11,6 +11,7 @@ public class Attack1 : MonoBehaviour, IAttacker
     [field: SerializeField] public float attackArea { get; set; }
     [field: SerializeField] public float attackCooldown { get; set; }
     private float _waitTime;
+    private Player player;
     public float waitTime {
         get {
             return _waitTime;
@@ -20,7 +21,10 @@ public class Attack1 : MonoBehaviour, IAttacker
         } 
     }
 
-    [field: SerializeField]public float damage { get ; set; }
+    private void Start()
+    {
+        player = GetComponent<Player>();
+    }
 
     private void Update()
     {
@@ -40,7 +44,7 @@ public class Attack1 : MonoBehaviour, IAttacker
         {
             if (enemy.GetComponent<IDamageable>() != null)
             {
-                enemy.GetComponent<IDamageable>().Damage(damage);
+                enemy.GetComponent<IDamageable>().Damage(player.attackDamage);
             }
         }
         waitTime = attackCooldown;

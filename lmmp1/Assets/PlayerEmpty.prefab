@@ -900,7 +900,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1837,6 +1837,7 @@ MonoBehaviour:
   stamina: {fileID: 0}
   animator: {fileID: 0}
   rigidbody2D: {fileID: 0}
+  PlayerStats: {fileID: 11400000, guid: 2e73878257c1f4845b76c777aa39143b, type: 2}
   attack1: {fileID: 7708816049558792373}
   dash: {fileID: 2702121651282502742}
   faceRight: 1
@@ -1844,9 +1845,7 @@ MonoBehaviour:
   speed: 10
   baseGravityScale: 1
   jumpForce: 12
-  jumpHeight: 10
   groundCheck: {fileID: 5097291018381385691}
-  groundCheckRadius: 0.3
   isGrounded: 0
   groundMask:
     serializedVersion: 2
@@ -1858,11 +1857,12 @@ MonoBehaviour:
   canMove: 1
   isAttacked: 0
   State: Run
-  maxStamina: 100
+  maxStamina: 0
   currentStamina: 0
-  staminaRegeneration: 0.01
-  invincibleTimeFrame: 0.1
-  <maxHealth>k__BackingField: 150
+  staminaRegeneration: 0
+  damage: 0
+  invincibleTimeFrame: 0
+  <maxHealth>k__BackingField: 0
   <currentHealth>k__BackingField: 0
   Attribute:
   - atribute: {fileID: 11400000, guid: f864ec8ad4651354db44bca956c6af18, type: 2}
@@ -1889,7 +1889,6 @@ MonoBehaviour:
   <attack1point>k__BackingField: {fileID: 7199227092056820065}
   <attackArea>k__BackingField: 1.2
   <attackCooldown>k__BackingField: 0
-  <damage>k__BackingField: 5
 --- !u!114 &2702121651282502742
 MonoBehaviour:
   m_ObjectHideFlags: 0

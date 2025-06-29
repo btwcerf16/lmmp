@@ -5,13 +5,16 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class Player : MonoBehaviour, IDamageable
+public class Player : MonoBehaviour, IDamageable, IBuffable
 {
-
-
+    
+   
     [HideInInspector] public Stamina stamina; 
     [HideInInspector] public Animator animator;
     [HideInInspector] public new Rigidbody2D rigidbody2D;
+
+    
+
     [Header("Type of Attack")]
     public Attack1 attack1;
     [Header("Dash Specimen")]
@@ -20,14 +23,14 @@ public class Player : MonoBehaviour, IDamageable
     public bool faceRight = true;
     public Vector2 moveVector;
     private StateMachine _SM;
-    public float speed = 10.0f;
-
+    
+    
     [Header("Jump Settings")]
     public float baseGravityScale;
-    public float jumpForce = 10.0f;
-    public float jumpHeight = 10.0f;
+    
+    
     public Transform groundCheck;
-    public float groundCheckRadius = 0.3f;
+    private float groundCheckRadius = 0.3f;
     public bool isGrounded;
     public LayerMask groundMask;
 
@@ -44,13 +47,13 @@ public class Player : MonoBehaviour, IDamageable
  
     public string State = "";
 
-    public float maxStamina = 100.0f;
+    
     public float currentStamina;
     public float staminaRegeneration;
+  
+    
 
-    public float invincibleTimeFrame = 0.1f;
-
-    [field: SerializeField] public float maxHealth { get; set; }
+    
     [field: SerializeField] public float currentHealth { get; set; }
 
 
@@ -58,26 +61,48 @@ public class Player : MonoBehaviour, IDamageable
 
     public List<PlayerAttributes> Attribute = new List<PlayerAttributes>();
 
+    public CharacterStats BaseStats { get; }
+    public CharacterStats CurrentStats { get; private set; }
+
+    public Player(CharacterStats baseStats)
+    {
+        BaseStats = baseStats;
+        CurrentStats = baseStats;
+    }
+
+    public float speed;
+    public float maxHealth;
+    public float attackDamage;
+    public float maxStamina;
+    public float jumpForce;
+    public float magicResistance;
+    public float physicResistance;
+    public float magicDamageMultiplyer;
+    public float physicDamageMultiplyer;
+    public float invincibleTimeFrame;
 
 
     private void Awake()
     {
-        currentHealth = maxHealth;
-        currentStamina = maxStamina;
+
+        
     }
 
     private void Start()
     {
-        
+       
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         attack1 = GetComponent<Attack1>();
         stamina = GetComponent<Stamina>();
 
+        currentStamina = maxStamina;
+        currentHealth = maxHealth;
+
         _SM = new StateMachine();
         _SM.Initialize(new IdleState(this));
 
-       
+
 
         baseGravityScale = rigidbody2D.gravityScale;
     }
@@ -91,11 +116,13 @@ public class Player : MonoBehaviour, IDamageable
 
         
 
-        if (Input.GetKey(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V))
         {
 
             Debug.Log(currentHealth);
-            
+           
+
+
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && canMove)
         {
@@ -189,5 +216,15 @@ public class Player : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(invincibleTimeFrame);
         isAttacked = false;
         assailable = true;
+    }
+
+    public void AddBuff(IBuff buff)
+    {
+        
+    }
+
+    public void RemoveBuff(IBuff buff)
+    {
+       
     }
 }
