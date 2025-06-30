@@ -61,14 +61,10 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
 
     public List<PlayerAttributes> Attribute = new List<PlayerAttributes>();
 
-    public CharacterStats BaseStats { get; }
-    public CharacterStats CurrentStats { get; private set; }
+    public CharacterBaseStats BaseStats;
+    
 
-    public Player(CharacterStats baseStats)
-    {
-        BaseStats = baseStats;
-        CurrentStats = baseStats;
-    }
+
 
     public float speed;
     public float maxHealth;
@@ -84,8 +80,17 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
 
     private void Awake()
     {
+        speed = BaseStats.BaseSpeed;
+        maxHealth = BaseStats.BaseMaxHealth;
+        attackDamage = BaseStats.BaseAttackDamage;
+        maxStamina = BaseStats.BaseMaxStamina;
+        jumpForce = BaseStats.BaseJumpForce;
+        magicResistance = BaseStats.BaseMagicResistance;
+        physicResistance = BaseStats.BasePhysicResistance;
+        magicDamageMultiplyer = BaseStats.BaseMagicDamageMultiplyer;
+        physicDamageMultiplyer = BaseStats.BasePhysicDamageMultiplyer;
+        invincibleTimeFrame = BaseStats.BaseInvincibleTimeFrame;
 
-        
     }
 
     private void Start()
