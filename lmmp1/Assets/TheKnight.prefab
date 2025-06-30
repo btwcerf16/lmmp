@@ -1617,12 +1617,12 @@ GameObject:
   - component: {fileID: 1382891254230233947}
   - component: {fileID: 1176420940619416247}
   - component: {fileID: 398574908514996646}
-  - component: {fileID: 6389397501965966868}
+  - component: {fileID: 2843308023647757624}
   - component: {fileID: 7708816049558792373}
   - component: {fileID: 2702121651282502742}
   - component: {fileID: 9180389348985231776}
   m_Layer: 8
-  m_Name: PlayerEmpty
+  m_Name: TheKnight
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1822,7 +1822,7 @@ MonoBehaviour:
   currentCooldownTime: 0
   currentActiveTime: 0
   key: 282
---- !u!114 &6389397501965966868
+--- !u!114 &2843308023647757624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8218874997577805778}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1cc2663460f43540ae11283ae7f0309, type: 3}
+  m_Script: {fileID: 11500000, guid: 1492d1fd1b5fa0b4cbbbb3b56e5feb19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stamina: {fileID: 0}
@@ -1841,7 +1841,7 @@ MonoBehaviour:
   dash: {fileID: 2702121651282502742}
   faceRight: 1
   moveVector: {x: 0, y: 0}
-  baseGravityScale: 1
+  baseGravityScale: 0
   groundCheck: {fileID: 5097291018381385691}
   isGrounded: 0
   groundMask:
@@ -1853,23 +1853,17 @@ MonoBehaviour:
   canRoll: 1
   canMove: 1
   isAttacked: 0
-  State: Run
+  State: 
   currentStamina: 0
   staminaRegeneration: 0
   <currentHealth>k__BackingField: 0
-  Attribute:
-  - atribute: {fileID: 11400000, guid: f864ec8ad4651354db44bca956c6af18, type: 2}
-    amount: 690
-  - atribute: {fileID: 11400000, guid: 83a8229372c193847991a4de381b5eb9, type: 2}
-    amount: 772
-  - atribute: {fileID: 11400000, guid: 8b53041ce846596459ad978596597c0e, type: 2}
-    amount: 5185
+  Attribute: []
   BaseStats: {fileID: 11400000, guid: 1e4bde708824f6f44ae15c084010174d, type: 2}
-  speed: 10
+  speed: 0
   maxHealth: 0
   attackDamage: 0
   maxStamina: 0
-  jumpForce: 12
+  jumpForce: 0
   magicResistance: 0
   physicResistance: 0
   magicDamageMultiplyer: 0

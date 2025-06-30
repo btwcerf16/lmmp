@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[CreateAssetMenu(menuName = "Character/Create Character Base Stats")]
 
 public class CharacterBaseStats : ScriptableObject
 {

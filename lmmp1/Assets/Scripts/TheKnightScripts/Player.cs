@@ -74,7 +74,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
     public float magicResistance;
     public float physicResistance;
     public float magicDamageMultiplyer;
-    public float physicDamageMultiplyer;
+    public float physicDamageMultiplyer; 
     public float invincibleTimeFrame;
 
 
@@ -107,8 +107,6 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         _SM = new StateMachine();
         _SM.Initialize(new IdleState(this));
 
-
-
         baseGravityScale = rigidbody2D.gravityScale;
     }
     private void Update()
@@ -125,7 +123,6 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         {
 
             Debug.Log(currentHealth);
-           
 
 
         }
@@ -140,7 +137,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         {
             _SM.ChangeState(new IdleState(this));
         }
-        if ((Input.GetKey(KeyCode.Mouse0)))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             if ((attack1.waitTime == 0))
             {
@@ -181,8 +178,10 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
 
     public void Flip()
     {
+
         transform.localScale *= new Vector2(-1, 1);
         faceRight = !faceRight;
+
     }
 
     public void Damage(float damageAmount)
@@ -216,6 +215,16 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
     {
         Destroy(gameObject);
     }
+    public void AddBuff(IBuff buff)
+    {
+
+    }
+
+    public void RemoveBuff(IBuff buff)
+    {
+
+    }
+
     IEnumerator IFrame(float invincibleTimeFrame)
     {
         yield return new WaitForSeconds(invincibleTimeFrame);
@@ -223,13 +232,5 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         assailable = true;
     }
 
-    public void AddBuff(IBuff buff)
-    {
-        
-    }
-
-    public void RemoveBuff(IBuff buff)
-    {
-       
-    }
+  
 }

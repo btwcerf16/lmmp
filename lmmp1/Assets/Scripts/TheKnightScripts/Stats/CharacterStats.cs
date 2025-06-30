@@ -4,6 +4,7 @@ using UnityEngine;
 
 public struct CharacterStats 
 {
+
     public float Speed;
     public float MaxHealth;
     public float AttackDamage;
