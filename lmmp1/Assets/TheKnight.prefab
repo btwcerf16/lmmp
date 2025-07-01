@@ -1618,6 +1618,7 @@ GameObject:
   - component: {fileID: 1176420940619416247}
   - component: {fileID: 398574908514996646}
   - component: {fileID: 2843308023647757624}
+  - component: {fileID: 6651834193416187304}
   - component: {fileID: 7708816049558792373}
   - component: {fileID: 2702121651282502742}
   - component: {fileID: 9180389348985231776}
@@ -1854,11 +1855,21 @@ MonoBehaviour:
   canMove: 1
   isAttacked: 0
   State: 
-  currentStamina: 0
-  staminaRegeneration: 0
-  <currentHealth>k__BackingField: 0
   Attribute: []
-  BaseStats: {fileID: 11400000, guid: 1e4bde708824f6f44ae15c084010174d, type: 2}
+  currentStats: {fileID: 6651834193416187304}
+--- !u!114 &6651834193416187304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8218874997577805778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e4e3d3eb1c3534db686b40eb61d333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConfigStats: {fileID: 11400000, guid: 1e4bde708824f6f44ae15c084010174d, type: 2}
   speed: 0
   maxHealth: 0
   attackDamage: 0
@@ -1869,6 +1880,9 @@ MonoBehaviour:
   magicDamageMultiplyer: 0
   physicDamageMultiplyer: 0
   invincibleTimeFrame: 0
+  currentStamina: 0
+  staminaRegeneration: 0
+  currentHealth: 0
 --- !u!114 &7708816049558792373
 MonoBehaviour:
   m_ObjectHideFlags: 0

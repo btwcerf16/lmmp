@@ -43,53 +43,20 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
 
     public bool isAttacked;
 
-
- 
     public string State = "";
-
-    
-    public float currentStamina;
-    public float staminaRegeneration;
-  
-    
-
-    
-    [field: SerializeField] public float currentHealth { get; set; }
 
 
     [Header("Player Attributes")]
 
-    public List<PlayerAttributes> Attribute = new List<PlayerAttributes>();
+    public List<PlayerAttributes> Attribute = new();
 
-    public CharacterBaseStats BaseStats;
-    
+    public CharacterBaseStats baseStats { get;}
+    public ActorStats currentStats;
 
-
-
-    public float speed;
-    public float maxHealth;
-    public float attackDamage;
-    public float maxStamina;
-    public float jumpForce;
-    public float magicResistance;
-    public float physicResistance;
-    public float magicDamageMultiplyer;
-    public float physicDamageMultiplyer; 
-    public float invincibleTimeFrame;
-
-
+    private readonly List<IBuff> buffs = new();
     private void Awake()
     {
-        speed = BaseStats.BaseSpeed;
-        maxHealth = BaseStats.BaseMaxHealth;
-        attackDamage = BaseStats.BaseAttackDamage;
-        maxStamina = BaseStats.BaseMaxStamina;
-        jumpForce = BaseStats.BaseJumpForce;
-        magicResistance = BaseStats.BaseMagicResistance;
-        physicResistance = BaseStats.BasePhysicResistance;
-        magicDamageMultiplyer = BaseStats.BaseMagicDamageMultiplyer;
-        physicDamageMultiplyer = BaseStats.BasePhysicDamageMultiplyer;
-        invincibleTimeFrame = BaseStats.BaseInvincibleTimeFrame;
+        
 
     }
 
@@ -100,9 +67,6 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         rigidbody2D = GetComponent<Rigidbody2D>();
         attack1 = GetComponent<Attack1>();
         stamina = GetComponent<Stamina>();
-
-        currentStamina = maxStamina;
-        currentHealth = maxHealth;
 
         _SM = new StateMachine();
         _SM.Initialize(new IdleState(this));
@@ -122,7 +86,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         if (Input.GetKeyDown(KeyCode.V))
         {
 
-            Debug.Log(currentHealth);
+            Debug.Log(currentStats.currentHealth);
 
 
         }
@@ -169,7 +133,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         {
             canRoll = true;
         }
-        if (currentStamina < maxStamina && assailable && !isAttacked)
+        if (currentStats.currentStamina < currentStats.maxStamina && assailable && !isAttacked)
         {
             stamina.RechargeStaminaAmount();
         }
@@ -190,21 +154,21 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
 
         if (assailable)
         {
-            currentHealth -= damageAmount;
+            currentStats.currentHealth -= damageAmount;
             isAttacked = true;
             assailable = false;
-            StartCoroutine(IFrame(invincibleTimeFrame));
+            StartCoroutine(IFrame(currentStats.invincibleTimeFrame));
         }
 
 
-        if (currentHealth <= 0)
+        if (currentStats.currentHealth <= 0)
         {
             Die();
         }
     }
     public void Heal(float healAmount)
     {
-        currentHealth += healAmount;
+        currentStats.currentHealth += healAmount;
     }
     private void CheckingGround()
     {
@@ -217,14 +181,25 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
     }
     public void AddBuff(IBuff buff)
     {
+        buffs.Add(buff);
 
+        ApplyBuffs();
+
+        Debug.Log(buff);
     }
 
     public void RemoveBuff(IBuff buff)
     {
+        buffs.Remove(buff);
 
+        ApplyBuffs();
+
+        Debug.Log(buff);
     }
-
+    private void ApplyBuffs()
+    {
+        
+    }
     IEnumerator IFrame(float invincibleTimeFrame)
     {
         yield return new WaitForSeconds(invincibleTimeFrame);

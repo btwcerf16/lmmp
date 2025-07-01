@@ -25,7 +25,7 @@ public class FallState : State
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             _player.transform.position = new Vector2(_player.transform.position.x +
-            (_player.speed * Time.deltaTime * _player.moveVector.x) / 3, _player.transform.position.y);
+            (_player.currentStats.speed * Time.deltaTime * _player.moveVector.x) / 3, _player.transform.position.y);
         }
 
 

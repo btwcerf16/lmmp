@@ -15,16 +15,16 @@ public class Stamina : MonoBehaviour
     }
     public void Update()
     {
-        if (player.currentStamina <= 0)
+        if (player.currentStats.currentStamina <= 0)
         {
-            weaknessStaminaImage.fillAmount = (-(player.currentStamina) / 100.0f);
+            weaknessStaminaImage.fillAmount = (-(player.currentStats.currentStamina) / 100.0f);
         }
     }
     public void ChangeStaminaAmount(float amount)
     {
             
-        player.currentStamina -= amount;
-        staminaImage.fillAmount = (player.currentStamina) / 100.0f;
+        player.currentStats.currentStamina -= amount;
+        staminaImage.fillAmount = (player.currentStats.currentStamina) / 100.0f;
         
 
 
@@ -33,7 +33,7 @@ public class Stamina : MonoBehaviour
     public void RechargeStaminaAmount()
     {
 
-        player.currentStamina += player.staminaRegeneration;
-        staminaImage.fillAmount = (player.currentStamina) / 100.0f;
+        player.currentStats.currentStamina += player.currentStats.staminaRegeneration;
+        staminaImage.fillAmount = (player.currentStats.currentStamina) / 100.0f;
     }
 }

@@ -44,7 +44,7 @@ public class Attack1 : MonoBehaviour, IAttacker
         {
             if (enemy.GetComponent<IDamageable>() != null)
             {
-                enemy.GetComponent<IDamageable>().Damage(player.attackDamage);
+                enemy.GetComponent<IDamageable>().Damage(player.currentStats.attackDamage);
             }
         }
         waitTime = attackCooldown;

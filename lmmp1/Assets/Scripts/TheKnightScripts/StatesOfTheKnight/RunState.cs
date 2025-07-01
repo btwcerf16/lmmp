@@ -21,7 +21,7 @@ public class RunState : State
         base.Update();
         
 
-        _player.transform.position = new Vector2(_player.transform.position.x + (_player.speed * Time.deltaTime * _player.moveVector.x), _player.transform.position.y);
+        _player.transform.position = new Vector2(_player.transform.position.x + (_player.currentStats.speed * Time.deltaTime * _player.moveVector.x), _player.transform.position.y);
         
         if (_player.moveVector.x > 0 && !_player.faceRight || _player.moveVector.x < 0 && _player.faceRight)
         {

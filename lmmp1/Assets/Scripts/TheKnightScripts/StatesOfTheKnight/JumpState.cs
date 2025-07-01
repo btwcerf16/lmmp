@@ -19,7 +19,7 @@ public class JumpState : State
        
         _player.animator.SetBool("Jump", true);
         
-        _player.rigidbody2D.AddForce(_player.jumpForce * Vector2.up, ForceMode2D.Impulse);
+        _player.rigidbody2D.AddForce(_player.currentStats.jumpForce * Vector2.up, ForceMode2D.Impulse);
         _player.canMove = false;
         _player.canAttack = false;
         _player.State = "Jump";
@@ -36,7 +36,7 @@ public class JumpState : State
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             _player.transform.position = new Vector2(_player.transform.position.x +
-            (_player.speed * Time.deltaTime * _player.moveVector.x) / 3, _player.transform.position.y);
+            (_player.currentStats.speed * Time.deltaTime * _player.moveVector.x) / 3, _player.transform.position.y);
         }
 
 
