@@ -10,7 +10,7 @@ public class Ability : ScriptableObject
     public float activeTime;
     public float cooldownTime;
     public LayerMask targetLayer;
-    public IBuff buff;
+    
 
 
     public virtual void Activate(GameObject owner)

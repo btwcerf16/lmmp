@@ -7,7 +7,7 @@ public class DamageAbility : Ability
     public float damageCount;
     public float attackArea;
     private Player player;
-    public AttackBuff buff;
+    
 
     
 
@@ -25,7 +25,7 @@ public class DamageAbility : Ability
                     enemy.GetComponent<IDamageable>().Damage((float)(damageCount));
                 }
             }
-        player.AddBuff(buff);
+        
     }
 
     public override void BeginCooldown()

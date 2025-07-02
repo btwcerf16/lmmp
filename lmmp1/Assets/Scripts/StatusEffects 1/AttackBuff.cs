@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(menuName = "Character/Create Buff/Damage Buff")]
-public class AttackBuff : ScriptableObject, IBuff
+public class AttackBuff : Buff
 {
     public float DamageBuff;
     public float Duration;
