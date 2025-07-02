@@ -7,6 +7,7 @@ public class AbilityHolder : MonoBehaviour
     public Ability ability;
     public float currentCooldownTime;
     public float currentActiveTime;
+
     public KeyCode key;
 
 

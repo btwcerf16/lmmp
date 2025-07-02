@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IBuff
 {
-    void Apply(ActorStats stats);
+    void Apply(ActorStats stats,MonoBehaviour owner);
 }

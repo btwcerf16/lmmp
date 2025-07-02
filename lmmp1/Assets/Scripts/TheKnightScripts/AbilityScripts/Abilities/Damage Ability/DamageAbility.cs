@@ -7,22 +7,25 @@ public class DamageAbility : Ability
     public float damageCount;
     public float attackArea;
     private Player player;
+    public AttackBuff buff;
+
+    
 
     public override void Activate(GameObject owner)
     {
-        
 
+            
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(owner.transform.position, attackArea, targetLayer);
             player = owner.GetComponent<Player>();
-
+            
             foreach (Collider2D enemy in hitEnemies)
             {
                 if (enemy.GetComponent<IDamageable>() != null)
                 {
-                    enemy.GetComponent<IDamageable>().Damage((float)(damageCount *(1 + 0.1 * player.Attribute[0].amount)));
+                    enemy.GetComponent<IDamageable>().Damage((float)(damageCount));
                 }
             }
-        
+        player.AddBuff(buff);
     }
 
     public override void BeginCooldown()

@@ -53,7 +53,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
     public CharacterBaseStats baseStats { get;}
     public ActorStats currentStats;
 
-    private readonly List<IBuff> buffs = new();
+    public List<IBuff> buffs = new();
     private void Awake()
     {
         
@@ -85,9 +85,9 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-
+            
             Debug.Log(currentStats.currentHealth);
-
+            
 
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && canMove)
@@ -198,7 +198,11 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
     }
     private void ApplyBuffs()
     {
-        
+        foreach (var buff in buffs)
+        {
+            buff.Apply(currentStats, this);
+            
+        }
     }
     IEnumerator IFrame(float invincibleTimeFrame)
     {
