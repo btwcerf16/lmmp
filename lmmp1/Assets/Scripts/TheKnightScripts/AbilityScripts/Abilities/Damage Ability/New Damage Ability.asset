@@ -20,6 +20,6 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 512
+  Buff: {fileID: 11400000, guid: 1278e50561371344bbe1f1cd87462f1f, type: 2}
   damageCount: 3
   attackArea: 61.96
-  buff: {fileID: 11400000, guid: 1278e50561371344bbe1f1cd87462f1f, type: 2}

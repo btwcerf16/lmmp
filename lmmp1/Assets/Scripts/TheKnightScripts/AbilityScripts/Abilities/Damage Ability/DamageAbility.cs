@@ -6,10 +6,11 @@ public class DamageAbility : Ability
 {
     public float damageCount;
     public float attackArea;
+   
     private Player player;
-    
 
-    
+
+
 
     public override void Activate(GameObject owner)
     {
@@ -17,8 +18,8 @@ public class DamageAbility : Ability
             
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(owner.transform.position, attackArea, targetLayer);
             player = owner.GetComponent<Player>();
-            
-            foreach (Collider2D enemy in hitEnemies)
+        Buff.Apply(player.currentStats, player);
+        foreach (Collider2D enemy in hitEnemies)
             {
                 if (enemy.GetComponent<IDamageable>() != null)
                 {

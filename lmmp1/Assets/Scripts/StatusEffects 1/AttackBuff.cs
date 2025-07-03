@@ -7,12 +7,13 @@ public class AttackBuff : Buff
     public float DamageBuff;
     public float Duration;
 
-    public void Apply(ActorStats stats, MonoBehaviour owner)
+    public override void Apply(ActorStats stats, MonoBehaviour owner)
     {
-        owner.StartCoroutine(DurationOfBuff(stats));
-        stats.attackDamage += DamageBuff;
-        Debug.Log(stats.attackDamage);
+            owner.StartCoroutine(DurationOfBuff(stats));
+            stats.attackDamage += DamageBuff;
+            Debug.Log(stats.attackDamage);   
     }
+
     IEnumerator DurationOfBuff(ActorStats stats)
     {
         yield return new WaitForSeconds(Duration);

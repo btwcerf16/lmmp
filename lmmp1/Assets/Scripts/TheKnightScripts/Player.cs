@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour, IDamageable, IBuffable
@@ -51,12 +52,15 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
     public List<PlayerAttributes> Attribute = new();
 
     public CharacterBaseStats baseStats { get;}
-    public ActorStats currentStats;
+    public Canvas BuffStack { get; set; }
+    public Canvas CanvasBuffStack;
 
-    public List<IBuff> buffs = new();
+    public ActorStats currentStats;
+    public Sprite BuffSprite;
+    public List<Buff> buffs = new();
     private void Awake()
     {
-        
+        BuffStack = CanvasBuffStack;
 
     }
 
@@ -179,7 +183,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
     {
         Destroy(gameObject);
     }
-    public void AddBuff(IBuff buff)
+    public void AddBuff(Buff buff)
     {
         buffs.Add(buff);
 
@@ -188,7 +192,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         Debug.Log(buff);
     }
 
-    public void RemoveBuff(IBuff buff)
+    public void RemoveBuff(Buff buff)
     {
         buffs.Remove(buff);
 
