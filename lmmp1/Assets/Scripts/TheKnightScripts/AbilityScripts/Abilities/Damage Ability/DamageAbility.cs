@@ -18,12 +18,15 @@ public class DamageAbility : Ability
             
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(owner.transform.position, attackArea, targetLayer);
             player = owner.GetComponent<Player>();
-        Buff.Apply(player.currentStats, player);
+            
+
         foreach (Collider2D enemy in hitEnemies)
             {
-                if (enemy.GetComponent<IDamageable>() != null)
+            Buff.Apply(player.currentStats, player);
+            if (enemy.GetComponent<IDamageable>() != null)
                 {
                     enemy.GetComponent<IDamageable>().Damage((float)(damageCount));
+                    
                 }
             }
         

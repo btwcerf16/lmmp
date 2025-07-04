@@ -56,7 +56,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
     public Canvas CanvasBuffStack;
 
     public ActorStats currentStats;
-    public Sprite BuffSprite;
+
     public List<Buff> buffs = new();
     private void Awake()
     {

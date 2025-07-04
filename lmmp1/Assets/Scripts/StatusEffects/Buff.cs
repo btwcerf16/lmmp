@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public abstract class Buff: ScriptableObject    
 {
-    public Image Image;
+    public Sprite Icon;
     public virtual void Apply(ActorStats stats, MonoBehaviour owner) { }
 
 

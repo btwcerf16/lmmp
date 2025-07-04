@@ -9,14 +9,17 @@ public class AttackBuff : Buff
 
     public override void Apply(ActorStats stats, MonoBehaviour owner)
     {
-            owner.StartCoroutine(DurationOfBuff(stats));
-            stats.attackDamage += DamageBuff;
-            Debug.Log(stats.attackDamage);   
+            
+        stats.attackDamage += DamageBuff;
+        owner.StartCoroutine(DurationOfBuff(stats, owner));
+        owner.GetComponent<BuffUIHandler>()?.ShowBuff(Icon);
+        Debug.Log(stats.attackDamage);   
     }
 
-    IEnumerator DurationOfBuff(ActorStats stats)
+    IEnumerator DurationOfBuff(ActorStats stats, MonoBehaviour owner)
     {
         yield return new WaitForSeconds(Duration);
+        owner.GetComponent<BuffUIHandler>()?.HideBuff(Icon);
         stats.attackDamage -= DamageBuff;
         Debug.Log(stats.attackDamage);
     }
