@@ -216,7 +216,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
     }
     public void StaminaRegeneration()
     {
-        currentStats.
+       
     }
   
 }
