@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BuffIconUI : MonoBehaviour
 {
-
+    public Text TextTimer; 
     private Image IconImage;
     public void Awake()
     {
@@ -15,5 +15,10 @@ public class BuffIconUI : MonoBehaviour
     public void SetBuffSprite(Sprite sprite)
     {
         IconImage.sprite = sprite;
+
+    }
+    public void UpdateTimer(float timeRemaining)
+    {
+        TextTimer.text = timeRemaining.ToString("F1");
     }
 }

@@ -19,7 +19,7 @@ public class ActorStats : MonoBehaviour
     public float currentStamina;
     public float staminaRegeneration;
     public float currentHealth;
-
+    public float critChance;
     private void Awake()
     {
         speed = ConfigStats.BaseSpeed;

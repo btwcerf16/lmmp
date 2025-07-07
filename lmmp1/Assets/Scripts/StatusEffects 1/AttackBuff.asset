@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1fffda759ed7049a85e01227bb6d67, type: 3}
   m_Name: AttackBuff
   m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 7e5bae18d8d17f14bb61b02d9e0edc06, type: 3}
+  Duration: 3
   DamageBuff: 3
-  Duration: 1

@@ -5,22 +5,24 @@ using UnityEngine;
 public class AttackBuff : Buff
 {
     public float DamageBuff;
-    public float Duration;
+    
 
     public override void Apply(ActorStats stats, MonoBehaviour owner)
     {
             
         stats.attackDamage += DamageBuff;
+        
+        owner.GetComponent<BuffUIHandler>()?.ShowBuff(this);
         owner.StartCoroutine(DurationOfBuff(stats, owner));
-        owner.GetComponent<BuffUIHandler>()?.ShowBuff(Icon);
         Debug.Log(stats.attackDamage);   
     }
 
     IEnumerator DurationOfBuff(ActorStats stats, MonoBehaviour owner)
     {
         yield return new WaitForSeconds(Duration);
-        owner.GetComponent<BuffUIHandler>()?.HideBuff(Icon);
+        owner.GetComponent<BuffUIHandler>().HideBuff(this);
         stats.attackDamage -= DamageBuff;
         Debug.Log(stats.attackDamage);
+        
     }
 }

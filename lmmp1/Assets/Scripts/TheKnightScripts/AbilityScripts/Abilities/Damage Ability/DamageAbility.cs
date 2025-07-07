@@ -6,20 +6,12 @@ public class DamageAbility : Ability
 {
     public float damageCount;
     public float attackArea;
-   
     private Player player;
 
-
-
-
     public override void Activate(GameObject owner)
-    {
-
-            
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(owner.transform.position, attackArea, targetLayer);
-            player = owner.GetComponent<Player>();
-            
-
+    {     
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(owner.transform.position, attackArea, targetLayer);
+        player = owner.GetComponent<Player>();
         foreach (Collider2D enemy in hitEnemies)
             {
             Buff.Apply(player.currentStats, player);
@@ -29,11 +21,10 @@ public class DamageAbility : Ability
                     
                 }
             }
-        
     }
 
     public override void BeginCooldown()
     {
-        Debug.Log("ֿמסע ִלד:" + (float)(damageCount * (1 + 0.1 * player.Attribute[0].amount)));
+        Debug.Log("ֿמסע ִלד:" + (float)(damageCount));
     }
 }

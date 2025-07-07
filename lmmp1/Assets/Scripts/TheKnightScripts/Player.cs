@@ -214,6 +214,9 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         isAttacked = false;
         assailable = true;
     }
-
+    public void StaminaRegeneration()
+    {
+        currentStats.
+    }
   
 }
