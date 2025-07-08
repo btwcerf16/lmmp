@@ -42,6 +42,10 @@ public class Skeleton : Enemy, IAttacker
                 if (enemy.GetComponent<IDamageable>() != null)
                 {
                     enemy.GetComponent<IDamageable>().Damage(damage);
+                    if (enemy.GetComponent<IBuffable>() != null)
+                    {
+                        
+                    }
                 }
             }
             waitTime = attackCooldown;

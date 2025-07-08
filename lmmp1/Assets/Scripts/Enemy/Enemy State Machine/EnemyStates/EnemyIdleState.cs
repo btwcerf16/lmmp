@@ -93,7 +93,7 @@ public class EnemyIdleState : EnemyState
         }
         
         _direction = (enemy.targetPos - enemy.transform.position).normalized;
-        enemy.MoveEnemy(_direction * enemy.idleSpeed * speedBuffer);
+        enemy.MoveEnemy(_direction * enemy.CurrentStats.speed/3 * speedBuffer);
     }
 
     public override void PhysicsUpdate()

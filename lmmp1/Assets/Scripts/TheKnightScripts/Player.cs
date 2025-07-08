@@ -137,9 +137,9 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         {
             canRoll = true;
         }
-        if (currentStats.currentStamina < currentStats.maxStamina && assailable && !isAttacked)
+        if (assailable && !isAttacked)
         {
-            stamina.RechargeStaminaAmount();
+            StartCoroutine(StaminaRegeneration());
         }
     }
 
@@ -214,9 +214,12 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         isAttacked = false;
         assailable = true;
     }
-    public void StaminaRegeneration()
+
+    IEnumerator StaminaRegeneration()
     {
-       
+        
+        yield return new WaitForSeconds(0.1f);
+        if(currentStats.currentStamina < currentStats.maxStamina ) { currentStats.currentStamina += currentStats.staminaRegeneration; }
+        
     }
-  
 }

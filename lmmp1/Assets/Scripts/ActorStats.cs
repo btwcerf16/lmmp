@@ -32,7 +32,7 @@ public class ActorStats : MonoBehaviour
         magicDamageMultiplyer = ConfigStats.BaseMagicDamageMultiplyer;
         physicDamageMultiplyer = ConfigStats.BasePhysicDamageMultiplyer;
         invincibleTimeFrame = ConfigStats.BaseInvincibleTimeFrame;
-
+        critChance = ConfigStats.BaseCritChanse;
 
     }
 

@@ -1987,8 +1987,9 @@ MonoBehaviour:
   physicDamageMultiplyer: 0
   invincibleTimeFrame: 0
   currentStamina: 0
-  staminaRegeneration: 0
+  staminaRegeneration: 1
   currentHealth: 0
+  critChance: 0
 --- !u!114 &7708816049558792373
 MonoBehaviour:
   m_ObjectHideFlags: 0

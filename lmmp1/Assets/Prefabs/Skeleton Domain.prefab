@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 176072491436458058}
   - component: {fileID: 792491849092032076}
   - component: {fileID: 6826800435840088798}
+  - component: {fileID: 1179795367508196739}
   - component: {fileID: 7191555696159466622}
   m_Layer: 9
   m_Name: Skeleton
@@ -478,13 +479,11 @@ MonoBehaviour:
   "attackIn\u0421ooldown": 0
   <IsAggroed>k__BackingField: 0
   <IsWithinStrikingDistance>k__BackingField: 0
-  idleSpeed: 1
-  idleRange: 7
+  CurrentStats: {fileID: 1179795367508196739}
   waitIdleTime: 0.5
   rightPos: {fileID: 8035742391985296357}
   leftPos: {fileID: 8391562714409172804}
   targetPos: {x: 0, y: 0, z: 0}
-  chaseSpeed: 3
   _waitTime: 0
   <damage>k__BackingField: 3
   <enemyLayer>k__BackingField:
@@ -493,6 +492,33 @@ MonoBehaviour:
   <attack1point>k__BackingField: {fileID: 7642980230579543208}
   <attackArea>k__BackingField: 1.05
   <coolDown>k__BackingField: 0
+--- !u!114 &1179795367508196739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5900214616070830107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e4e3d3eb1c3534db686b40eb61d333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConfigStats: {fileID: 11400000, guid: 8f6b74ab460911649966956293ee9312, type: 2}
+  speed: 0
+  maxHealth: 0
+  attackDamage: 0
+  maxStamina: 0
+  jumpForce: 0
+  magicResistance: 0
+  physicResistance: 0
+  magicDamageMultiplyer: 0
+  physicDamageMultiplyer: 0
+  invincibleTimeFrame: 0
+  currentStamina: 0
+  staminaRegeneration: 0
+  currentHealth: 0
+  critChance: 0
 --- !u!95 &7191555696159466622
 Animator:
   serializedVersion: 5

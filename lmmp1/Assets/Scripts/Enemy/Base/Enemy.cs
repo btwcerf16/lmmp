@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable, ITeamable
@@ -32,14 +33,15 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public EnemyIdleState IdleState { get; set; }
     public EnemyDeathState DeathState { get; set; }
 
-
+    public CharacterBaseStats BaseStats { get; }
+    public ActorStats CurrentStats;
 
     #endregion
 
     #region Idle variables
     [Header("Idle Settings")]
-    public float idleSpeed = 1.0f;
-    public float idleRange = 6.0f;
+  
+    
     public float waitIdleTime = 0.5f;
     public Transform rightPos;
     public Transform leftPos;
@@ -48,9 +50,8 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     #endregion
 
     #region Chase variables
-    [Header("Chase Settings")]
+    //[Header("Chase Settings")]
 
-    public float chaseSpeed = 2.0f;
 
     #endregion
 
@@ -68,6 +69,8 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     private void Start()
     {
+        
+
         canMove = true;
 
         animator = GetComponent<Animator>();

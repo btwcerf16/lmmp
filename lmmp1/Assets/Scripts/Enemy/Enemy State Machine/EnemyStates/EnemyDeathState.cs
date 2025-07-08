@@ -17,8 +17,8 @@ public class EnemyDeathState : EnemyState
     {
         base.EnterState();
         enemy.animator.SetTrigger("Death");
-        enemy.chaseSpeed = 0;
-        enemy.idleSpeed = 0;
+        enemy.CurrentStats.speed = 0;
+        
     }
 
     public override void ExitState()
