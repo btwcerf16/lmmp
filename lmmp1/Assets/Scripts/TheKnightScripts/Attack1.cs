@@ -10,16 +10,9 @@ public class Attack1 : MonoBehaviour, IAttacker
     [field:SerializeField] public Transform attack1point { get; set; }
     [field: SerializeField] public float attackArea { get; set; }
     [field: SerializeField] public float attackCooldown { get; set; }
-    private float _waitTime;
     private Player player;
-    public float waitTime {
-        get {
-            return _waitTime;
-        }
-        set {
-            _waitTime = Mathf.Max(0, value);
-        } 
-    }
+    
+
 
     private void Start()
     {
@@ -28,11 +21,6 @@ public class Attack1 : MonoBehaviour, IAttacker
 
     private void Update()
     {
-        if (waitTime > 0)
-        {
-            waitTime -= Time.deltaTime;
-
-        }
         
     }
     public void Attack()
@@ -44,10 +32,20 @@ public class Attack1 : MonoBehaviour, IAttacker
         {
             if (enemy.GetComponent<IDamageable>() != null)
             {
-                enemy.GetComponent<IDamageable>().Damage(player.currentStats.attackDamage);
+                float roll = Random.value;
+                if (roll <= player.currentStats.critChance/100.0f)
+                {
+                    enemy.GetComponent<IDamageable>().Damage(player.currentStats.attackDamage * player.currentStats.critDamage/100.0f * player.currentStats.physicDamageMultiplyer);
+                    Debug.Log(" –»“ " + player.currentStats.attackDamage * player.currentStats.critDamage / 100.0f * player.currentStats.physicDamageMultiplyer + " ÿ¿Õ— " + roll);
+                }
+                else
+                {
+                    enemy.GetComponent<IDamageable>().Damage(player.currentStats.attackDamage * player.currentStats.physicDamageMultiplyer);
+                    Debug.Log("ÕÂ –»“ " + player.currentStats.attackDamage * player.currentStats.physicDamageMultiplyer + " ÿ¿Õ— " + roll);
+                }
             }
         }
-        waitTime = attackCooldown;
+       
     }
     private void OnDrawGizmosSelected()
     {

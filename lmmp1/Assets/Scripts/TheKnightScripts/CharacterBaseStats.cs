@@ -16,4 +16,5 @@ public class CharacterBaseStats : ScriptableObject
     public float BasePhysicDamageMultiplyer;
     public float BaseInvincibleTimeFrame;
     public float BaseCritChanse;
+    public float BaseCritDamage;
 }

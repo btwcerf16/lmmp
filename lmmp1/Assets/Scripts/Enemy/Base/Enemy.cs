@@ -6,8 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable, ITeamable
 {
     
-    [field: SerializeField] public float maxHealth { get; set; }
-    [field: SerializeField] public float currentHealth { get; set; }
+    
 
     [field: SerializeField] public bool IsFacingRight { get; set; } = true;
 
@@ -77,7 +76,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
         rigidBody2D = GetComponent<Rigidbody2D>();
 
-        currentHealth = maxHealth;
+        
 
         StateMachine.Initialize(IdleState);
         
@@ -99,16 +98,16 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     #region Damage/Die/Heal
     public void Damage(float damageAmount)
     {
-        currentHealth -= damageAmount;
+        CurrentStats.currentHealth -= damageAmount;
 
-        if (currentHealth <= 0) {
+        if (CurrentStats.currentHealth <= 0) {
             StateMachine.ChangeState(DeathState);
         }
 
     }
     public void Heal(float healAmount)
     {
-        currentHealth += healAmount;
+        CurrentStats.currentHealth += healAmount;
     }
     public void Die()
     {

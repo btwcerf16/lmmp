@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SkeletonBaseStats
   m_EditorClassIdentifier: 
   BaseSpeed: 3
-  BaseMaxHealth: 15
-  BaseAttackDamage: 3
+  BaseMaxHealth: 1500
+  BaseAttackDamage: 0
   BaseMaxStamina: 0
   BaseJumpForce: 0
   BaseMagicResistance: 10
@@ -23,3 +23,4 @@ MonoBehaviour:
   BasePhysicDamageMultiplyer: 1
   BaseInvincibleTimeFrame: 0
   BaseCritChanse: 0
+  BaseCritDamage: 0

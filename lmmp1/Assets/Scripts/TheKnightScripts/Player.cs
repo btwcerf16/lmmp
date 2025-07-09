@@ -101,22 +101,19 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
 
         }
        
-        if (moveVector.x == 0 && rigidbody2D.velocity.x == 0 && canAttack && canRoll && attack1.waitTime == 0)
+        if (moveVector.x == 0 && rigidbody2D.velocity.x == 0 && canAttack && canRoll)
         {
             _SM.ChangeState(new IdleState(this));
         }
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            if ((attack1.waitTime == 0))
-            {
+            
                 if (canAttack)
                 {
                     _SM.ChangeState(new Attack1State(this));
 
                 }
-            }
-
-
+            
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && canJump && isGrounded)
@@ -139,7 +136,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         }
         if (assailable && !isAttacked)
         {
-            StartCoroutine(StaminaRegeneration());
+            if (currentStats.currentStamina < currentStats.maxStamina) { currentStats.currentStamina += currentStats.staminaRegeneration; }
         }
     }
 
@@ -215,11 +212,6 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         assailable = true;
     }
 
-    IEnumerator StaminaRegeneration()
-    {
-        
-        yield return new WaitForSeconds(0.1f);
-        if(currentStats.currentStamina < currentStats.maxStamina ) { currentStats.currentStamina += currentStats.staminaRegeneration; }
-        
-    }
+   
+   
 }

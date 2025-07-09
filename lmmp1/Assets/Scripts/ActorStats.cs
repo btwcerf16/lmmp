@@ -20,6 +20,7 @@ public class ActorStats : MonoBehaviour
     public float staminaRegeneration;
     public float currentHealth;
     public float critChance;
+    public float critDamage;
     private void Awake()
     {
         speed = ConfigStats.BaseSpeed;
@@ -33,6 +34,7 @@ public class ActorStats : MonoBehaviour
         physicDamageMultiplyer = ConfigStats.BasePhysicDamageMultiplyer;
         invincibleTimeFrame = ConfigStats.BaseInvincibleTimeFrame;
         critChance = ConfigStats.BaseCritChanse;
+        critDamage = ConfigStats.BaseCritDamage;
 
     }
 
