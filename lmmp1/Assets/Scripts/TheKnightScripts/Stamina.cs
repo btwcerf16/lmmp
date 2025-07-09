@@ -33,7 +33,7 @@ public class Stamina : MonoBehaviour
     public void RechargeStaminaAmount()
     {
 
-        player.currentStats.currentStamina += player.currentStats.staminaRegeneration;
+        player.currentStats.currentStamina += player.currentStats.staminaRegeneration * Time.deltaTime;
         staminaImage.fillAmount = (player.currentStats.currentStamina) / 100.0f;
     }
 }

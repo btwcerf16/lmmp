@@ -136,7 +136,9 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         }
         if (assailable && !isAttacked)
         {
-            if (currentStats.currentStamina < currentStats.maxStamina) { currentStats.currentStamina += currentStats.staminaRegeneration; }
+            if (currentStats.currentStamina < currentStats.maxStamina) {
+                stamina.RechargeStaminaAmount();
+            }
         }
     }
 

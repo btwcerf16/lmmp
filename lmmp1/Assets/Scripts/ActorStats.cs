@@ -16,9 +16,16 @@ public class ActorStats : MonoBehaviour
     public float magicDamageMultiplyer;
     public float physicDamageMultiplyer;
     public float invincibleTimeFrame;
-    public float currentStamina;
+
+    [SerializeField] private float _currentStamina;
+    [SerializeField] private float _currentHealth;
+
+    public float currentStamina { get => _currentStamina; set => _currentStamina = Mathf.Clamp(value, -100, maxStamina); }
+    public float currentHealth { get => _currentHealth; set => _currentHealth = Mathf.Clamp(value, 0, maxHealth); }
+
+
+
     public float staminaRegeneration;
-    public float currentHealth;
     public float critChance;
     public float critDamage;
     private void Awake()
