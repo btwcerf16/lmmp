@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActorStats : MonoBehaviour
 {
@@ -17,11 +18,26 @@ public class ActorStats : MonoBehaviour
     public float physicDamageMultiplyer;
     public float invincibleTimeFrame;
 
+   
+
     [SerializeField] private float _currentStamina;
     [SerializeField] private float _currentHealth;
 
-    public float currentStamina { get => _currentStamina; set => _currentStamina = Mathf.Clamp(value, -100, maxStamina); }
-    public float currentHealth { get => _currentHealth; set => _currentHealth = Mathf.Clamp(value, 0, maxHealth); }
+    private HealthBar healthBar;
+
+    public float currentStamina { get => _currentStamina; 
+        set => _currentStamina = Mathf.Clamp(value, -100, maxStamina);
+
+    
+    }
+    public float currentHealth { get => _currentHealth;
+        set 
+        {
+            _currentHealth = Mathf.Clamp(value, 0, maxHealth);
+            if(healthBar != null) { healthBar.ChangeValue(_currentHealth, maxHealth); }
+            
+        }
+    }
 
 
 
@@ -43,6 +59,8 @@ public class ActorStats : MonoBehaviour
         critChance = ConfigStats.BaseCritChanse;
         critDamage = ConfigStats.BaseCritDamage;
 
+
+        healthBar = GetComponent<HealthBar>();
     }
 
     private void Start()

@@ -10,9 +10,15 @@ public class BleedDebuff : Buff
     public override void Apply(ActorStats stats, MonoBehaviour owner)
     {
         
-
-        owner.GetComponent<BuffUIHandler>()?.ShowBuff(this);
-        owner.StartCoroutine(DurationOfDeBuff(stats, owner));
+        if (!owner.GetComponent<BuffUIHandler>().activeIcons.ContainsKey(this))
+        {
+            owner.GetComponent<BuffUIHandler>().ShowBuff(this);
+            owner.StartCoroutine(DurationOfDeBuff(stats, owner));
+        }
+        else {
+            owner.GetComponent<BuffUIHandler>().HideBuff(this);
+            owner.GetComponent<BuffUIHandler>().ShowBuff(this);
+        }
         
     }
     IEnumerator DurationOfDeBuff(ActorStats stats, MonoBehaviour owner)

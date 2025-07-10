@@ -56,6 +56,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
     public Canvas CanvasBuffStack;
 
     public ActorStats currentStats;
+    private HealthBar healthBar;
 
     public List<Buff> buffs = new();
     private void Awake()
@@ -66,7 +67,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
 
     private void Start()
     {
-       
+        healthBar = GetComponent<HealthBar>();
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         attack1 = GetComponent<Attack1>();
@@ -158,6 +159,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
         if (assailable)
         {
             currentStats.currentHealth -= damageAmount;
+         
             isAttacked = true;
             assailable = false;
             StartCoroutine(IFrame(currentStats.invincibleTimeFrame));
@@ -172,6 +174,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
     public void Heal(float healAmount)
     {
         currentStats.currentHealth += healAmount;
+        
     }
     private void CheckingGround()
     {

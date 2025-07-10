@@ -22,5 +22,5 @@ MonoBehaviour:
   BaseMagicDamageMultiplyer: 0
   BasePhysicDamageMultiplyer: 1
   BaseInvincibleTimeFrame: 1
-  BaseCritChanse: 50
-  BaseCritDamage: 200
+  BaseCritChanse: 10
+  BaseCritDamage: 130

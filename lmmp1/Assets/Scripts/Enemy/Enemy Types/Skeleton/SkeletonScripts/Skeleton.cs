@@ -13,7 +13,8 @@ public class Skeleton : Enemy, IAttacker
     [field: SerializeField] public LayerMask enemyLayer { get; set; }
     [field: SerializeField] public Transform attack1point { get; set; }
     [field: SerializeField] public float attackArea { get; set; }
-    [field: SerializeField] public float coolDown { get; set; }
+
+    public Buff AttackDebuff;
 
     public float attackCooldown { get; set; }
     public float waitTime
@@ -41,18 +42,16 @@ public class Skeleton : Enemy, IAttacker
             {
                 if (enemy.GetComponent<IDamageable>() != null)
                 {
+
                     enemy.GetComponent<IDamageable>().Damage(damage);
-                    if (enemy.GetComponent<IBuffable>() != null)
-                    {
-                        
-                    }
+                    AttackDebuff.Apply(enemy.GetComponent<ActorStats>(), enemy.GetComponent<MonoBehaviour>());
                 }
             }
             waitTime = attackCooldown;
             Invoke("Reloading", attackCooldown);
         }
     }
-
+ 
     public void Reloading()
     {
         waitTime = 0;
