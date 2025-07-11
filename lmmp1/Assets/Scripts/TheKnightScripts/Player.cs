@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class Player : MonoBehaviour, IDamageable, IBuffable
+public class Player : MonoBehaviour, IDamageable
 {
     
    
@@ -52,18 +52,12 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
     public List<PlayerAttributes> Attribute = new();
 
     public CharacterBaseStats baseStats { get;}
-    public Canvas BuffStack { get; set; }
-    public Canvas CanvasBuffStack;
 
     public ActorStats currentStats;
     private HealthBar healthBar;
 
     public List<Buff> buffs = new();
-    private void Awake()
-    {
-        BuffStack = CanvasBuffStack;
 
-    }
 
     private void Start()
     {
@@ -185,31 +179,7 @@ public class Player : MonoBehaviour, IDamageable, IBuffable
     {
         Destroy(gameObject);
     }
-    public void AddBuff(Buff buff)
-    {
-        buffs.Add(buff);
 
-        ApplyBuffs();
-
-        Debug.Log(buff);
-    }
-
-    public void RemoveBuff(Buff buff)
-    {
-        buffs.Remove(buff);
-
-        ApplyBuffs();
-
-        Debug.Log(buff);
-    }
-    private void ApplyBuffs()
-    {
-        foreach (var buff in buffs)
-        {
-            buff.Apply(currentStats, this);
-            
-        }
-    }
     IEnumerator IFrame(float invincibleTimeFrame)
     {
         yield return new WaitForSeconds(invincibleTimeFrame);
