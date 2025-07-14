@@ -8,28 +8,25 @@ public class BleedDebuff : Buff
 {
     public float BleedPercentDamage;
     public float DeadPercent;
-    private List<Coroutine> activeCoroutines = new();
+    private IEnumerator activeCoroutines;
     public override void Apply(ActorStats stats, MonoBehaviour owner)
     {
-        if (activeCoroutines == null) {
+        if(activeCoroutines == null)
+        {
+            activeCoroutines = DurationOfDeBuff(stats, owner);
 
-            activeCoroutines.Add(owner.StartCoroutine(DurationOfDeBuff(stats, owner)));
+            owner.StartCoroutine(activeCoroutines);
+            
             owner.GetComponent<BuffUIHandler>().ShowBuff(this);
-            owner.StartCoroutine(DurationOfDeBuff(stats, owner));
-
-           
         }
-        else {
-            owner.StopCoroutine(activeCoroutines[0]);
+        else
+        {
+            owner.StopCoroutine(activeCoroutines);
             owner.GetComponent<BuffUIHandler>().HideBuff(this);
-            activeCoroutines.Clear();
-            activeCoroutines.Add(owner.StartCoroutine(DurationOfDeBuff(stats, owner)));
+            activeCoroutines = DurationOfDeBuff(stats, owner);
             owner.GetComponent<BuffUIHandler>().ShowBuff(this);
-            owner.StartCoroutine(DurationOfDeBuff(stats, owner));
-    
+            owner.StartCoroutine(activeCoroutines);
         }
-
-
 
 
     }

@@ -17,7 +17,7 @@ public class ActorStats : MonoBehaviour
     public float magicDamageMultiplyer;
     public float physicDamageMultiplyer;
     public float invincibleTimeFrame;
-
+   
    
 
     [SerializeField] private float _currentStamina;
@@ -35,7 +35,7 @@ public class ActorStats : MonoBehaviour
         {
             _currentHealth = Mathf.Clamp(value, 0, maxHealth);
             if(healthBar != null) { healthBar.ChangeValue(_currentHealth, maxHealth); }
-            
+            if(_currentHealth <= 0) {gameObject.GetComponent<IDamageable>().Die(); }
         }
     }
 
@@ -58,7 +58,7 @@ public class ActorStats : MonoBehaviour
         invincibleTimeFrame = ConfigStats.BaseInvincibleTimeFrame;
         critChance = ConfigStats.BaseCritChanse;
         critDamage = ConfigStats.BaseCritDamage;
-
+        staminaRegeneration = ConfigStats.BaseStaminaRegeneration;
 
         healthBar = GetComponent<HealthBar>();
     }

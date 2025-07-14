@@ -24,6 +24,7 @@ public class EnemyDeathState : EnemyState
     public override void ExitState()
     {
         base.ExitState();
+        
     }
 
     public override void FrameUpdate()

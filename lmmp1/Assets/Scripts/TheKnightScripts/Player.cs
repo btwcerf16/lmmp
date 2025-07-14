@@ -160,10 +160,7 @@ public class Player : MonoBehaviour, IDamageable
         }
 
 
-        if (currentStats.currentHealth <= 0)
-        {
-            Die();
-        }
+
     }
     public void Heal(float healAmount)
     {

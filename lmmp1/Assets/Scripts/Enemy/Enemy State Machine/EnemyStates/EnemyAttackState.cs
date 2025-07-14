@@ -7,39 +7,57 @@ public class EnemyAttackState : EnemyState
     public EnemyAttackState(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
     }
-
+   
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
         base.AnimationTriggerEvent(triggerType);
     }
-
+    
     public override void EnterState()
     {
         base.EnterState();
         Debug.Log("Тут атака");
+
+        
     }
 
     public override void ExitState()
     {
         base.ExitState();
+        
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
-        if (enemy.IsWithinStrikingDistance)
-        {
-            enemy.canMove = false;
-            enemy.animator.SetBool("Attack", true);
-            enemy.animator.SetBool("Walk", false);
-            enemy.animator.SetBool("Idle", false);
-        }
+       
+
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        
-        
+        if (enemy.IsWithinStrikingDistance)
+        {
+
+            enemy.canMove = false;
+
+            if (enemy.CritChance <= enemy.CurrentStats.critChance / 100.0f)
+            {
+                enemy.animator.SetTrigger("Attack1");
+
+
+            }
+            else
+            {
+                enemy.animator.SetTrigger("Attack");
+
+            }
+
+            enemy.animator.SetBool("Walk", false);
+            enemy.animator.SetBool("Idle", false);
+
+        }
+
     }
 }

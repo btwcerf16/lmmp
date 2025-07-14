@@ -16,6 +16,7 @@ public class EnemyStrikingDistanceCheck : MonoBehaviour
     {
         if (collision.gameObject == playerTarget)
         {
+            
             _enemy.SetAggroStatus(false);
             _enemy.SetStrikingDistanceBool(true);
 
@@ -25,11 +26,12 @@ public class EnemyStrikingDistanceCheck : MonoBehaviour
     {
         if (collision.gameObject == playerTarget)
         {
-            _enemy.canMove = true;
+            
             _enemy.SetStrikingDistanceBool(false);
             _enemy.StateMachine.ChangeState(_enemy.ChaseState);
             _enemy.animator.SetBool("Walk", true);
-            _enemy.animator.SetBool("Attack", false);
+            
+            _enemy.canMove = true;
         }
     }
 }

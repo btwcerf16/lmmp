@@ -32,7 +32,7 @@ public class Attack1 : MonoBehaviour, IAttacker
         {
             if (enemy.GetComponent<IDamageable>() != null)
             {
-                float roll = Random.value;
+                float roll= Random.value;
                 if (roll <= player.currentStats.critChance/100.0f)
                 {
                     enemy.GetComponent<IDamageable>().Damage(player.currentStats.attackDamage * player.currentStats.critDamage/100.0f * player.currentStats.physicDamageMultiplyer);

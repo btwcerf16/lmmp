@@ -13,7 +13,9 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     [HideInInspector] public Animator animator;
 
     [Header("States Settings")]
-    
+
+    public float CritChance;
+
 
     public bool canRotate;
     public bool canMove;
@@ -57,6 +59,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     private void Awake()
     {
+        
         StateMachine = new EnemyStateMachine();
 
         IdleState = new EnemyIdleState(this, StateMachine);
@@ -85,9 +88,9 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     private void Update()
     {
         StateMachine.CurrentEnemyState.FrameUpdate();
+       
         
-            
-        
+
     }
 
     private void FixedUpdate()
@@ -100,9 +103,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     {
         CurrentStats.currentHealth -= damageAmount;
 
-        if (CurrentStats.currentHealth <= 0) {
-            StateMachine.ChangeState(DeathState);
-        }
+        
 
     }
     public void Heal(float healAmount)
@@ -111,7 +112,11 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     }
     public void Die()
     {
-        Debug.Log("Мертв");
+        StateMachine.ChangeState(DeathState);
+        
+    }
+    public void DestroyGameObject()
+    {
         Destroy(gameObject);
     }
     #endregion
@@ -167,6 +172,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public void SetStrikingDistanceBool(bool isWithinStrikingDistance)
     {
         IsWithinStrikingDistance = isWithinStrikingDistance;
+        animator.SetBool("IsAttack", true);
     }
 
    

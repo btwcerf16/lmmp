@@ -57,22 +57,6 @@ public class Skeleton : Enemy, IAttacker
         waitTime = 0;
     }
 
-    //private void SkeletonAttack()
-    //{
-    //    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attack1point.position, attackArea, enemyLayer);
-
-
-    //    foreach (Collider2D enemy in hitEnemies)
-    //    {
-    //        if (enemy.GetComponent<IDamageable>() != null)
-    //        {
-    //            enemy.GetComponent<IDamageable>().Damage(5.0f);
-    //        }
-    //    }
-    //    waitTime = coolDown;
-    //}
-
-
     private void OnDrawGizmosSelected()
     {
         if (attack1point == null)
