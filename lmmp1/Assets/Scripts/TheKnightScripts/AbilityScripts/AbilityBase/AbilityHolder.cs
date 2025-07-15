@@ -66,7 +66,6 @@ public class AbilityHolder : MonoBehaviour
                     currentCooldownTime = 0;
                     state = AbilityState.Ready;
                 }
-
                 break;
         }
 

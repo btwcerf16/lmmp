@@ -2277,7 +2277,6 @@ MonoBehaviour:
     amount: 0
   - atribute: {fileID: 0}
     amount: 0
-  CanvasBuffStack: {fileID: 2298319463002024980}
   currentStats: {fileID: 6651834193416187304}
   buffs: []
 --- !u!114 &677283257004644479
@@ -2317,7 +2316,6 @@ MonoBehaviour:
   magicDamageMultiplyer: 0
   physicDamageMultiplyer: 0
   invincibleTimeFrame: 0
-  healthBar: {fileID: 0}
   _currentStamina: 0
   _currentHealth: 0
   staminaRegeneration: 0

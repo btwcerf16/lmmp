@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FloatingDamage : MonoBehaviour
 {
-    [HideInInspector ] public float TotalDamage;
-
-    private TextMesh damageText;
+    
+   private TextMeshPro damageText;
+    [SerializeField] public float TotalDamage;
 
     private void Start()
     {
-         damageText = GetComponent<TextMesh>();
-        damageText.text = TotalDamage.ToString();
+        damageText = GetComponent<TextMeshPro>();
+        damageText.text = "-" + TotalDamage;
+        
     }
 
     public void AnimationEnd()

@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <IsFacingRight>k__BackingField: 1
+  floatingDamage: {fileID: 2443399759038765761, guid: 17ee882498ba84d40bf890d8a3bca58d, type: 3}
   animator: {fileID: 0}
   CritChance: 0
   canRotate: 0

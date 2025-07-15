@@ -14,7 +14,7 @@ public class Player : MonoBehaviour, IDamageable
     [HideInInspector] public Animator animator;
     [HideInInspector] public new Rigidbody2D rigidbody2D;
 
-    
+
 
     [Header("Type of Attack")]
     public Attack1 attack1;
@@ -52,6 +52,8 @@ public class Player : MonoBehaviour, IDamageable
     public List<PlayerAttributes> Attribute = new();
 
     public CharacterBaseStats baseStats { get;}
+    
+    
 
     public ActorStats currentStats;
     private HealthBar healthBar;

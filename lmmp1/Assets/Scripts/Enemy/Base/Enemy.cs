@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -9,7 +10,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     
 
     [field: SerializeField] public bool IsFacingRight { get; set; } = true;
-
+    public GameObject floatingDamage;
     [HideInInspector] public Animator animator;
 
     [Header("States Settings")]
@@ -102,7 +103,13 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public void Damage(float damageAmount)
     {
         CurrentStats.currentHealth -= damageAmount;
-
+        System.Random randomX = new System.Random();
+        System.Random randomY = new System.Random();
+        float randomPosX = randomX.Next(0, 2);
+        float randomPosY = randomY.Next(0, 2);
+        Vector2 damagePos = new Vector2(transform.position.x + randomPosX, transform.position.y+ randomPosY);
+        Instantiate(floatingDamage, damagePos, Quaternion.identity);
+        floatingDamage.GetComponentInChildren<FloatingDamage>().TotalDamage = damageAmount;
         
 
     }

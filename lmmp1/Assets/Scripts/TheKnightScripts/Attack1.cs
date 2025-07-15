@@ -26,13 +26,13 @@ public class Attack1 : MonoBehaviour, IAttacker
     public void Attack()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attack1point.position, attackArea, enemyLayer);
-        
-        
-        foreach(Collider2D enemy in hitEnemies)
+        float roll = Random.value;
+
+        foreach (Collider2D enemy in hitEnemies)
         {
             if (enemy.GetComponent<IDamageable>() != null)
             {
-                float roll= Random.value;
+                
                 if (roll <= player.currentStats.critChance/100.0f)
                 {
                     enemy.GetComponent<IDamageable>().Damage(player.currentStats.attackDamage * player.currentStats.critDamage/100.0f * player.currentStats.physicDamageMultiplyer);
