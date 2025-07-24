@@ -16,7 +16,7 @@ public class EnemyAggroCheck : MonoBehaviour
     {
         if (collision.gameObject == playerTarget) 
         {
-
+            Debug.Log("Звой");
             _enemy.SetAggroStatus(true);
 
         }
@@ -29,6 +29,7 @@ public class EnemyAggroCheck : MonoBehaviour
             
             _enemy.SetAggroStatus(false);
             _enemy.StateMachine.ChangeState(_enemy.IdleState);
+
             if (Vector2.Distance(_enemy.transform.position, _enemy.rightPos.position) < Vector2.Distance(_enemy.transform.position, _enemy.leftPos.position))
             {
                 _enemy.targetPos = _enemy.leftPos.position;
@@ -36,7 +37,6 @@ public class EnemyAggroCheck : MonoBehaviour
             }
             if (Vector2.Distance(_enemy.transform.position, _enemy.leftPos.position) < Vector2.Distance(_enemy.transform.position, _enemy.rightPos.position))
             {
-                
                 _enemy.targetPos = _enemy.rightPos.position;
                 Debug.Log("Правая точка");
             }

@@ -10,8 +10,7 @@ public class BuffUIHandler : MonoBehaviour
     public Transform buffPanel;
     public GameObject buffIconPrefab;
 
-
-    public Dictionary<Buff, List<GameObject>> activeIcons = new();
+public Dictionary<Buff, List<GameObject>> activeIcons = new();
 
 
     public void ShowBuff(Buff buff)
@@ -30,8 +29,9 @@ public class BuffUIHandler : MonoBehaviour
                 if (icon != null)
                     Destroy(icon);
             }
-            activeIcons.Remove(buff);
+
         }
+        activeIcons.Remove(buff);
     }
     private IEnumerator BuffRoutine(Buff buff)
     {

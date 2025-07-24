@@ -17,8 +17,8 @@ public class EnemyAttackState : EnemyState
     {
         base.EnterState();
         Debug.Log("Тут атака");
+        enemy.SetCanMoveBool(false);
 
-        
     }
 
     public override void ExitState()
@@ -40,7 +40,7 @@ public class EnemyAttackState : EnemyState
         if (enemy.IsWithinStrikingDistance)
         {
 
-            enemy.canMove = false;
+            enemy.SetCanMoveBool(false);
 
             if (enemy.CritChance <= enemy.CurrentStats.critChance / 100.0f)
             {

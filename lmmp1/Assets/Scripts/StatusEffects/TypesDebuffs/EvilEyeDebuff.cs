@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
-[CreateAssetMenu(menuName = "Character/Create Debuff/Bleed Debuff")]
-
-public class BleedDebuff : Buff
+[CreateAssetMenu(menuName = "Character/Create Debuff/EvilEye Debuff")]
+public class EvilEyeDebuff : Buff
 {
-    public float BleedPercentDamage;
-    public float DeadPercent;
+    public int HitToDeath;
+    public int Hits;
+    public float DamagePercent;
     private IEnumerator activeCoroutines;
+
     public override void Apply(ActorStats stats, MonoBehaviour owner)
     {
         if (activeCoroutines == null)
@@ -16,38 +16,34 @@ public class BleedDebuff : Buff
             activeCoroutines = DurationOfDeBuff(stats, owner);
 
             owner.StartCoroutine(activeCoroutines);
-
+            Hits = 1;
+            
             owner.GetComponent<BuffUIHandler>().ShowBuff(this);
+
         }
         else
         {
             owner.StopCoroutine(activeCoroutines);
             owner.GetComponent<BuffUIHandler>().HideBuff(this);
             activeCoroutines = DurationOfDeBuff(stats, owner);
+            Hits++;
+            Debug.Log(Hits);
+
             owner.GetComponent<BuffUIHandler>().ShowBuff(this);
             owner.StartCoroutine(activeCoroutines);
+            if (Hits == HitToDeath)
+            {
+                stats.currentHealth -= stats.maxHealth * DamagePercent / 100.0f;
+                Hits = 0;
+            }
         }
-
-
     }
- 
     IEnumerator DurationOfDeBuff(ActorStats stats, MonoBehaviour owner)
     {
-        
-        float timeRemaining = Duration;
-        while (timeRemaining > 0f)
-        {
-            yield return new WaitForSeconds(1.0f);
-            stats.currentHealth -= (BleedPercentDamage/100.0f)*stats.currentHealth;
-            timeRemaining -= 1.0f;
-            if(stats.currentHealth <= (DeadPercent/100.0f) * stats.maxHealth) { stats.currentHealth = 0; }
-            
-        }
-
-           
+        yield return new WaitForSeconds(Duration);
+        Hits = 0;
         owner.GetComponent<BuffUIHandler>().HideBuff(this);
-        
-        
+
 
     }
 }

@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
 
     public bool canRotate;
-    public bool canMove;
+    public bool CanMove;
     
     public bool attackInСooldown;
     public Rigidbody2D rigidBody2D { get; set; }
@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public EnemyAttackState AttackState { get; set; }
     public EnemyIdleState IdleState { get; set; }
     public EnemyDeathState DeathState { get; set; }
+    public EnemyCastState CastState { get; set; }
 
     public CharacterBaseStats BaseStats { get; }
     public ActorStats CurrentStats;
@@ -62,19 +63,20 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     {
         
         StateMachine = new EnemyStateMachine();
-
+        
         IdleState = new EnemyIdleState(this, StateMachine);
         ChaseState = new EnemyChaseState(this, StateMachine);
         AttackState = new EnemyAttackState(this, StateMachine);
         DeathState = new EnemyDeathState(this, StateMachine);
+        CastState = new EnemyCastState(this, StateMachine);
     }
 
 
     private void Start()
     {
-        
 
-        canMove = true;
+
+        SetCanMoveBool(true);
 
         animator = GetComponent<Animator>();
 
@@ -89,8 +91,8 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     private void Update()
     {
         StateMachine.CurrentEnemyState.FrameUpdate();
-       
-        
+
+
 
     }
 
@@ -103,11 +105,11 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public void Damage(float damageAmount)
     {
         CurrentStats.currentHealth -= damageAmount;
-        System.Random randomX = new System.Random();
-        System.Random randomY = new System.Random();
-        float randomPosX = randomX.Next(0, 2);
-        float randomPosY = randomY.Next(0, 2);
-        Vector2 damagePos = new Vector2(transform.position.x + randomPosX, transform.position.y+ randomPosY);
+        //System.Random randomX = new System.Random();
+        //System.Random randomY = new System.Random();
+        //float randomPosX = randomX.Next(0, 2);
+        //float randomPosY = randomY.Next(0, 2);
+        Vector2 damagePos = new Vector2(transform.position.x, transform.position.y+ 1.5f);
         Instantiate(floatingDamage, damagePos, Quaternion.identity);
         floatingDamage.GetComponentInChildren<FloatingDamage>().TotalDamage = damageAmount;
         
@@ -131,11 +133,10 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     #region Move functions
     public void MoveEnemy(Vector2 velocity)
     {   
-        if (canMove) 
-        {
-            rigidBody2D.velocity = velocity;
+
+            rigidBody2D.velocity = velocity ;
             CheckRotateOfFace(velocity);
-        }     
+   
     }
 
     public void CheckRotateOfFace(Vector2 velocity)
@@ -181,7 +182,19 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         IsWithinStrikingDistance = isWithinStrikingDistance;
         animator.SetBool("IsAttack", true);
     }
-
+    public void SetCanMoveBool(bool canMove)
+    {
+        CanMove = canMove;
+        
+        if (!CanMove)
+        {
+            MoveEnemy(Vector2.zero);
+            //rigidBody2D.velocity = Vector2.zero;
+            
+        }
+       
+       
+    }
    
     #endregion
 

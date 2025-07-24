@@ -58,7 +58,7 @@ public class Player : MonoBehaviour, IDamageable
     public ActorStats currentStats;
     private HealthBar healthBar;
 
-    public List<Buff> buffs = new();
+    public Buff TestBuff;
 
 
     private void Start()
@@ -86,9 +86,9 @@ public class Player : MonoBehaviour, IDamageable
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-            
-            Debug.Log(currentStats.currentHealth);
-            
+
+            TestBuff.Apply(currentStats, this);
+
 
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && canMove)

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BringerOfDeath : Enemy, IAttacker
 {
-
+    public Buff AttackDebuff;
     [Header("Attack Settigs")]
     [SerializeField] private float _waitTime;
     [field: SerializeField] public float damage { get; set; }
@@ -13,9 +14,13 @@ public class BringerOfDeath : Enemy, IAttacker
     [field: SerializeField] public Transform attack1point { get; set; }
     [field: SerializeField] public float attackArea { get; set; }
 
-    public Buff AttackDebuff;
+    
 
     [field: SerializeField] public float attackCooldown { get; set; }
+
+    public GameObject SpellGameObject;
+    public Transform SpellPosition;
+
     public float waitTime
     {
         get
@@ -86,6 +91,10 @@ public class BringerOfDeath : Enemy, IAttacker
             _waitTime = attackCooldown;
             Invoke("Reloading", attackCooldown);
         }
+    }
+    public void CastSpell()
+    {
+        Instantiate(SpellGameObject, SpellPosition);
     }
 }
     

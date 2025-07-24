@@ -10311,11 +10311,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4247552690938173698, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.54
+      value: -15.32
       objectReference: {fileID: 0}
     - target: {fileID: 4247552690938173698, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.25
+      value: 4.41
       objectReference: {fileID: 0}
     - target: {fileID: 4247552690938173698, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10410,9 +10410,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1704438181329697102, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704438181329697102, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888306240099335210, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
+      propertyPath: m_Size.y
+      value: 3.7195845
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888306240099335210, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
+      propertyPath: m_Center.y
+      value: 0.13538241
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888306240099335210, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4337431725945913096, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4337431725945913096, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811734348580871047, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
+      propertyPath: m_Name
+      value: CastPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502317051439365410, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
+      propertyPath: m_Size.x
+      value: 13.709864
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502317051439365410, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.54139614
+      objectReference: {fileID: 0}
     - target: {fileID: 7411669798443584110, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
       propertyPath: m_Name
       value: BringerOfDeath Domain
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025557375362038466, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.88
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
