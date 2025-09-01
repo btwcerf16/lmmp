@@ -12,6 +12,7 @@ public class RunState : State
     public override void Enter()
     {
         base.Enter();
+      
         _player.animator.SetBool("Run", true);
         _player.canAttack = false;
         _player.State = "Run";
@@ -25,7 +26,11 @@ public class RunState : State
         
         if (_player.moveVector.x > 0 && !_player.faceRight || _player.moveVector.x < 0 && _player.faceRight)
         {
+           
+
             _player.Flip();
+            _player.animator.SetTrigger("TurnAround");
+
         }
 
     }

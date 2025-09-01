@@ -42,7 +42,7 @@ public class EnemyAttackState : EnemyState
 
             enemy.SetCanMoveBool(false);
 
-            if (enemy.CritChance <= enemy.CurrentStats.critChance / 100.0f)
+            if (enemy.CritChance < enemy.CurrentStats.critChance / 100.0f)
             {
                 enemy.animator.SetTrigger("Attack1");
 

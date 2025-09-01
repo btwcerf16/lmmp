@@ -99,7 +99,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.8
 --- !u!114 &5284707650500871063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 10659253, guid: 4d56343b60ea049459cf40b2c7d3acf5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -472,9 +472,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <IsFacingRight>k__BackingField: 1
+  floatingDamage: {fileID: 2443399759038765761, guid: 17ee882498ba84d40bf890d8a3bca58d, type: 3}
   animator: {fileID: 0}
+  CritChance: 0
   canRotate: 0
-  canMove: 0
+  CanMove: 0
   "attackIn\u0421ooldown": 0
   <IsAggroed>k__BackingField: 0
   <IsWithinStrikingDistance>k__BackingField: 0

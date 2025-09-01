@@ -17,8 +17,7 @@ public class DamageAbility : Ability
             Buff.Apply(player.currentStats, player);
             if (enemy.GetComponent<IDamageable>() != null)
                 {
-                enemy.GetComponent<IDamageable>().Damage((damageCount*player.currentStats.physicDamageMultiplyer));
-                    
+                    enemy.GetComponent<IDamageable>().Damage((damageCount*player.currentStats.physicDamageMultiplyer));
                 }
             }
     }

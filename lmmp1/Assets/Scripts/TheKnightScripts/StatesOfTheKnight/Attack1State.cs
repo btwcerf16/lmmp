@@ -3,7 +3,7 @@ using UnityEngine;
 public class Attack1State : State
 {
     private Player _player;
-
+    
     public Attack1State(Player player)
     {
         _player = player;

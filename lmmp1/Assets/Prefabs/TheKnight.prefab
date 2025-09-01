@@ -2236,7 +2236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225d8108cfbb7cb4185fef6e30f3290a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: ad0e0418db4ac164385f32d0d375b752, type: 2}
+  ability: {fileID: 11400000, guid: f5f080e532bc47f469642c452367c257, type: 2}
   currentCooldownTime: 0
   currentActiveTime: 0
   key: 9
@@ -2255,7 +2255,6 @@ MonoBehaviour:
   stamina: {fileID: 0}
   animator: {fileID: 0}
   rigidbody2D: {fileID: 0}
-  attack1: {fileID: 7708816049558792373}
   dash: {fileID: 2702121651282502742}
   faceRight: 1
   moveVector: {x: 0, y: 0}
@@ -2278,7 +2277,10 @@ MonoBehaviour:
   - atribute: {fileID: 0}
     amount: 0
   currentStats: {fileID: 6651834193416187304}
-  buffs: []
+  TestBuff: {fileID: 0}
+  HurtEffect:
+  - {fileID: 3510177781130693405, guid: 998e988543e1d774db8efd37aae3af67, type: 3}
+  - {fileID: 3510177781130693405, guid: cb379e90205019e41bb0768bd4346097, type: 3}
 --- !u!114 &677283257004644479
 MonoBehaviour:
   m_ObjectHideFlags: 0

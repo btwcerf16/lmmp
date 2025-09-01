@@ -94,7 +94,7 @@ public class BringerOfDeath : Enemy, IAttacker
     }
     public void CastSpell()
     {
-        Instantiate(SpellGameObject, SpellPosition);
+        Instantiate(SpellGameObject, SpellPosition.position, Quaternion.identity); 
     }
 }
     

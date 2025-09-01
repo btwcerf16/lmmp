@@ -17,14 +17,14 @@ public class EnemyDeathState : EnemyState
     {
         base.EnterState();
         enemy.animator.SetTrigger("Death");
-        enemy.SetCanMoveBool(false);
+        
         
     }
 
     public override void ExitState()
     {
         base.ExitState();
-        
+        enemy.SetCanMoveBool(false);
     }
 
     public override void FrameUpdate()

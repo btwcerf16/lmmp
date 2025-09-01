@@ -104,15 +104,18 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     #region Damage/Die/Heal
     public void Damage(float damageAmount)
     {
-        CurrentStats.currentHealth -= damageAmount;
+
+
         //System.Random randomX = new System.Random();
         //System.Random randomY = new System.Random();
         //float randomPosX = randomX.Next(0, 2);
         //float randomPosY = randomY.Next(0, 2);
+        floatingDamage.GetComponentInChildren<FloatingDamage>().TotalDamage = damageAmount;
         Vector2 damagePos = new Vector2(transform.position.x, transform.position.y+ 1.5f);
         Instantiate(floatingDamage, damagePos, Quaternion.identity);
-        floatingDamage.GetComponentInChildren<FloatingDamage>().TotalDamage = damageAmount;
         
+        CurrentStats.currentHealth -= damageAmount;
+
 
     }
     public void Heal(float healAmount)
@@ -133,29 +136,22 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     #region Move functions
     public void MoveEnemy(Vector2 velocity)
     {   
-
             rigidBody2D.velocity = velocity ;
             CheckRotateOfFace(velocity);
-   
     }
 
     public void CheckRotateOfFace(Vector2 velocity)
     {
-        
         if ((IsFacingRight && velocity.x < 0) && canRotate)
         {
-
             transform.eulerAngles = new Vector3 (0, 180, 0);
             IsFacingRight = !IsFacingRight;
         }
         else if ((!IsFacingRight && velocity.x > 0) && canRotate)
         {
-
             transform.eulerAngles = new Vector3(0, 0, 0);
             IsFacingRight = !IsFacingRight;
         }
-
-
     }
     #endregion
 
@@ -164,7 +160,8 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     {
         EnemyDamaged
     }
-    private void AnimationTriggerEvent(AnimationTriggerType triggerType) {
+    private void AnimationTriggerEvent(AnimationTriggerType triggerType) 
+    {
     
         StateMachine.CurrentEnemyState.AnimationTriggerEvent(triggerType);
 
@@ -189,11 +186,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         if (!CanMove)
         {
             MoveEnemy(Vector2.zero);
-            //rigidBody2D.velocity = Vector2.zero;
-            
         }
-       
-       
     }
    
     #endregion

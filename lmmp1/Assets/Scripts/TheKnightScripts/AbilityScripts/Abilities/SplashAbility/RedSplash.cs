@@ -1,0 +1,53 @@
+using System.Collections;
+using System.Collections.Generic;
+
+using UnityEngine;
+
+public class RedSplash : MonoBehaviour
+{
+    private Player player;
+    private Vector2 attackPoint;
+    public float AttackArea;
+    public LayerMask EnemyLayer;
+    public float DamagePercent;
+
+    private void Awake()
+    {
+        player = GetComponentInParent<Player>();
+        attackPoint = new Vector2(transform.position.x, transform.position.y);
+    }
+
+    private void SplashDamage()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint, AttackArea, EnemyLayer);
+        
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            if (enemy.GetComponent<IDamageable>() != null)
+            {
+                if (player.currentStats.currentStamina >= 0)
+                { enemy.GetComponent<IDamageable>().Damage(((player.currentStats.attackDamage * 
+                    player.currentStats.physicDamageMultiplyer) * DamagePercent/100.0f) * 0.6f); }
+
+                else { enemy.GetComponent<IDamageable>().Damage((player.currentStats.attackDamage * 
+                    player.currentStats.physicDamageMultiplyer) * DamagePercent / 100.0f); }    
+            }
+        }
+        Debug.Log("1");
+    }
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+        {
+            return;
+        }
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPoint, AttackArea);
+    }
+    private void DestroyOnEnd()
+    {
+        Destroy(gameObject);
+    }
+}

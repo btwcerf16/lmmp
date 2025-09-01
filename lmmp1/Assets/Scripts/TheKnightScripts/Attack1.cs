@@ -18,11 +18,6 @@ public class Attack1 : MonoBehaviour, IAttacker
     {
         player = GetComponent<Player>();
     }
-
-    private void Update()
-    {
-        
-    }
     public void Attack()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attack1point.position, attackArea, enemyLayer);

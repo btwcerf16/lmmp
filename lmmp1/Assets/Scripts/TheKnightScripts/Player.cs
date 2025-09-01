@@ -17,7 +17,7 @@ public class Player : MonoBehaviour, IDamageable
 
 
     [Header("Type of Attack")]
-    public Attack1 attack1;
+    //public Attack1 attack1;
     [Header("Dash Specimen")]
     public Dash dash;
     [Header("Move variable")]
@@ -60,13 +60,14 @@ public class Player : MonoBehaviour, IDamageable
 
     public Buff TestBuff;
 
+    public List<GameObject> HurtEffect;
 
     private void Start()
     {
         healthBar = GetComponent<HealthBar>();
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
-        attack1 = GetComponent<Attack1>();
+        //attack1 = GetComponent<Attack1>();
         stamina = GetComponent<Stamina>();
 
         _SM = new StateMachine();
@@ -87,8 +88,8 @@ public class Player : MonoBehaviour, IDamageable
         if (Input.GetKeyDown(KeyCode.V))
         {
 
-            TestBuff.Apply(currentStats, this);
-
+            //TestBuff.Apply(currentStats, this);
+            Damage(0);
 
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && canMove)
@@ -104,13 +105,11 @@ public class Player : MonoBehaviour, IDamageable
         }
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            
-                if (canAttack)
-                {
+            if (canAttack)
+            {
                     _SM.ChangeState(new Attack1State(this));
 
-                }
-            
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && canJump && isGrounded)
@@ -142,10 +141,10 @@ public class Player : MonoBehaviour, IDamageable
 
     public void Flip()
     {
-
+       
         transform.localScale *= new Vector2(-1, 1);
         faceRight = !faceRight;
-
+       
     }
 
     public void Damage(float damageAmount)
@@ -158,6 +157,10 @@ public class Player : MonoBehaviour, IDamageable
          
             isAttacked = true;
             assailable = false;
+
+            Vector2 damagePos = new Vector2(transform.position.x + Random.Range(-1.0f, 1.0f), transform.position.y + Random.Range(-1.0f, .5f));
+            Instantiate(HurtEffect[Random.Range(0,2)], damagePos, Quaternion.identity);
+
             StartCoroutine(IFrame(currentStats.invincibleTimeFrame));
         }
 
