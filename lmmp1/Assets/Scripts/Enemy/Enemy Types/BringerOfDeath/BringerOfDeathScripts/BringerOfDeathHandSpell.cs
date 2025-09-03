@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BringerOfDeathHandSpell : MonoBehaviour
 {
-    public Buff Debuff;
+    
     private GameObject playerTarget;
     private void Awake()
     {
@@ -15,7 +15,7 @@ public class BringerOfDeathHandSpell : MonoBehaviour
         if(collision.gameObject == playerTarget)
         
         {
-            Debuff.Apply(playerTarget.GetComponent<ActorStats>(), playerTarget.GetComponent<MonoBehaviour>());
+            
         }
             
     }

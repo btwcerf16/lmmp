@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BringerOfDeath : Enemy, IAttacker
 {
-    public Buff AttackDebuff;
+    
     [Header("Attack Settigs")]
     [SerializeField] private float _waitTime;
     [field: SerializeField] public float damage { get; set; }
@@ -84,7 +84,7 @@ public class BringerOfDeath : Enemy, IAttacker
                 {
 
                     enemy.GetComponent<IDamageable>().Damage(CurrentStats.attackDamage * CurrentStats.critDamage/100.0f);
-                    AttackDebuff.Apply(enemy.GetComponent<ActorStats>(), enemy.GetComponent<MonoBehaviour>());
+                    
 
                 }
             }

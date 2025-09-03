@@ -14,7 +14,6 @@ public class DamageAbility : Ability
         player = owner.GetComponent<Player>();
         foreach (Collider2D enemy in hitEnemies)
             {
-            Buff.Apply(player.currentStats, player);
             if (enemy.GetComponent<IDamageable>() != null)
                 {
                     enemy.GetComponent<IDamageable>().Damage((damageCount*player.currentStats.physicDamageMultiplyer));

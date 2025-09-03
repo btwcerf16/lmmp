@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class Player : MonoBehaviour, IDamageable
+public abstract class Player : MonoBehaviour, IDamageable
 {
     
    
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour, IDamageable
     public ActorStats currentStats;
     private HealthBar healthBar;
 
-    public Buff TestBuff;
+   
 
     public List<GameObject> HurtEffect;
 
