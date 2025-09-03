@@ -6,11 +6,14 @@ using UnityEngine;
 public abstract class Effect : ScriptableObject
 {
     public string EffectName;
-    public string EffectDuration;
+    public float EffectDuration;
+    public float CurrentDuration;
     public string EffectDescription;
 
-    public virtual void ApplyEffect(ActorStats owner) { }
 
+    public virtual void EffectSatrt(ActorStats owner) { }
+    public virtual void EffectApply(ActorStats owner) { }
+    public virtual void EffectEnd(ActorStats owner) { }
 
 
 }

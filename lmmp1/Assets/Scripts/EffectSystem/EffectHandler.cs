@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class EffectHandler : MonoBehaviour
 {
+    public ActorStats OwnerActorStats;
+
     public List<Effect> ActiveEffects = new();
 
+
+    private void Start()
+    {
+        OwnerActorStats = GetComponent<ActorStats>();
+    }
     private void Update()
     {
-        for (int i = 0; i < ActiveEffects.Count - 1; i++) {
-            //ActiveEffects[i].ApplyEffect();
+        for (int i = 0; i < ActiveEffects.Count; i++) {
+            ActiveEffects[i].EffectApply(OwnerActorStats);
+            ActiveEffects[i].CurrentDuration -= Time.deltaTime;
+            if(ActiveEffects[i].CurrentDuration <= 0)
+            {
+                ActiveEffects[i].EffectEnd(OwnerActorStats);
+                RemoveEffect(ActiveEffects[i]);
+            }
         }
     }
     public void AddEffect(Effect effect)
     {
-        if (ActiveEffects.Contains(effect)) { RemoveEffect(effect); ActiveEffects.Add(effect); }
-        else ActiveEffects.Add(effect);
+        if (ActiveEffects.Contains(effect)) { RemoveEffect(effect); ActiveEffects.Add(effect); effect.EffectSatrt(OwnerActorStats) ; effect.CurrentDuration = effect.EffectDuration; }
+        else ActiveEffects.Add(effect); effect.CurrentDuration = effect.EffectDuration; ;
     }
     public void RemoveEffect(Effect effect) 
     { 

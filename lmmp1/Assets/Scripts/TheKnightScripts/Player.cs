@@ -58,7 +58,8 @@ public abstract class Player : MonoBehaviour, IDamageable
     public ActorStats currentStats;
     private HealthBar healthBar;
 
-   
+    public EffectHandler PlayerEffectHandler;
+    public Effect effect;
 
     public List<GameObject> HurtEffect;
 
@@ -69,6 +70,8 @@ public abstract class Player : MonoBehaviour, IDamageable
         rigidbody2D = GetComponent<Rigidbody2D>();
         //attack1 = GetComponent<Attack1>();
         stamina = GetComponent<Stamina>();
+
+        PlayerEffectHandler = GetComponent<EffectHandler>();
 
         _SM = new StateMachine();
         _SM.Initialize(new IdleState(this));
@@ -87,9 +90,9 @@ public abstract class Player : MonoBehaviour, IDamageable
 
         if (Input.GetKeyDown(KeyCode.V))
         {
+            PlayerEffectHandler.AddEffect(effect);
 
-            //TestBuff.Apply(currentStats, this);
-            Damage(0);
+
 
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && canMove)
