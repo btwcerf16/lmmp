@@ -59,7 +59,7 @@ public abstract class Player : MonoBehaviour, IDamageable
     private HealthBar healthBar;
 
     public EffectHandler PlayerEffectHandler;
-    public Effect effect;
+    public List<Effect> effects;
 
     public List<GameObject> HurtEffect;
 
@@ -86,11 +86,17 @@ public abstract class Player : MonoBehaviour, IDamageable
         moveVector.x = Input.GetAxis("Horizontal");
         CheckingGround();
 
-        
 
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            PlayerEffectHandler.AddEffect(effects[1]);
+
+
+
+        }
         if (Input.GetKeyDown(KeyCode.V))
         {
-            PlayerEffectHandler.AddEffect(effect);
+            PlayerEffectHandler.AddEffect(effects[0]);
 
 
 

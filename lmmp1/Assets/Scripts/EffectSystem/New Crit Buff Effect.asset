@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 850389d259d90994da6136131f0558ab, type: 3}
-  m_Name: CritChanceBuff
+  m_Script: {fileID: 11500000, guid: 2d9556c7313a87646b401aceb098922d, type: 3}
+  m_Name: New Crit Buff Effect
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 20e5863525121c6419ff3e2370dc6f43, type: 3}
-  Duration: 4
-  CritDamageBuff: 100
-  BuffChancePercent: 30
+  EffectName: 
+  EffectDuration: 4
+  CurrentDuration: 0
+  EffectDescription: 
+  SpriteIcon: {fileID: 21300000, guid: d2164e2eef8019140bb475bf3bf534b8, type: 3}
+  CritBuff: 3

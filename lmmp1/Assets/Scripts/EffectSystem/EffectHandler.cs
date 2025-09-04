@@ -8,6 +8,9 @@ public class EffectHandler : MonoBehaviour
 
     public List<Effect> ActiveEffects = new();
 
+    public EffectDisplay CharacterEffectDisplay;
+
+
 
     private void Start()
     {
@@ -29,9 +32,11 @@ public class EffectHandler : MonoBehaviour
     {
         if (ActiveEffects.Contains(effect)) { RemoveEffect(effect); ActiveEffects.Add(effect); effect.EffectSatrt(OwnerActorStats) ; effect.CurrentDuration = effect.EffectDuration; }
         else ActiveEffects.Add(effect); effect.CurrentDuration = effect.EffectDuration; ;
+        CharacterEffectDisplay.AddEffectSprite(effect);
     }
     public void RemoveEffect(Effect effect) 
     { 
         ActiveEffects.Remove(effect);
+        CharacterEffectDisplay.ClearEffectSprite(effect);
     }
 }

@@ -9,6 +9,7 @@ public abstract class Effect : ScriptableObject
     public float EffectDuration;
     public float CurrentDuration;
     public string EffectDescription;
+    public Sprite SpriteIcon;
 
 
     public virtual void EffectSatrt(ActorStats owner) { }
