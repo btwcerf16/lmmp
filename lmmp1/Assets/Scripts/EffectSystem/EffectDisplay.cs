@@ -11,10 +11,10 @@ public class EffectDisplay : MonoBehaviour
  //&& EffectSprites[1].GetComponent<SpriteRenderer>().sprite != null && EffectSprites[2].GetComponent<SpriteRenderer>().sprite != null
     public void AddEffectSprite(Effect effect)
     {
-        if (EffectSprites[0].GetComponent<SpriteRenderer>().sprite != null)
-        {
-            QueueEffects.Add(effect);
-        }
+        //if (EffectSprites[0].GetComponent<SpriteRenderer>().sprite != null)
+        //{
+        //    QueueEffects.Add(effect);
+        //}
         for (int i = 0; i < EffectSprites.Count; i++) 
         {
             
@@ -36,11 +36,11 @@ public class EffectDisplay : MonoBehaviour
                 
             }
         }
-        if (QueueEffects != null)
-        {
-            AddEffectSprite(effect);
-            QueueEffects.Remove(effect);
-        }
+        //if (QueueEffects != null)
+        //{
+        //    AddEffectSprite(effect);
+        //    QueueEffects.Remove(effect);
+        //}
     }
     
 }
