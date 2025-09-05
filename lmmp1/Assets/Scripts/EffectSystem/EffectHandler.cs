@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,7 @@ public class EffectHandler : MonoBehaviour
             ActiveEffects[i].CurrentDuration -= Time.deltaTime;
             if(ActiveEffects[i].CurrentDuration <= 0)
             {
+                
                 ActiveEffects[i].EffectEnd(OwnerActorStats);
                 RemoveEffect(ActiveEffects[i]);
             }
@@ -38,5 +40,11 @@ public class EffectHandler : MonoBehaviour
     { 
         ActiveEffects.Remove(effect);
         CharacterEffectDisplay.ClearEffectSprite(effect);
+        CharacterEffectDisplay.QueueEffects.Remove(effect);
     }
+    //IEnumerator EffectUpdate(int index)
+    //{
+        
+    //    yield return new WaitForSeconds(1.0f);
+    //}
 }

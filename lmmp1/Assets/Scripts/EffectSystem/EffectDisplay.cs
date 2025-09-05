@@ -8,23 +8,29 @@ public class EffectDisplay : MonoBehaviour
     public List<GameObject> EffectSprites;
 
     public List<Effect> QueueEffects;
+
+    public int busy = 0;
  //&& EffectSprites[1].GetComponent<SpriteRenderer>().sprite != null && EffectSprites[2].GetComponent<SpriteRenderer>().sprite != null
     public void AddEffectSprite(Effect effect)
     {
-        //if (EffectSprites[0].GetComponent<SpriteRenderer>().sprite != null)
-        //{
-        //    QueueEffects.Add(effect);
-        //}
-        for (int i = 0; i < EffectSprites.Count; i++) 
+        if (busy == EffectSprites.Count)
         {
-            
-            if (EffectSprites[i].GetComponent<SpriteRenderer>().sprite == null)
+            QueueEffects.Add(effect);
+        }
+        else
+        {
+            for (int i = 0; i < EffectSprites.Count; i++)
             {
-                EffectSprites[i].GetComponent<SpriteRenderer>().sprite = effect.SpriteIcon;
-                return;
+
+                if (EffectSprites[i].GetComponent<SpriteRenderer>().sprite == null)
+                {
+                    EffectSprites[i].GetComponent<SpriteRenderer>().sprite = effect.SpriteIcon;
+                    busy++;
+                    return;
+                }
+                else { continue; }
+
             }
-            else { continue; }
-            
         }
     }
     public void ClearEffectSprite(Effect effect)
@@ -33,14 +39,16 @@ public class EffectDisplay : MonoBehaviour
         {
             if (EffectSprites[i].GetComponent<SpriteRenderer>().sprite == effect.SpriteIcon) {
                 EffectSprites[i].GetComponent<SpriteRenderer>().sprite = null;
+                busy--;
+                if (QueueEffects.Count > 0)
+                {
+                    AddEffectSprite(QueueEffects[0]);
+                    QueueEffects.Remove(QueueEffects[0]);
+                }
                 
             }
         }
-        //if (QueueEffects != null)
-        //{
-        //    AddEffectSprite(effect);
-        //    QueueEffects.Remove(effect);
-        //}
+        
     }
     
 }

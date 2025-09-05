@@ -2501,8 +2501,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EffectSprites:
   - {fileID: 6801412385266565961}
-  QueueEffects:
-  - {fileID: 0}
+  - {fileID: 5393199360464055320}
+  - {fileID: 6801412385266565961}
+  QueueEffects: []
+  busy: 0
 --- !u!114 &1739547793475942118
 MonoBehaviour:
   m_ObjectHideFlags: 0

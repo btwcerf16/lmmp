@@ -14,6 +14,7 @@ public class Skeleton : Enemy, IAttacker
     [field: SerializeField] public Transform attack1point { get; set; }
     [field: SerializeField] public float attackArea { get; set; }
 
+    public Effect effect;
    
 
     public float attackCooldown { get; set; }
@@ -44,6 +45,7 @@ public class Skeleton : Enemy, IAttacker
                 {
 
                     enemy.GetComponent<IDamageable>().Damage(damage);
+                    enemy.GetComponent<EffectHandler>().AddEffect(effect);
                 }
             }
             waitTime = attackCooldown;

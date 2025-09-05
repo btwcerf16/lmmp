@@ -9946,6 +9946,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37c6c4fc0f98f6b4083388cd49613a52, type: 3}
+--- !u!1 &1246258526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8554728762624764208, guid: 37c6c4fc0f98f6b4083388cd49613a52, type: 3}
+  m_PrefabInstance: {fileID: 1204472680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1257548274
 GameObject:
   m_ObjectHideFlags: 0
@@ -10410,6 +10415,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4457023877555133545, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: EffectSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 1246258526}
     - target: {fileID: 7528507146326112261, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
