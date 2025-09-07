@@ -17,8 +17,9 @@ public class EnemyDeathState : EnemyState
     {
         base.EnterState();
         enemy.animator.SetTrigger("Death");
-        
-        
+        enemy.BodyCollider2D.enabled = false;
+        enemy.CurrentStats.enabled = false;
+        enemy.SetCanMoveBool(false);
     }
 
     public override void ExitState()

@@ -1946,7 +1946,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6801412385266565961}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.25, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2502,7 +2502,7 @@ MonoBehaviour:
   EffectSprites:
   - {fileID: 6801412385266565961}
   - {fileID: 5393199360464055320}
-  - {fileID: 6801412385266565961}
+  - {fileID: 550347354054634251}
   QueueEffects: []
   busy: 0
 --- !u!114 &1739547793475942118
@@ -2566,6 +2566,7 @@ MonoBehaviour:
   <attack1point>k__BackingField: {fileID: 7199227092056820065}
   <attackArea>k__BackingField: 1.2
   <attackCooldown>k__BackingField: 0
+  AttackEffect: {fileID: 11400000, guid: efd18a56395f2704bb2311b50ee6f76e, type: 2}
 --- !u!114 &2702121651282502742
 MonoBehaviour:
   m_ObjectHideFlags: 0

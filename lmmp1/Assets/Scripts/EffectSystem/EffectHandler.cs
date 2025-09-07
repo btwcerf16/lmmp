@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(EffectDisplay))]
+[RequireComponent(typeof(ActorStats))]
 public class EffectHandler : MonoBehaviour
 {
     public ActorStats OwnerActorStats;

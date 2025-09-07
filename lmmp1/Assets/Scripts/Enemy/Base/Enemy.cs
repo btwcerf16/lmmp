@@ -58,6 +58,11 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     #endregion
 
+    #region Death variables
+
+    public BoxCollider2D BodyCollider2D;
+
+    #endregion
 
     private void Awake()
     {
@@ -82,7 +87,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
         rigidBody2D = GetComponent<Rigidbody2D>();
 
-        
+        BodyCollider2D = GetComponent<BoxCollider2D>();
 
         StateMachine.Initialize(IdleState);
         

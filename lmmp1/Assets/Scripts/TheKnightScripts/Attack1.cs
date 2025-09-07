@@ -11,7 +11,7 @@ public class Attack1 : MonoBehaviour, IAttacker
     [field: SerializeField] public float attackArea { get; set; }
     [field: SerializeField] public float attackCooldown { get; set; }
     private Player player;
-    
+    public Effect AttackEffect;
 
 
     private void Start()
@@ -32,6 +32,7 @@ public class Attack1 : MonoBehaviour, IAttacker
                 {
                     enemy.GetComponent<IDamageable>().Damage(player.currentStats.attackDamage * player.currentStats.critDamage/100.0f * player.currentStats.physicDamageMultiplyer);
                     Debug.Log(" –»“ " + player.currentStats.attackDamage * player.currentStats.critDamage / 100.0f * player.currentStats.physicDamageMultiplyer + " ÿ¿Õ— " + roll);
+                    enemy.GetComponent<EffectHandler>().AddEffect(AttackEffect);
                 }
                 else
                 {

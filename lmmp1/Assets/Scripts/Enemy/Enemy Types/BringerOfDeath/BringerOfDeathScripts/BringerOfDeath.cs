@@ -8,7 +8,7 @@ public class BringerOfDeath : Enemy, IAttacker
     
     [Header("Attack Settigs")]
     [SerializeField] private float _waitTime;
-    [field: SerializeField] public float damage { get; set; }
+
 
     [field: SerializeField] public LayerMask enemyLayer { get; set; }
     [field: SerializeField] public Transform attack1point { get; set; }
@@ -47,7 +47,7 @@ public class BringerOfDeath : Enemy, IAttacker
                 if (enemy.GetComponent<IDamageable>() != null)
                 {
 
-                    enemy.GetComponent<IDamageable>().Damage(damage);
+                    enemy.GetComponent<IDamageable>().Damage(CurrentStats.attackDamage);
                 }
                 _waitTime = attackCooldown;
                 Invoke("Reloading", attackCooldown);

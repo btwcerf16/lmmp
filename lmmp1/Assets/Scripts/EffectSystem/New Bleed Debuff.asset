@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EffectName: bleed
   EffectDuration: 4
-  CurrentDuration: 0
+  CurrentDuration: 2.1894202
   EffectDescription: 
   SpriteIcon: {fileID: 21300000, guid: 7e5bae18d8d17f14bb61b02d9e0edc06, type: 3}
-  DamagePercent: 3
+  DamagePercent: 2
   DiePercent: 50

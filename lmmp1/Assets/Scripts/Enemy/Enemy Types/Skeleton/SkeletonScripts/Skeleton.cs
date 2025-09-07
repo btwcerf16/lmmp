@@ -8,7 +8,7 @@ public class Skeleton : Enemy, IAttacker
 
     [Header("Attack Settigs")]
     [SerializeField] private float _waitTime;
-    [field:SerializeField]public float damage { get; set; }
+   
 
     [field: SerializeField] public LayerMask enemyLayer { get; set; }
     [field: SerializeField] public Transform attack1point { get; set; }
@@ -44,7 +44,7 @@ public class Skeleton : Enemy, IAttacker
                 if (enemy.GetComponent<IDamageable>() != null)
                 {
 
-                    enemy.GetComponent<IDamageable>().Damage(damage);
+                    enemy.GetComponent<IDamageable>().Damage(CurrentStats.attackDamage);
                     enemy.GetComponent<EffectHandler>().AddEffect(effect);
                 }
             }

@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d9da6cbcb1947479fbc0f6ab1f7d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Debuff: {fileID: 11400000, guid: 1bb7864d17cc107448bb8ff37dacecde, type: 2}
+  SpellEffect: {fileID: 11400000, guid: efd18a56395f2704bb2311b50ee6f76e, type: 2}
 --- !u!61 &4527804961760885851
 BoxCollider2D:
   m_ObjectHideFlags: 0

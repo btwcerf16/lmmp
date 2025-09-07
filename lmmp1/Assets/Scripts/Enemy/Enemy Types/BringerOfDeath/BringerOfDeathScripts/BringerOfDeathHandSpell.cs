@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BringerOfDeathHandSpell : MonoBehaviour
 {
-    
+    public Effect SpellEffect;
     private GameObject playerTarget;
     private void Awake()
     {
@@ -15,7 +15,7 @@ public class BringerOfDeathHandSpell : MonoBehaviour
         if(collision.gameObject == playerTarget)
         
         {
-            
+            collision.gameObject.GetComponent<EffectHandler>().AddEffect(SpellEffect);
         }
             
     }

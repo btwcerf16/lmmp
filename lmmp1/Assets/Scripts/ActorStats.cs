@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,8 +18,8 @@ public class ActorStats : MonoBehaviour
     public float magicDamageMultiplyer;
     public float physicDamageMultiplyer;
     public float invincibleTimeFrame;
-   
-   
+
+    public bool Dead;
 
     [SerializeField] private float _currentStamina;
     [SerializeField] private float _currentHealth;
@@ -33,9 +34,12 @@ public class ActorStats : MonoBehaviour
     public float currentHealth { get => _currentHealth;
         set 
         {
-            _currentHealth = Mathf.Clamp(value, 0, maxHealth);
-            if(healthBar != null) { healthBar.ChangeValue(_currentHealth, maxHealth); }
-            if(_currentHealth <= 0) {gameObject.GetComponent<IDamageable>().Die(); }
+            _currentHealth = Mathf.Min(maxHealth, value);
+            if (healthBar != null) { healthBar.ChangeValue(_currentHealth, maxHealth); }
+            if(_currentHealth <= 0 && !Dead) {
+                Dead = true;
+                gameObject.GetComponent<IDamageable>().Die(); }
+
         }
     }
 

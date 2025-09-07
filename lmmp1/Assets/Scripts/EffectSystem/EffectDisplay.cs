@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(EffectHandler))]
+[RequireComponent(typeof(ActorStats))]
 public class EffectDisplay : MonoBehaviour
 {
     public List<GameObject> EffectSprites;
