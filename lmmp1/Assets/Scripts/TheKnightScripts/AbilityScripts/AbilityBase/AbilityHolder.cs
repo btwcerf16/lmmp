@@ -49,7 +49,7 @@ public class AbilityHolder : MonoBehaviour
                 {
                     currentActiveTime = 0;
                     ability.Activate(gameObject);
-                    ability.BeginCooldown();
+                    ability.BeginCooldown(gameObject);
                     state = AbilityState.Cooldown;
                     currentCooldownTime = ability.cooldownTime;
                 }

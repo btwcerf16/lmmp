@@ -52,7 +52,7 @@ public class Dash : MonoBehaviour
         
         //_isDashing = true;
         _player.rigidbody2D.gravityScale = 0.0f;
-        _player.rigidbody2D.velocity = new Vector2(transform.localScale.x * dashPower, 0f);
+        _player.rigidbody2D.velocity = new Vector2(transform.localScale.x * dashPower * _player.currentStats.speed, 0f);
         trailRenderer.emitting = true;
         yield return new WaitForSeconds(dashTime);
         trailRenderer.emitting = false;

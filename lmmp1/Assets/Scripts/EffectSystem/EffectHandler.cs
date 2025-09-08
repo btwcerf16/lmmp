@@ -21,6 +21,7 @@ public class EffectHandler : MonoBehaviour
     private void Update()
     {
         for (int i = 0; i < ActiveEffects.Count; i++) {
+            ActiveEffects[i].EffectSatrt(OwnerActorStats);
             ActiveEffects[i].EffectApply(OwnerActorStats);
             ActiveEffects[i].CurrentDuration -= Time.deltaTime;
             if(ActiveEffects[i].CurrentDuration <= 0)

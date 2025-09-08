@@ -18,7 +18,7 @@ public class Ability : ScriptableObject
     {
 
     }
-    public virtual void BeginCooldown()
+    public virtual void BeginCooldown(GameObject owner)
     {
 
     }

@@ -101,7 +101,7 @@ public abstract class Player : MonoBehaviour, IDamageable
 
 
         }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && canMove)
+        if ((canMove && currentStats.speed > 0 && Input.GetKey(KeyCode.A) )|| (Input.GetKey(KeyCode.D) && canMove && currentStats.speed > 0))
         {
 
             _SM.ChangeState(new RunState(this));

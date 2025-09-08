@@ -21,7 +21,7 @@ public class DamageAbility : Ability
             }
     }
 
-    public override void BeginCooldown()
+    public override void BeginCooldown(GameObject owner)
     {
         Debug.Log("ֿמסע ִלד:" + (float)(damageCount));
     }
