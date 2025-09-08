@@ -11,6 +11,8 @@ public class RedSplash : MonoBehaviour
     public LayerMask EnemyLayer;
     public float DamagePercent;
 
+
+    public Effect effect;
     private void Awake()
     {
         player = GetComponentInParent<Player>();
@@ -31,7 +33,9 @@ public class RedSplash : MonoBehaviour
                     player.currentStats.physicDamageMultiplyer) * DamagePercent/100.0f) * 0.6f); }
 
                 else { enemy.GetComponent<IDamageable>().Damage((player.currentStats.attackDamage * 
-                    player.currentStats.physicDamageMultiplyer) * DamagePercent / 100.0f); }    
+                    player.currentStats.physicDamageMultiplyer) * DamagePercent / 100.0f);
+                    enemy.GetComponent<EffectHandler>().AddEffect(effect);
+                }    
             }
         }
         Debug.Log("1");

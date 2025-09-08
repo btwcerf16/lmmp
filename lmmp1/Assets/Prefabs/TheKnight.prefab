@@ -2548,6 +2548,7 @@ MonoBehaviour:
   staminaRegeneration: 0
   critChance: 0
   critDamage: 0
+  Dead: 0
 --- !u!114 &7708816049558792373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2566,7 +2567,7 @@ MonoBehaviour:
   <attack1point>k__BackingField: {fileID: 7199227092056820065}
   <attackArea>k__BackingField: 1.2
   <attackCooldown>k__BackingField: 0
-  AttackEffect: {fileID: 11400000, guid: efd18a56395f2704bb2311b50ee6f76e, type: 2}
+  AttackEffect: {fileID: 11400000, guid: 3f7524a5a4f960147a32fe8872a80626, type: 2}
 --- !u!114 &2702121651282502742
 MonoBehaviour:
   m_ObjectHideFlags: 0

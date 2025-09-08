@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 978e29bb220d2dd43b576b125708e5c0, type: 3}
-  m_Name: New Bleed Debuff
+  m_Name: Player Bleed Debuff
   m_EditorClassIdentifier: 
-  EffectName: bleed
+  EffectName: Bleed
   EffectDuration: 4
-  CurrentDuration: 2.1894202
+  CurrentDuration: 0
   EffectDescription: 
   SpriteIcon: {fileID: 21300000, guid: 7e5bae18d8d17f14bb61b02d9e0edc06, type: 3}
   DamagePercent: 2

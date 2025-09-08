@@ -19,7 +19,7 @@ public class ActorStats : MonoBehaviour
     public float physicDamageMultiplyer;
     public float invincibleTimeFrame;
 
-    public bool Dead;
+    
 
     [SerializeField] private float _currentStamina;
     [SerializeField] private float _currentHealth;
@@ -48,6 +48,7 @@ public class ActorStats : MonoBehaviour
     public float staminaRegeneration;
     public float critChance;
     public float critDamage;
+    public bool Dead;
     private void Awake()
     {
         speed = ConfigStats.BaseSpeed;

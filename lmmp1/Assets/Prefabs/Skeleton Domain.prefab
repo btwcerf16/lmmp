@@ -690,13 +690,14 @@ MonoBehaviour:
   rightPos: {fileID: 8035742391985296357}
   leftPos: {fileID: 8391562714409172804}
   targetPos: {x: 0, y: 0, z: 0}
+  BodyCollider2D: {fileID: 0}
   _waitTime: 0
   <enemyLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 256
   <attack1point>k__BackingField: {fileID: 7642980230579543208}
   <attackArea>k__BackingField: 1.05
-  effect: {fileID: 11400000, guid: efd18a56395f2704bb2311b50ee6f76e, type: 2}
+  effect: {fileID: 11400000, guid: 41c43b39e3ae055439c603c78d48d0e0, type: 2}
 --- !u!114 &1179795367508196739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,6 +726,7 @@ MonoBehaviour:
   staminaRegeneration: 0
   critChance: 0
   critDamage: 0
+  Dead: 0
 --- !u!95 &7191555696159466622
 Animator:
   serializedVersion: 5
