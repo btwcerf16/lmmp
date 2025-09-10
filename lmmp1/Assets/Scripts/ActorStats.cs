@@ -48,6 +48,11 @@ public class ActorStats : MonoBehaviour
     public float staminaRegeneration;
     public float critChance;
     public float critDamage;
+
+    public bool assailable = true;
+    public bool canAttack = true;
+    public bool canMove = true;
+
     public bool Dead;
     private void Awake()
     {

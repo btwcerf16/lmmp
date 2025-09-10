@@ -13,7 +13,7 @@ public class FallState : State
     {
         base.Enter();
         _player.animator.SetBool("Fall", true);
-        _player.canAttack = false;
+        _player.currentStats.canAttack = false;
         _player.State = "Fall";
     }
 
@@ -39,7 +39,7 @@ public class FallState : State
     {
         base.Exit();
         _player.animator.SetBool("Fall", false);
-        _player.canAttack = true;
-        _player.canMove = true;
+        _player.currentStats.canAttack = true;
+        _player.currentStats.canMove = true;
     }
 }

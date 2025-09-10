@@ -36,11 +36,12 @@ public abstract class Player : MonoBehaviour, IDamageable
     public LayerMask groundMask;
 
     [Header("Statuses of Player")]
-    public bool assailable = true;
-    public bool canAttack = true;
+    //public bool assailable = true;
+    //public bool canAttack = true;
+    //public bool canMove = true;
     public bool canJump = true;
     public bool canRoll;
-    public bool canMove = true;
+    
 
     public bool isAttacked;
 
@@ -101,20 +102,20 @@ public abstract class Player : MonoBehaviour, IDamageable
 
 
         }
-        if ((canMove && currentStats.speed > 0 && Input.GetKey(KeyCode.A) )|| (Input.GetKey(KeyCode.D) && canMove && currentStats.speed > 0))
+        if ((currentStats.canMove && currentStats.speed > 0 && Input.GetKey(KeyCode.A) )|| (Input.GetKey(KeyCode.D) && currentStats.canMove && currentStats.speed > 0))
         {
 
             _SM.ChangeState(new RunState(this));
 
         }
        
-        if (moveVector.x == 0 && rigidbody2D.velocity.x == 0 && canAttack && canRoll)
+        if (moveVector.x == 0 && rigidbody2D.velocity.x == 0 && currentStats.canAttack && canRoll)
         {
             _SM.ChangeState(new IdleState(this));
         }
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            if (canAttack)
+            if (currentStats.canAttack)
             {
                     _SM.ChangeState(new Attack1State(this));
 
@@ -139,7 +140,7 @@ public abstract class Player : MonoBehaviour, IDamageable
         {
             canRoll = true;
         }
-        if (assailable && !isAttacked)
+        if (currentStats.assailable && !isAttacked)
         {
             if (currentStats.currentStamina < currentStats.maxStamina) {
                 stamina.RechargeStaminaAmount();
@@ -160,12 +161,12 @@ public abstract class Player : MonoBehaviour, IDamageable
     {
        
 
-        if (assailable)
+        if (currentStats.assailable)
         {
             currentStats.currentHealth -= damageAmount;
          
             isAttacked = true;
-            assailable = false;
+            currentStats.assailable = false;
 
             Vector2 damagePos = new Vector2(transform.position.x + Random.Range(-1.0f, 1.0f), transform.position.y + Random.Range(-1.0f, .5f));
             Instantiate(HurtEffect[Random.Range(0,2)], damagePos, Quaternion.identity);
@@ -195,7 +196,7 @@ public abstract class Player : MonoBehaviour, IDamageable
     {
         yield return new WaitForSeconds(invincibleTimeFrame);
         isAttacked = false;
-        assailable = true;
+        currentStats.assailable = true;
     }
 
    

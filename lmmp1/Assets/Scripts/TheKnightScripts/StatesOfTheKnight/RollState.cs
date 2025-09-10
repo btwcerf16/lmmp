@@ -17,8 +17,8 @@ public class RollState : State
 
 
         
-        _player.canMove = false;
-        _player.assailable = false;
+        _player.currentStats.canMove = false;
+        _player.currentStats.assailable = false;
         _player.State = "Dash";
         
         _player.animator.SetBool("Roll", true);
@@ -37,7 +37,7 @@ public class RollState : State
         base.Exit();
         
         _player.animator.SetBool("Roll", false);
-        _player.assailable = true;
+        _player.currentStats.assailable = true;
 
 
     }

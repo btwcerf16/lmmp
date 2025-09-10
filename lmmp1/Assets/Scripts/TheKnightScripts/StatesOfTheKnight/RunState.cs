@@ -14,7 +14,7 @@ public class RunState : State
         base.Enter();
       
         _player.animator.SetBool("Run", true);
-        _player.canAttack = false;
+        _player.currentStats.canAttack = false;
         _player.State = "Run";
     }
     public override void Update()
@@ -38,6 +38,6 @@ public class RunState : State
     {
         base.Exit();
         _player.animator.SetBool("Run", false);
-        _player.canAttack = true;
+        _player.currentStats.canAttack = true;
     }
 }
