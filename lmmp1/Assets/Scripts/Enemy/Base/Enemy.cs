@@ -13,7 +13,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public virtual void PatrolState() { }
     public virtual void DeathState() { }
     public virtual void CastState() { }
+    public virtual void MoveEnemy(Vector2 direction)
+    {
 
+    }
 
     #region IDamageable
     public void Damage(float damageAmount)
