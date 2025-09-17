@@ -18,18 +18,33 @@ public class PatrolByPoints : MonoBehaviour
     private void Start()
     {
         enemy = GetComponent<Enemy>();
+        
+        
         FindTargetPos();
+
+        enemy.Flip();
     }
     public void MoveToPoint()
     {
         
+
+
         // BetweenTargetAndEnemy
         if(Vector2.Distance(transform.position, TargetPoint.position) < 0.1f){
-            FindTargetPos();
-            enemy.Flip();
-            Debug.Log("LJITK");
+            enemy.MoveEnemy(Vector2.zero);
+            StartCoroutine(WaitTime(1.5f));
+
+            enemy.animator.SetBool("Idle", true);
+            enemy.animator.SetBool("Walk", false);
+
         }
-        enemy.MoveEnemy(MoveDirection);
+        else
+        {
+            enemy.MoveEnemy(MoveDirection);
+            enemy.animator.SetBool("Idle", false);
+            enemy.animator.SetBool("Walk", true);
+        }
+
 
     }
     public void FindTargetPos()
@@ -44,6 +59,16 @@ public class PatrolByPoints : MonoBehaviour
             MoveDirection = (rightPoint.position - transform.position).normalized;
             TargetPoint = rightPoint;
         }
+    }
+    IEnumerator WaitTime(float waitTime)
+    {
+
+
+        yield return new WaitForSeconds(waitTime);
+        
+        FindTargetPos();
+        enemy.Flip();
+       
     }
 
 }

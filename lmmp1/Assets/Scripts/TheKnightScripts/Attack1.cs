@@ -10,13 +10,15 @@ public class Attack1 : MonoBehaviour, IAttacker
     [field:SerializeField] public Transform attack1point { get; set; }
     [field: SerializeField] public float attackArea { get; set; }
     [field: SerializeField] public float attackCooldown { get; set; }
-    private Player player;
+    [field: SerializeField] public ActorStats actorStats { get; set; }
+
+    
     public Effect AttackEffect;
 
 
     private void Start()
     {
-        player = GetComponent<Player>();
+        actorStats = GetComponent<ActorStats>();
     }
     public void Attack()
     {
@@ -28,16 +30,16 @@ public class Attack1 : MonoBehaviour, IAttacker
             if (enemy.GetComponent<IDamageable>() != null)
             {
                 
-                if (roll <= player.currentStats.critChance/100.0f)
+                if (roll <= actorStats.critChance/100.0f)
                 {
-                    enemy.GetComponent<IDamageable>().Damage(player.currentStats.attackDamage * player.currentStats.critDamage/100.0f * player.currentStats.physicDamageMultiplyer);
-                    Debug.Log(" –»“ " + player.currentStats.attackDamage * player.currentStats.critDamage / 100.0f * player.currentStats.physicDamageMultiplyer + " ÿ¿Õ— " + roll);
+                    enemy.GetComponent<IDamageable>().Damage(actorStats.attackDamage * actorStats.critDamage/100.0f * actorStats.physicDamageMultiplyer);
+                    Debug.Log(" –»“ " + actorStats.attackDamage * actorStats.critDamage / 100.0f * actorStats.physicDamageMultiplyer + " ÿ¿Õ— " + roll);
                     enemy.GetComponent<EffectHandler>().AddEffect(AttackEffect);
                 }
                 else
                 {
-                    enemy.GetComponent<IDamageable>().Damage(player.currentStats.attackDamage * player.currentStats.physicDamageMultiplyer);
-                    Debug.Log("ÕÂ –»“ " + player.currentStats.attackDamage * player.currentStats.physicDamageMultiplyer + " ÿ¿Õ— " + roll);
+                    enemy.GetComponent<IDamageable>().Damage(actorStats.attackDamage * actorStats.physicDamageMultiplyer);
+                    Debug.Log("ÕÂ –»“ " + actorStats.attackDamage * actorStats.physicDamageMultiplyer + " ÿ¿Õ— " + roll);
                 }
             }
         }
@@ -54,8 +56,5 @@ public class Attack1 : MonoBehaviour, IAttacker
         Gizmos.DrawWireSphere(attack1point.position, attackArea);
     }
 
-    public void Reloading()
-    {
-        throw new System.NotImplementedException();
-    }
+    
 }

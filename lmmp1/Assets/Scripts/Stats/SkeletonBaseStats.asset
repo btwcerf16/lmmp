@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e4937028ba0bc4d8e4200eabdc996c, type: 3}
   m_Name: SkeletonBaseStats
   m_EditorClassIdentifier: 
-  BaseSpeed: 3
+  BaseSpeed: 1
   BaseMaxHealth: 100
   BaseAttackDamage: 0
   BaseMaxStamina: 0

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4288222862943732558}
   - component: {fileID: 3011812507391702919}
   - component: {fileID: 331335907191190958}
-  - component: {fileID: 4661031274051984802}
   - component: {fileID: 3605401472309680338}
   - component: {fileID: 7446754638998847575}
   m_Layer: 9
@@ -116,6 +115,10 @@ MonoBehaviour:
   staminaRegeneration: 0
   critChance: 0
   critDamage: 0
+  assailable: 1
+  canAttack: 1
+  canMove: 1
+  Dead: 0
 --- !u!61 &331335907191190958
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -161,41 +164,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.886342, y: 3.357925}
   m_EdgeRadius: 0
---- !u!114 &4661031274051984802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819080019925379344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 851ee8f74f98c6d4ca7676fc016aff01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <IsFacingRight>k__BackingField: 1
-  floatingDamage: {fileID: 2443399759038765761, guid: 17ee882498ba84d40bf890d8a3bca58d, type: 3}
-  animator: {fileID: 0}
-  CritChance: 0
-  canRotate: 0
-  CanMove: 0
-  "attackIn\u0421ooldown": 0
-  <IsAggroed>k__BackingField: 0
-  <IsWithinStrikingDistance>k__BackingField: 0
-  CurrentStats: {fileID: 3011812507391702919}
-  waitIdleTime: 0.5
-  rightPos: {fileID: 7952672960504800960}
-  leftPos: {fileID: 2500781928196875609}
-  targetPos: {x: 0, y: 0, z: 0}
-  _waitTime: 1
-  <enemyLayer>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 256
-  <attack1point>k__BackingField: {fileID: 8117687986370631417}
-  <attackArea>k__BackingField: 2
-  <attackCooldown>k__BackingField: 1
-  SpellGameObject: {fileID: 8635257396225461187, guid: eb49a95c6295f2b43b2a808735b51216, type: 3}
-  SpellPosition: {fileID: 4337431725945913096}
 --- !u!114 &3605401472309680338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +206,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9025557375362038466}
-  - component: {fileID: 4327078984731476678}
   - component: {fileID: 4089055865496872744}
   m_Layer: 0
   m_Name: CastRadius
@@ -263,18 +230,6 @@ Transform:
   - {fileID: 4337431725945913096}
   m_Father: {fileID: 8040082200041474831}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4327078984731476678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2473702193144910979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b95cca4034eff884ea9343367dc3d564, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &4089055865496872744
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -529,7 +484,6 @@ GameObject:
   m_Component:
   - component: {fileID: 497785759399848784}
   - component: {fileID: 4803594801587433952}
-  - component: {fileID: 4920543502001207244}
   m_Layer: 0
   m_Name: StrikingRadius
   m_TagString: Untagged
@@ -588,18 +542,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!114 &4920543502001207244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4244485608595992487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7918b49152db1c74b918fadcb7fbf402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4363064828023921267
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,7 +551,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8748239826386579541}
-  - component: {fileID: 4946454062229061990}
   - component: {fileID: 6502317051439365410}
   m_Layer: 0
   m_Name: AggroRadius
@@ -633,18 +574,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8040082200041474831}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4946454062229061990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4363064828023921267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd5b1287cef22094ab24302b34ba7d37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &6502317051439365410
 BoxCollider2D:
   m_ObjectHideFlags: 0

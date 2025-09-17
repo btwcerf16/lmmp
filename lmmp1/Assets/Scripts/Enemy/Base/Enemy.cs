@@ -3,10 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
     public ActorStats EnemyCurrentStats;
+    public Animator animator;
+    public bool IsAgroed;
+    public bool TargetWithinAttackRadius;
+    public Transform TargetTransform;
 
     public virtual void ChaseState() { }
     public virtual void AttackState() { }
@@ -15,10 +20,14 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public virtual void CastState() { }
     public virtual void MoveEnemy(Vector2 direction)
     {
-
+        
     }
     public virtual void Flip() { }
 
+    public virtual void FindNewTarget()
+    {
+
+    }
     #region IDamageable
     public void Damage(float damageAmount)
     {
@@ -27,7 +36,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public void Die()
     {
-        
+        DeathState();
     }
 
     public void Heal(float healAmount)
@@ -35,4 +44,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         EnemyCurrentStats.currentHealth += healAmount;
     }
     #endregion
+
+    public void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
 }
