@@ -17,6 +17,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
 
     }
+    public virtual void Flip() { }
 
     #region IDamageable
     public void Damage(float damageAmount)

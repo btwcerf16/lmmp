@@ -6,7 +6,7 @@ public class Skeleton : Enemy
 {
     public PatrolByPoints PatrolByPoints;
     public Rigidbody2D rigidBody2D;
-    public Vector2 velocity;
+   
     
 
     private void Start()
@@ -17,7 +17,7 @@ public class Skeleton : Enemy
     private void Update()
     {
         PatrolState();
-        velocity = rigidBody2D.velocity;
+        
     }
 
     public override void AttackState()
@@ -49,5 +49,15 @@ public class Skeleton : Enemy
     {
         rigidBody2D.velocity = direction;
         
+    }
+    public override void Flip()
+    {
+        if (rigidBody2D.velocity.x > 0) {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
     }
 }
