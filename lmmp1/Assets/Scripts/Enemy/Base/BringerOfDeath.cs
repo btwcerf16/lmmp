@@ -4,43 +4,82 @@ using UnityEngine;
 
 public class BringerOfDeath : Enemy
 {
-    public override void AttackState()
+    public PatrolByPoints PatrolByPoints;
+    public Rigidbody2D rigidBody2D;
+    public ChaseForward ChaseForward;
+
+
+    private void Start()
     {
-        base.AttackState();
+        animator = GetComponent<Animator>();
+        PatrolByPoints = GetComponent<PatrolByPoints>();
+        rigidBody2D = GetComponent<Rigidbody2D>();
+        TargetTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        ChaseForward = GetComponent<ChaseForward>();
+    }
+    private void Update()
+    {
+    
+        if (IsAgroed)
+        {
+            ChaseState();
+        }
+        else
+        {
+            PatrolState();
+        }
+
+
+
     }
 
-    public override void CastState()
+    public override void AttackState()
     {
-        base.CastState();
+
+        animator.SetTrigger("Attack");
+        MoveEnemy(Vector2.zero);
+
+
     }
+
+
 
     public override void ChaseState()
     {
-        base.ChaseState();
+        ChaseForward.ChaseEnemy();
     }
 
     public override void DeathState()
     {
-        base.DeathState();
-    }
+        animator.SetTrigger("Death");
+        MoveEnemy(Vector2.zero);
+        gameObject.GetComponent<Enemy>().enabled = false;
 
-    public override void FindNewTarget()
-    {
-        base.FindNewTarget();
-    }
-
-    public override void Flip()
-    {
-        base.Flip();
-    }
-
-    public override void MoveEnemy(Vector2 direction)
-    {
-        base.MoveEnemy(direction);
     }
 
     public override void PatrolState()
     {
-        base.PatrolState();
+        PatrolByPoints.MoveToPoint();
+    }
+    public override void FindNewTarget()
+    {
+        PatrolByPoints.FindTargetPos();
+        Invoke("Flip", 0.1f);
+    }
+
+    public override void MoveEnemy(Vector2 direction)
+    {
+        rigidBody2D.velocity = direction * EnemyCurrentStats.speed;
+    }
+    public override void Flip()
+    {
+        if (rigidBody2D.velocity.x > 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
     }
 }

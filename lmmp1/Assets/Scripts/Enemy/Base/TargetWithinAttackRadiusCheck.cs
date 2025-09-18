@@ -13,7 +13,7 @@ public class TargetWithinAttackRadiusCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == enemy.TargetTransform.gameObject)
+        if (enemy.TargetTransform.gameObject != null&&collision.gameObject == enemy.TargetTransform.gameObject)
         {
             enemy.TargetWithinAttackRadius = true;
             enemy.EnemyCurrentStats.canMove = false;
@@ -21,7 +21,7 @@ public class TargetWithinAttackRadiusCheck : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject == enemy.TargetTransform.gameObject)
+        if (enemy.TargetTransform.gameObject != null && collision.gameObject == enemy.TargetTransform.gameObject)
         {
             
             enemy.TargetWithinAttackRadius = false;

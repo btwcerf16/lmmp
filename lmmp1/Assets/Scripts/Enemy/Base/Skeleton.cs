@@ -47,8 +47,7 @@ public class Skeleton : Enemy
         animator.SetTrigger("Attack");
         MoveEnemy(Vector2.zero);
         
-        gameObject.GetComponent<Enemy>().enabled = false;
-        
+       
     }
 
 
@@ -62,6 +61,7 @@ public class Skeleton : Enemy
     {
         animator.SetTrigger("Death");
         MoveEnemy(Vector2.zero);
+        gameObject.GetComponent<Enemy>().enabled = false;
 
     }
 
