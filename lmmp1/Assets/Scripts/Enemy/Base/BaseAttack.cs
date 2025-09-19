@@ -22,6 +22,7 @@ public class BaseAttack : MonoBehaviour, IAttacker
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<IDamageable>()?.Damage(actorStats.attackDamage);
+
         }
     }
     private void OnDrawGizmosSelected()

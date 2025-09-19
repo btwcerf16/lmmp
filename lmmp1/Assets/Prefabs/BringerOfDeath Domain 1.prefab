@@ -35,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 1819080019925379344}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.52, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -216,8 +216,12 @@ MonoBehaviour:
   EnemyCurrentStats: {fileID: 3011812507391702919}
   animator: {fileID: 0}
   IsAgroed: 0
+  TargetWithinCastRadius: 0
   TargetWithinAttackRadius: 0
   TargetTransform: {fileID: 0}
+  PatrolByPoints: {fileID: 0}
+  rigidBody2D: {fileID: 0}
+  ChaseForward: {fileID: 0}
 --- !u!114 &8270957821076446739
 MonoBehaviour:
   m_ObjectHideFlags: 0

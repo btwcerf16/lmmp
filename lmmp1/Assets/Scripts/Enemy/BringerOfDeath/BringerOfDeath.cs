@@ -32,7 +32,12 @@ public class BringerOfDeath : Enemy
 
 
     }
+    public override void CastState()
+    {
+        MoveEnemy(Vector2.zero);
 
+
+    }
     public override void AttackState()
     {
 

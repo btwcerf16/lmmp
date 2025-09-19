@@ -10,8 +10,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public ActorStats EnemyCurrentStats;
     public Animator animator;
     public bool IsAgroed;
+    public bool TargetWithinCastRadius;
     public bool TargetWithinAttackRadius;
     public Transform TargetTransform;
+    
 
     public virtual void ChaseState() { }
     public virtual void AttackState() { }
