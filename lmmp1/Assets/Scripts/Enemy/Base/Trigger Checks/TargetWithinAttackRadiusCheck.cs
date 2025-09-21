@@ -11,6 +11,8 @@ public class TargetWithinAttackRadiusCheck : MonoBehaviour
         enemy = GetComponentInParent<Enemy>();
     }
 
+    //OnTriggerEnter2D
+    //OnTriggerEnter2D
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (enemy.TargetTransform.gameObject != null&&collision.gameObject == enemy.TargetTransform.gameObject)

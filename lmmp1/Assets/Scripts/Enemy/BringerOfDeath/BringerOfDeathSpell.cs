@@ -6,14 +6,14 @@ public class BringerOfDeathSpell : MonoBehaviour
 {
   
 
-    public List<Transform> SpellPoints;
+    public Transform SpellPoints;
 
     public GameObject SpellPrefab;
 
 
-  
+
     private void CastSpell()
     {
-        Instantiate(SpellPrefab, SpellPoints[Random.Range(0, 3)]);
+        Instantiate(SpellPrefab, SpellPoints/*[Random.Range(0, SpellPoints.Count+1)].position*//*,Quaternion.Euler(0f,0f,0f),gameObject.transform*/);
     }
 }

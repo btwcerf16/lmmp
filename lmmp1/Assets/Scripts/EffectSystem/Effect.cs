@@ -7,7 +7,6 @@ public abstract class Effect : ScriptableObject
 {
     public string EffectName;
     public float EffectDuration;
-    public float CurrentDuration;
     public string EffectDescription;
     public Sprite SpriteIcon;
 

@@ -10,6 +10,8 @@ public class BaseAttack : MonoBehaviour, IAttacker
    
     [field:SerializeField] public ActorStats actorStats { get; set; }
 
+    public Effect effect;
+
     private void Start()
     {
         actorStats = GetComponent<ActorStats>();    
@@ -22,7 +24,7 @@ public class BaseAttack : MonoBehaviour, IAttacker
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<IDamageable>()?.Damage(actorStats.attackDamage);
-
+            enemy.GetComponent<EffectHandler>()?.AddEffect(effect);
         }
     }
     private void OnDrawGizmosSelected()

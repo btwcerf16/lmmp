@@ -35,7 +35,7 @@ public class BringerOfDeath : Enemy
     public override void CastState()
     {
         MoveEnemy(Vector2.zero);
-
+        animator.SetTrigger("Cast");
 
     }
     public override void AttackState()
