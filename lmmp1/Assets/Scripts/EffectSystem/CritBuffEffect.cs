@@ -14,7 +14,7 @@ public class CritBuffEffect : Effect
         owner.critChance -= CritBuff;
     }
 
-    public override void EffectSatrt(ActorStats owner)
+    public override void EffectStart(ActorStats owner)
     {
         owner.critChance += CritBuff;
     }

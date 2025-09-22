@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public abstract class Effect : ScriptableObject
+public abstract class Effect : MonoBehaviour
 {
-    public string EffectName;
-    public float EffectDuration;
-    public string EffectDescription;
-    public Sprite SpriteIcon;
+    public float TimeRemaining;
+    
+    public EffectData EffectData;
 
-
-    public virtual void EffectSatrt(ActorStats owner) { }
-    public virtual void EffectApply(ActorStats owner) { }
+    public virtual void EffectStart(ActorStats owner) { }
+    public virtual void EffectTick(ActorStats owner) { }
     public virtual void EffectEnd(ActorStats owner) { }
 
 

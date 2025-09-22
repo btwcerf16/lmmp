@@ -17,7 +17,7 @@ public class EvilEyeDebuff : Effect
         HitCounter = 0;
     }
 
-    public override void EffectSatrt(ActorStats owner)
+    public override void EffectStart(ActorStats owner)
     {
         HitCounter += 1;
         if (HitCounter == HitNeeded)

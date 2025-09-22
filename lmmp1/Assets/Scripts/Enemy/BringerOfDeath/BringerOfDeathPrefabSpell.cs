@@ -28,9 +28,9 @@ public class BringerOfDeathPrefabSpell : MonoBehaviour
           
                 enemy.GetComponent<IDamageable>()?.Damage(bringerOfDeath.EnemyCurrentStats.attackDamage
               * bringerOfDeath.EnemyCurrentStats.magicDamageMultiplyer);
-                enemy.GetComponent<EffectHandler>().AddEffect(Debuff);
-            
-          
+                enemy.GetComponent<EffectHandler>()?.AddEffect(Debuff);
+
+
         }
     }
 

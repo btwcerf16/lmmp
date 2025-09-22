@@ -14,7 +14,7 @@ public class DamageBuffEffect : Effect
         owner.attackDamage -= DamageBuff;
     }
 
-    public override void EffectSatrt(ActorStats owner)
+    public override void EffectStart(ActorStats owner)
     {
         owner.attackDamage += DamageBuff;
     }

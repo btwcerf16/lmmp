@@ -2467,11 +2467,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
-  assailable: 1
-  canAttack: 1
   canJump: 1
   canRoll: 1
-  canMove: 1
   isAttacked: 0
   State: 
   Attribute:
@@ -2482,7 +2479,7 @@ MonoBehaviour:
   currentStats: {fileID: 6651834193416187304}
   PlayerEffectHandler: {fileID: 1739547793475942118}
   effects:
-  - {fileID: 11400000, guid: 9abc5456d4c44384da6dbac5c689d72c, type: 2}
+  - {fileID: 11400000, guid: efd18a56395f2704bb2311b50ee6f76e, type: 2}
   - {fileID: 11400000, guid: ed1c58a330974f84da9f1b93ea079fa1, type: 2}
   HurtEffect:
   - {fileID: 3510177781130693405, guid: 998e988543e1d774db8efd37aae3af67, type: 3}
@@ -2519,6 +2516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OwnerActorStats: {fileID: 6651834193416187304}
   ActiveEffects: []
+  EffectsTimer: []
   CharacterEffectDisplay: {fileID: 4457023877555133545}
 --- !u!114 &6651834193416187304
 MonoBehaviour:
@@ -2548,6 +2546,9 @@ MonoBehaviour:
   staminaRegeneration: 0
   critChance: 0
   critDamage: 0
+  assailable: 1
+  canAttack: 1
+  canMove: 1
   Dead: 0
 --- !u!114 &7708816049558792373
 MonoBehaviour:
@@ -2567,6 +2568,7 @@ MonoBehaviour:
   <attack1point>k__BackingField: {fileID: 7199227092056820065}
   <attackArea>k__BackingField: 1.2
   <attackCooldown>k__BackingField: 0
+  <actorStats>k__BackingField: {fileID: 0}
   AttackEffect: {fileID: 11400000, guid: 3f7524a5a4f960147a32fe8872a80626, type: 2}
 --- !u!114 &2702121651282502742
 MonoBehaviour:

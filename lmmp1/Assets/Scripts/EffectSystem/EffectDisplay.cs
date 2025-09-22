@@ -26,7 +26,7 @@ public class EffectDisplay : MonoBehaviour
 
                 if (EffectSprites[i].GetComponent<SpriteRenderer>().sprite == null)
                 {
-                    EffectSprites[i].GetComponent<SpriteRenderer>().sprite = effect.SpriteIcon;
+                    EffectSprites[i].GetComponent<SpriteRenderer>().sprite = effect.EffectData.SpriteIcon;
                     busy++;
                     return;
                 }
@@ -39,7 +39,7 @@ public class EffectDisplay : MonoBehaviour
     {
         for (int i = 0; i < EffectSprites.Count; i++)
         {
-            if (EffectSprites[i].GetComponent<SpriteRenderer>().sprite == effect.SpriteIcon) {
+            if (EffectSprites[i].GetComponent<SpriteRenderer>().sprite == effect.EffectData.SpriteIcon) {
                 EffectSprites[i].GetComponent<SpriteRenderer>().sprite = null;
                 busy--;
                 if (QueueEffects.Count > 0)

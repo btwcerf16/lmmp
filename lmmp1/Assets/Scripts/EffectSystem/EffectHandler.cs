@@ -9,7 +9,7 @@ public class EffectHandler : MonoBehaviour
     public ActorStats OwnerActorStats;
 
     public List<Effect> ActiveEffects = new();
-    public List<float> EffectsTimer = new();
+    
 
 
     public EffectDisplay CharacterEffectDisplay;
@@ -25,9 +25,9 @@ public class EffectHandler : MonoBehaviour
         for (int i = 0; i < ActiveEffects.Count; i++)
         {
 
-            ActiveEffects[i].EffectApply(OwnerActorStats);
-            EffectsTimer[i] -= Time.deltaTime;
-            if (EffectsTimer[i] <= 0)
+            ActiveEffects[i].EffectTick(OwnerActorStats);
+            ActiveEffects[i].TimeRemaining -= Time.deltaTime;
+            if (ActiveEffects[i].TimeRemaining <= 0)
             {
 
                 ActiveEffects[i].EffectEnd(OwnerActorStats);
@@ -39,16 +39,16 @@ public class EffectHandler : MonoBehaviour
     {
         if (ActiveEffects.Contains(effect))
         {
-            int timerIndex = EffectsTimer.IndexOf(EffectsTimer[ActiveEffects.IndexOf(effect)]);
+           
             RemoveEffect(effect);
             ActiveEffects.Add(effect);
-            EffectsTimer.Add(effect.EffectDuration);
-            effect.EffectSatrt(OwnerActorStats);
-            EffectsTimer[timerIndex] = effect.EffectDuration;
+            
+            effect.EffectStart(OwnerActorStats);
+            
         }
         else
         {
-            EffectsTimer.Add(effect.EffectDuration);
+            effect.TimeRemaining = effect.EffectData.EffectDuration;
            
             ActiveEffects.Add(effect);
         }
@@ -58,7 +58,7 @@ public class EffectHandler : MonoBehaviour
     public void RemoveEffect(Effect effect)
     {
         
-        EffectsTimer.Remove(EffectsTimer[ActiveEffects.IndexOf(effect)]);
+        
         ActiveEffects.Remove(effect);
         
         CharacterEffectDisplay.ClearEffectSprite(effect);
