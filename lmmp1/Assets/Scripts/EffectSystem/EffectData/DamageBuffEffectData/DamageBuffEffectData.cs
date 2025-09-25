@@ -5,4 +5,11 @@ using UnityEngine;
 public class DamageBuffEffectData : EffectData
 {
     public float DamageBuff;
+
+    public override Effect CreateEffect(GameObject owner)
+    {
+        Effect effect = owner.AddComponent<DamageBuffEffect>();
+        effect.Initialize(this);
+        return effect;
+    }
 }

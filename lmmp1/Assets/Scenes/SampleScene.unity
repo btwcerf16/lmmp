@@ -9722,6 +9722,10 @@ PrefabInstance:
       propertyPath: SpellPoints
       value: 
       objectReference: {fileID: 111759372}
+    - target: {fileID: 6920310727477806542, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
+      propertyPath: effect
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a0d45391e6320d44a08e15fe41710c5, type: 2}
     - target: {fileID: 7411669798443584110, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
       propertyPath: m_Name
       value: BringerOfDeath Domain 1
@@ -10500,6 +10504,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7708816049558792373, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: AttackEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a0d45391e6320d44a08e15fe41710c5, type: 2}
     - target: {fileID: 8218874997577805778, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_Name
       value: TheKnight

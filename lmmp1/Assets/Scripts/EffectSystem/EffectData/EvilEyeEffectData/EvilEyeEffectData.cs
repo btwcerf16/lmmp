@@ -5,4 +5,11 @@ using UnityEngine;
 public class EvilEyeEffectData : EffectData
 {
     public float HitNeeded;
+
+    public override Effect CreateEffect(GameObject owner)
+    {
+        Effect effect = owner.AddComponent<EvilEyeDebuff>();
+        effect.Initialize(this);
+        return effect;
+    }
 }

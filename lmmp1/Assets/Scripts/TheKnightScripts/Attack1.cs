@@ -13,7 +13,7 @@ public class Attack1 : MonoBehaviour, IAttacker
     [field: SerializeField] public ActorStats actorStats { get; set; }
 
     
-    public Effect AttackEffect;
+    public EffectData AttackEffect;
 
 
     private void Start()
@@ -34,7 +34,7 @@ public class Attack1 : MonoBehaviour, IAttacker
                 {
                     enemy.GetComponent<IDamageable>().Damage(actorStats.attackDamage * actorStats.critDamage/100.0f * actorStats.physicDamageMultiplyer);
                     Debug.Log(" –»“ " + actorStats.attackDamage * actorStats.critDamage / 100.0f * actorStats.physicDamageMultiplyer + " ÿ¿Õ— " + roll);
-                    enemy.GetComponent<EffectHandler>().AddEffect(AttackEffect.EffectData);
+                    enemy.GetComponent<EffectHandler>().AddEffect(AttackEffect);
                 }
                 else
                 {
