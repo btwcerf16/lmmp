@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01992ec0730b20348a8efde6eb1f5904, type: 3}
-  m_Name: Enemy Evil Eye Debuff
+  m_Script: {fileID: 11500000, guid: bbdbf74d2180a99478656aebda2c87d6, type: 3}
+  m_Name: EvilEyeDebuffEffectData
   m_EditorClassIdentifier: 
-  EffectName: 
-  EffectDuration: 6
-  CurrentDuration: 6
+  EffectName: EvilEye
+  EffectDuration: 5
   EffectDescription: 
   SpriteIcon: {fileID: 21300000, guid: 8b935fc7fa1bc72408ea735ef2f126eb, type: 3}
-  HitCounter: 0
-  HitNeeded: 3
-  DamagePercent: 30
+  EffectPrefab: {fileID: 11400000, guid: 9abc5456d4c44384da6dbac5c689d72c, type: 2}
+  HitNeeded: 5

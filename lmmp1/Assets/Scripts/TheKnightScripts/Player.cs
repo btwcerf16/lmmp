@@ -60,7 +60,7 @@ public abstract class Player : MonoBehaviour, IDamageable
     private HealthBar healthBar;
 
     public EffectHandler PlayerEffectHandler;
-    public List<Effect> effects;
+    public List<EffectData> effects;
 
     public List<GameObject> HurtEffect;
 
@@ -90,14 +90,14 @@ public abstract class Player : MonoBehaviour, IDamageable
 
         if (Input.GetKeyDown(KeyCode.N))
         {
-            PlayerEffectHandler.AddEffect(effects[1]);
+            PlayerEffectHandler.AddEffect(effects[0]);
 
 
 
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
-            PlayerEffectHandler.AddEffect(effects[0]);
+            PlayerEffectHandler.AddEffect(effects[1]);
 
 
 

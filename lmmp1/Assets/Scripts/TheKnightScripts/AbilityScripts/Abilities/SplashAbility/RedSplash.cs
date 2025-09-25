@@ -12,7 +12,7 @@ public class RedSplash : MonoBehaviour
     public float DamagePercent;
 
 
-    public Effect effect;
+    public EffectData effect;
     private void Awake()
     {
         player = GetComponentInParent<Player>();

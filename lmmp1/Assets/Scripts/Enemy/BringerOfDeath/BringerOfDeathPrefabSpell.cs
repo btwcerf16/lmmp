@@ -12,7 +12,7 @@ public class BringerOfDeathPrefabSpell : MonoBehaviour
     [SerializeField] private float spellArea;
     [SerializeField] private LayerMask enemyLayer;
 
-    public Effect Debuff;
+    public EffectData Debuff;
 
     private void Start()
     {

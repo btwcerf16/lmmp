@@ -10,7 +10,7 @@ public class BaseAttack : MonoBehaviour, IAttacker
    
     [field:SerializeField] public ActorStats actorStats { get; set; }
 
-    public Effect effect;
+    public EffectData effect;
 
     private void Start()
     {
