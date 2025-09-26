@@ -5,6 +5,8 @@ using UnityEngine;
 public class EvilEyeEffectData : EffectData
 {
     public float HitNeeded;
+    public float DamagePercent;
+
 
     public override Effect CreateEffect(GameObject owner)
     {

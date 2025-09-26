@@ -42,6 +42,7 @@ Transform:
   m_Children:
   - {fileID: 7899857601404344697}
   - {fileID: 8040082200041474831}
+  - {fileID: 4868159947864190924}
   m_Father: {fileID: 864462924545844585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4596824083357953254
@@ -220,9 +221,6 @@ MonoBehaviour:
   TargetWithinCastRadius: 0
   TargetWithinAttackRadius: 0
   TargetTransform: {fileID: 0}
-  PatrolByPoints: {fileID: 0}
-  rigidBody2D: {fileID: 0}
-  ChaseForward: {fileID: 0}
 --- !u!114 &8270957821076446739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +267,7 @@ MonoBehaviour:
   <attack1point>k__BackingField: {fileID: 8117687986370631417}
   <attackArea>k__BackingField: 2
   <actorStats>k__BackingField: {fileID: 3011812507391702919}
+  effect: {fileID: 0}
 --- !u!114 &4962686660985415431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9be1a678aa1ec43a61dc0267be154f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpellPoints: []
+  SpellPoints: {fileID: 0}
   SpellPrefab: {fileID: 8635257396225461187, guid: eb49a95c6295f2b43b2a808735b51216, type: 3}
 --- !u!1 &2473702193144910979
 GameObject:
@@ -904,7 +903,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1704438181329697102}
-  - {fileID: 4868159947864190924}
   - {fileID: 7952672960504800960}
   - {fileID: 2500781928196875609}
   m_Father: {fileID: 0}
@@ -934,14 +932,14 @@ Transform:
   m_GameObject: {fileID: 7525611731317568022}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.9273086, y: -6.2694387, z: 0.049224604}
+  m_LocalPosition: {x: 0, y: 0, z: 0.049224604}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1819113142597009895}
   - {fileID: 1874559024000331506}
   - {fileID: 2992909686216011357}
-  m_Father: {fileID: 864462924545844585}
+  m_Father: {fileID: 1704438181329697102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7902786954780837315
 GameObject:

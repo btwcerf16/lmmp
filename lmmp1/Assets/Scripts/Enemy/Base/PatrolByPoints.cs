@@ -22,7 +22,6 @@ public class PatrolByPoints : MonoBehaviour
         
         FindTargetPos();
 
-        enemy.Flip();
     }
     public void MoveToPoint()
     {
@@ -30,7 +29,7 @@ public class PatrolByPoints : MonoBehaviour
 
 
         // BetweenTargetAndEnemy
-        if(Vector2.Distance(transform.position, TargetPoint.position) < 0.1f){
+        if(Vector2.Distance(transform.position, TargetPoint.position) <0.1f){
             enemy.MoveEnemy(Vector2.zero);
             StartCoroutine(WaitTime(1.5f));
 

@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class BringerOfDeath : Enemy
 {
-    public PatrolByPoints PatrolByPoints;
-    public Rigidbody2D rigidBody2D;
-    public ChaseForward ChaseForward;
+    private PatrolByPoints PatrolByPoints;
+    private Rigidbody2D rigidBody2D;
+    private ChaseForward ChaseForward;
 
-
+    private void Awake()
+    {
+        rigidBody2D = GetComponent<Rigidbody2D>();
+       
+    }
     private void Start()
     {
         animator = GetComponent<Animator>();
         PatrolByPoints = GetComponent<PatrolByPoints>();
-        rigidBody2D = GetComponent<Rigidbody2D>();
+        
         TargetTransform = GameObject.FindGameObjectWithTag("Player").transform;
         ChaseForward = GetComponent<ChaseForward>();
     }

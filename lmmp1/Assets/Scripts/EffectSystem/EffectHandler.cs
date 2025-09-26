@@ -56,9 +56,10 @@ public class EffectHandler : MonoBehaviour
         Effect existing = ActiveEffects.Find(effect => effect.EffectData == effectData);
         if (existing != null)
         {
-            existing.EffectEnd(OwnerActorStats);
-            RemoveEffect(existing);
-            
+            existing.TimeRemaining = effectData.EffectDuration;
+            existing.EffectStart(OwnerActorStats);
+            return;
+
         }
 
 
