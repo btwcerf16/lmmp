@@ -31,6 +31,14 @@ public class Skeleton : Enemy
         if (IsAgroed)
         {
             ChaseState();
+            if (TargetWithinAttackRadius )
+            {
+
+                animator.SetBool("Walk", false);
+                animator.SetBool("Idle", false);
+                AttackState();
+
+            }
         }
         else
         {

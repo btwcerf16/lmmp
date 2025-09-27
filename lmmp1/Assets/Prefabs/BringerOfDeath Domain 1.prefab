@@ -221,6 +221,8 @@ MonoBehaviour:
   TargetWithinCastRadius: 0
   TargetWithinAttackRadius: 0
   TargetTransform: {fileID: 0}
+  handSpellCurrentCooldown: 0
+  handSpellCooldown: 0
 --- !u!114 &8270957821076446739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,8 +282,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9be1a678aa1ec43a61dc0267be154f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpellPoints: {fileID: 0}
+  SpellPoints:
+  - {fileID: 0}
   SpellPrefab: {fileID: 8635257396225461187, guid: eb49a95c6295f2b43b2a808735b51216, type: 3}
+  DomainParent: {fileID: 864462924545844585}
 --- !u!1 &2473702193144910979
 GameObject:
   m_ObjectHideFlags: 0

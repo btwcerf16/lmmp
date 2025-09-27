@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -8,46 +9,38 @@ public class BringerOfDeathPrefabSpell : MonoBehaviour
 {
     public BringerOfDeath bringerOfDeath;
 
-    [SerializeField] private Transform spellPoint;
-    [SerializeField] private float spellArea;
-    [SerializeField] private LayerMask enemyLayer;
+    
+
+    private DomainDataHandler domainDataHandler;
 
     public EffectData Debuff;
 
-    private void Start()
+    private void Awake()
     {
-        bringerOfDeath = GetComponentInParent<BringerOfDeath>();
-        //transform.LookAt(bringerOfDeath.TargetTransform.position);
+        domainDataHandler = GetComponentInParent<DomainDataHandler>();
+        bringerOfDeath = (BringerOfDeath)domainDataHandler.EnemyDomainChildren;
+        
+        Vector3 Look = transform.InverseTransformPoint(bringerOfDeath.TargetTransform.position);
+        float Angle = Mathf.Atan2(Look.y, Look.x) * Mathf.Rad2Deg - 240;
+
+        transform.Rotate(0,0,Angle);
     }
 
-    private void SpellActivate()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(spellPoint.position, new Vector3(transform.localScale.x / 2.0f, transform.localScale.y * spellArea, transform.localScale.z), enemyLayer);
-        foreach (Collider2D enemy in hitEnemies)
+        if(collision.gameObject == bringerOfDeath.TargetTransform.gameObject)
         {
-          
-                enemy.GetComponent<IDamageable>()?.Damage(bringerOfDeath.EnemyCurrentStats.attackDamage
-              * bringerOfDeath.EnemyCurrentStats.magicDamageMultiplyer);
-                enemy.GetComponent<EffectHandler>()?.AddEffect(Debuff);
-
-
+            collision.GetComponent<EffectHandler>().AddEffect(Debuff);
         }
+    
+    
     }
 
     private void OnEndDestroy()
     {
         Destroy(gameObject);
     }
-    private void OnDrawGizmosSelected()
-    {
-        if (spellPoint == null)
-        {
-            return;
-        }
 
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(spellPoint.position,new Vector3(transform.localScale.x * 0.9f, transform.localScale.y*spellArea, transform.localScale.z));
-    }
 
 
 }

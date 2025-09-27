@@ -2516,7 +2516,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OwnerActorStats: {fileID: 6651834193416187304}
   ActiveEffects: []
-  EffectsTimer: []
   CharacterEffectDisplay: {fileID: 4457023877555133545}
 --- !u!114 &6651834193416187304
 MonoBehaviour:

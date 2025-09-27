@@ -20,20 +20,7 @@ public class ChaseForward : MonoBehaviour
             if (enemy.EnemyCurrentStats.canMove) { enemy.animator.SetBool("Walk", true); enemy.MoveEnemy(moveDirection * enemy.EnemyCurrentStats.speed ); }
 
         }
-        if (enemy.TargetWithinAttackRadius && !enemy.TargetWithinCastRadius)  {
-            
-            enemy.animator.SetBool("Walk", false);
-            enemy.animator.SetBool("Idle", false);
-            enemy.AttackState();
-            
-        }
-        if (enemy.TargetWithinCastRadius)
-        {
-            
-            enemy.animator.SetBool("Walk", false);
-            enemy.animator.SetBool("Idle", false);
-            enemy.CastState();
-        }
+        
         
     }
 }

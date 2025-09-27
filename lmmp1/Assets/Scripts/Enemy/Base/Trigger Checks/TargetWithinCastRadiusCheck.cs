@@ -22,7 +22,7 @@ public class TargetWithinCastRadiusCheck : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (enemy.TargetTransform.gameObject != null && collision.gameObject == enemy.TargetTransform.gameObject)
+        if (enemy.TargetTransform.gameObject != null && collision.gameObject != null && collision.gameObject == enemy.TargetTransform.gameObject)
         {
 
             enemy.TargetWithinCastRadius = false;

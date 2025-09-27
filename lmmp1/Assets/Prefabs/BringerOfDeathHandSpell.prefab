@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 98523899344274636}
   - component: {fileID: 2674602220985586879}
   - component: {fileID: 5785401303810083380}
-  - component: {fileID: 4527804961760885851}
   - component: {fileID: 5789224229125448400}
+  - component: {fileID: 4754449763667524486}
+  - component: {fileID: 3736752374823454126}
   m_Layer: 0
   m_Name: BringerOfDeathHandSpell
   m_TagString: Untagged
@@ -108,7 +109,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &4527804961760885851
+--- !u!114 &5789224229125448400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8635257396225461187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3110af1aab6874b469ad40d46e815be0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bringerOfDeath: {fileID: 0}
+  Debuff: {fileID: 11400000, guid: 5a0d45391e6320d44a08e15fe41710c5, type: 2}
+--- !u!50 &4754449763667524486
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8635257396225461187}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 3
+--- !u!61 &3736752374823454126
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +182,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.18059039, y: 0.05643457}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -151,24 +193,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7504039, y: 0.028622627}
+  m_Size: {x: 1.5715384, y: 1.2525965}
   m_EdgeRadius: 0
---- !u!114 &5789224229125448400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8635257396225461187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110af1aab6874b469ad40d46e815be0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bringerOfDeath: {fileID: 0}
-  spellPoint: {fileID: 98523899344274636}
-  spellArea: 3.15
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  Debuff: {fileID: 11400000, guid: 41c43b39e3ae055439c603c78d48d0e0, type: 2}

@@ -7,7 +7,8 @@ public class BringerOfDeath : Enemy
     private PatrolByPoints PatrolByPoints;
     private Rigidbody2D rigidBody2D;
     private ChaseForward ChaseForward;
-
+    [SerializeField] private float handSpellCurrentCooldown;
+    [SerializeField] private float handSpellCooldown;
     private void Awake()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -27,12 +28,29 @@ public class BringerOfDeath : Enemy
         if (IsAgroed)
         {
             ChaseState();
+            if (TargetWithinAttackRadius && !TargetWithinCastRadius)
+            {
+
+                animator.SetBool("Walk", false);
+                animator.SetBool("Idle", false);
+                AttackState();
+
+            }
+            if (TargetWithinCastRadius && handSpellCurrentCooldown == 0)
+            {
+
+                animator.SetBool("Walk", false);
+                animator.SetBool("Idle", false);
+                CastState();
+            }
         }
         else
         {
             PatrolState();
+            if(handSpellCurrentCooldown > 0) { handSpellCurrentCooldown -= Time.deltaTime; }
+            
         }
-
+        
 
 
     }
@@ -40,6 +58,7 @@ public class BringerOfDeath : Enemy
     {
         MoveEnemy(Vector2.zero);
         animator.SetTrigger("Cast");
+        Invoke("SetCooldownHandSpell", 1.0f);
 
     }
     public override void AttackState()
@@ -90,5 +109,10 @@ public class BringerOfDeath : Enemy
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
+    }
+
+    private void SetCooldownHandSpell()
+    {
+        handSpellCurrentCooldown = handSpellCooldown;
     }
 }

@@ -25,7 +25,7 @@ public class TargetWithinAttackRadiusCheck : MonoBehaviour
     {
         if ((enemy.TargetTransform.gameObject != null))
         {
-            if ((collision.gameObject == enemy.TargetTransform.gameObject))enemy.TargetWithinAttackRadius = false;
+            if ((collision.gameObject == enemy.TargetTransform.gameObject)) enemy.TargetWithinAttackRadius = false;
 
         }
     }

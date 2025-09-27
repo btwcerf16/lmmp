@@ -52,7 +52,7 @@ public class EffectHandler : MonoBehaviour
         //}
 
         //CharacterEffectDisplay.AddEffectSprite(effectData);
-        Effect newEffect = effectData.CreateEffect(gameObject);
+        
         Effect existing = ActiveEffects.Find(effect => effect.EffectData == effectData);
         if (existing != null)
         {
@@ -61,11 +61,15 @@ public class EffectHandler : MonoBehaviour
             return;
 
         }
-
-
-        ActiveEffects.Add(newEffect);
+        else
+        {
+            Effect newEffect = effectData.CreateEffect(gameObject);
+            ActiveEffects.Add(newEffect);
             newEffect.EffectStart(OwnerActorStats);
             CharacterEffectDisplay.AddEffectSprite(newEffect);
+        }
+        
+        
         }
 
     //IEnumerator EffectUpdate(int index)
@@ -81,6 +85,7 @@ public class EffectHandler : MonoBehaviour
 
         CharacterEffectDisplay.ClearEffectSprite(effect);
         CharacterEffectDisplay.QueueEffects.Remove(effect);
+        Destroy(effect);
     }
 }
    
