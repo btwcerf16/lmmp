@@ -1,73 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Playables;
 using UnityEngine;
 
 public class AbilityHolder : MonoBehaviour
 {
-    public Ability ability;
-    public float currentCooldownTime;
-    public float currentActiveTime;
+    public List<Ability> abilities = new();
+    public List<float> currentCooldownTime = new();
+    public List<float> currentActiveTime = new();
 
-    public KeyCode key;
-
+    public List<KeyCode> keys = new();
+    [SerializeField]private List<AbilityState> states = new();
 
     enum AbilityState
     {
-        None,
         Ready,
         Active,
         Cooldown
     }
-    AbilityState state = AbilityState.Ready;
+    
 
 
 
     private void Update()
     {
-        switch (state)
+        for (int i = 0; i < abilities.Count; i++)
         {
-            case AbilityState.Ready:
-                if (Input.GetKeyDown(key))
-                {
-
-                    state = AbilityState.Active;
-                    currentActiveTime = ability.activeTime;
-                }
-                break;
-
-            case AbilityState.Active:
-
-                if (currentActiveTime > 0)
-                {
-                    currentActiveTime -= Time.deltaTime;
-                    if (Input.GetKeyDown(KeyCode.Tab))
+            switch (states[i])
+            {
+                case AbilityState.Ready:
+                    if (Input.GetKeyDown(keys[i]))
                     {
-                        state = AbilityState.Ready;
+
+                        states[i] = AbilityState.Active;
+                        currentActiveTime[i] = abilities[i].activeTime;
                     }
-                }
-                else
-                {
-                    currentActiveTime = 0;
-                    ability.Activate(gameObject);
-                    ability.BeginCooldown(gameObject);
-                    state = AbilityState.Cooldown;
-                    currentCooldownTime = ability.cooldownTime;
-                }
-                break;
+                    break;
 
-            case AbilityState.Cooldown:
+                case AbilityState.Active:
 
-                if (currentCooldownTime > 0)
-                {
-                    currentCooldownTime -= Time.deltaTime;
-                }
-                else
-                {
-                    currentCooldownTime = 0;
-                    state = AbilityState.Ready;
-                }
-                break;
+                    if (currentActiveTime[i] > 0)
+                    {
+                        currentActiveTime[i] -= Time.deltaTime;
+                        if (Input.GetKeyDown(KeyCode.Tab))
+                        {
+                            states[i] = AbilityState.Ready;
+                        }
+                    }
+                    else
+                    {
+                        currentActiveTime[i] = 0;
+                        abilities[i].Activate(gameObject);
+                        abilities[i].BeginCooldown(gameObject);
+                        states[i] = AbilityState.Cooldown;
+                        currentCooldownTime[i] = abilities[i].cooldownTime;
+                    }
+                    break;
+
+                case AbilityState.Cooldown:
+
+                    if (currentCooldownTime[i] > 0)
+                    {
+                        currentCooldownTime[i] -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        currentCooldownTime[i] = 0;
+                        states[i] = AbilityState.Ready;
+                    }
+                    break;
+            }
         }
+        
 
     }
 }

@@ -12,7 +12,6 @@ public class RedSplashAbility : Ability
     {
         if (owner.GetComponent<ActorStats>().currentStamina > 0.0f)
         {
-            
 
             owner.GetComponent<Stamina>().ChangeStaminaAmount(20.0f);
             

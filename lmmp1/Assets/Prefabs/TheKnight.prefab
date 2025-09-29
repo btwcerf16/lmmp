@@ -2439,10 +2439,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225d8108cfbb7cb4185fef6e30f3290a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: f5f080e532bc47f469642c452367c257, type: 2}
-  currentCooldownTime: 0
-  currentActiveTime: 0
-  key: 9
+  abilities:
+  - {fileID: 11400000, guid: f5f080e532bc47f469642c452367c257, type: 2}
+  - {fileID: 11400000, guid: ad0e0418db4ac164385f32d0d375b752, type: 2}
+  currentCooldownTime:
+  - 0
+  - 0
+  currentActiveTime:
+  - 0
+  - 0
+  keys: 1801000019010000
+  states: 0000000000000000
 --- !u!114 &2843308023647757624
 MonoBehaviour:
   m_ObjectHideFlags: 0
