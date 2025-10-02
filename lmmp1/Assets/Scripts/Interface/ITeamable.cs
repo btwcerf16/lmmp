@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ITeamable
 {
-    [field:SerializeField]public bool isPlayer {  get; set; }
+    public bool isPlayer {  get; set; }
 }

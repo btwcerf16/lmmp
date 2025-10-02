@@ -18,20 +18,21 @@ public class ActorStats : MonoBehaviour
     public float magicDamageMultiplyer;
     public float physicDamageMultiplyer;
     public float invincibleTimeFrame;
-
+    public float BonusDamage;
     
+
 
     [SerializeField] private float _currentStamina;
     [SerializeField] private float _currentHealth;
 
     private HealthBar healthBar;
 
-    public float currentStamina { get => _currentStamina; 
+    public float ÑurrentStamina { get => _currentStamina; 
         set => _currentStamina = Mathf.Clamp(value, -100, maxStamina);
 
     
     }
-    public float currentHealth { get => _currentHealth;
+    public float ÑurrentHealth { get => _currentHealth;
         set 
         {
             _currentHealth = Mathf.Min(maxHealth, value);
@@ -75,8 +76,8 @@ public class ActorStats : MonoBehaviour
 
     private void Start()
     {
-        currentStamina = maxStamina;
-        currentHealth = maxHealth;
+        ÑurrentStamina = maxStamina;
+        ÑurrentHealth = maxHealth;
     }
-
+    
 }

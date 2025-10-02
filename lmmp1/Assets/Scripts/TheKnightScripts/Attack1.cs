@@ -32,14 +32,14 @@ public class Attack1 : MonoBehaviour, IAttacker
                 
                 if (roll <= actorStats.critChance/100.0f)
                 {
-                    enemy.GetComponent<IDamageable>().Damage(actorStats.attackDamage * actorStats.critDamage/100.0f * actorStats.physicDamageMultiplyer);
-                    Debug.Log(" –»“ " + actorStats.attackDamage * actorStats.critDamage / 100.0f * actorStats.physicDamageMultiplyer + " ÿ¿Õ— " + roll);
+                    enemy.GetComponent<IDamageable>().Damage((actorStats.attackDamage + actorStats.BonusDamage) * actorStats.critDamage/100.0f * actorStats.physicDamageMultiplyer);
+                   
                     enemy.GetComponent<EffectHandler>().AddEffect(AttackEffect);
                 }
                 else
                 {
-                    enemy.GetComponent<IDamageable>().Damage(actorStats.attackDamage * actorStats.physicDamageMultiplyer);
-                    Debug.Log("ÕÂ –»“ " + actorStats.attackDamage * actorStats.physicDamageMultiplyer + " ÿ¿Õ— " + roll);
+                    enemy.GetComponent<IDamageable>().Damage((actorStats.attackDamage + actorStats.BonusDamage) * actorStats.physicDamageMultiplyer);
+                    
                 }
             }
         }

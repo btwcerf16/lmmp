@@ -81,7 +81,7 @@ public abstract class Player : MonoBehaviour, IDamageable
     }
     private void Update()
     {
-       
+
         
         _SM.currentState.Update();
         moveVector.x = Input.GetAxis("Horizontal");
@@ -91,13 +91,6 @@ public abstract class Player : MonoBehaviour, IDamageable
         if (Input.GetKeyDown(KeyCode.N))
         {
             PlayerEffectHandler.AddEffect(effects[0]);
-
-
-
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            PlayerEffectHandler.AddEffect(effects[1]);
 
 
 
@@ -142,7 +135,7 @@ public abstract class Player : MonoBehaviour, IDamageable
         }
         if (currentStats.assailable && !isAttacked)
         {
-            if (currentStats.currentStamina < currentStats.maxStamina) {
+            if (currentStats.ÑurrentStamina < currentStats.maxStamina) {
                 stamina.RechargeStaminaAmount();
             }
         }
@@ -163,7 +156,7 @@ public abstract class Player : MonoBehaviour, IDamageable
 
         if (currentStats.assailable)
         {
-            currentStats.currentHealth -= damageAmount;
+            currentStats.ÑurrentHealth -= damageAmount;
          
             isAttacked = true;
             currentStats.assailable = false;
@@ -179,7 +172,7 @@ public abstract class Player : MonoBehaviour, IDamageable
     }
     public void Heal(float healAmount)
     {
-        currentStats.currentHealth += healAmount;
+        currentStats.ÑurrentHealth += healAmount;
         
     }
     private void CheckingGround()

@@ -13,27 +13,27 @@ public class Stamina : MonoBehaviour
         player = GetComponent<Player>();
 
     }
-    public void Update()
+    public void FixedUpdate()
     {
-        if (player.currentStats.currentStamina <= 0)
+        if (player.currentStats.ÑurrentStamina <= 0)
         {
-            weaknessStaminaImage.fillAmount = (-(player.currentStats.currentStamina) / 100.0f);
+            weaknessStaminaImage.fillAmount = (-(player.currentStats.ÑurrentStamina) / 100.0f);
+            
         }
     }
     public void ChangeStaminaAmount(float amount)
     {
             
-        player.currentStats.currentStamina -= amount;
-        staminaImage.fillAmount = (player.currentStats.currentStamina) / 100.0f;
-        
-
+        player.currentStats.ÑurrentStamina -= amount;
+        staminaImage.fillAmount = (player.currentStats.ÑurrentStamina) / 100.0f;
 
         
     }
     public void RechargeStaminaAmount()
     {
 
-        player.currentStats.currentStamina += player.currentStats.staminaRegeneration * Time.deltaTime;
-        staminaImage.fillAmount = (player.currentStats.currentStamina) / 100.0f;
+        player.currentStats.ÑurrentStamina += player.currentStats.staminaRegeneration * Time.deltaTime;
+        staminaImage.fillAmount = (player.currentStats.ÑurrentStamina) / 100.0f;
+
     }
 }

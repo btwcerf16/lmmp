@@ -33,7 +33,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     #region IDamageable
     public void Damage(float damageAmount)
     {
-       EnemyCurrentStats.currentHealth -= damageAmount;
+       EnemyCurrentStats.ÑurrentHealth -= damageAmount;
     }
 
     public void Die()
@@ -43,7 +43,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public void Heal(float healAmount)
     {
-        EnemyCurrentStats.currentHealth += healAmount;
+        EnemyCurrentStats.ÑurrentHealth += healAmount;
     }
     #endregion
 

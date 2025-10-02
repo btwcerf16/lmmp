@@ -15889,13 +15889,21 @@ PrefabInstance:
       propertyPath: effects.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 13878739826ed824f9f5061345ae3b1e, type: 2}
+    - target: {fileID: 2843308023647757624, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: effects.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: ab5fb90fb3dc0134b843714d37deb539, type: 2}
+    - target: {fileID: 4247552690938173698, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9894
+      objectReference: {fileID: 0}
     - target: {fileID: 4247552690938173698, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.79
       objectReference: {fileID: 0}
     - target: {fileID: 4247552690938173698, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.96
+      value: 6.9726
       objectReference: {fileID: 0}
     - target: {fileID: 4247552690938173698, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_LocalPosition.z

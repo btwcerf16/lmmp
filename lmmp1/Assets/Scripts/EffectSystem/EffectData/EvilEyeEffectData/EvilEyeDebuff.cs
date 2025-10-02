@@ -17,7 +17,7 @@ public class EvilEyeDebuff : Effect
         HitCounter += 1;
         if (HitCounter == ((EvilEyeEffectData)EffectData).HitNeeded)
         {
-            owner.currentHealth -= owner.maxHealth / 100.0f * ((EvilEyeEffectData)EffectData).DamagePercent; EffectEnd(owner);
+            owner.СurrentHealth -= owner.maxHealth / 100.0f * ((EvilEyeEffectData)EffectData).DamagePercent; EffectEnd(owner);
             Debug.Log(HitCounter + " Владелец" + gameObject.name + "Получилось ");
 
         }

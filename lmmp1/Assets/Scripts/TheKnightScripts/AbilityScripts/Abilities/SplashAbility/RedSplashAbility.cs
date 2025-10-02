@@ -10,7 +10,7 @@ public class RedSplashAbility : Ability
     private float speed;   
     public override void Activate(GameObject owner)
     {
-        if (owner.GetComponent<ActorStats>().currentStamina > 0.0f)
+        if (owner.GetComponent<ActorStats>().ÑurrentStamina > 0.0f)
         {
 
             owner.GetComponent<Stamina>().ChangeStaminaAmount(20.0f);
@@ -18,7 +18,7 @@ public class RedSplashAbility : Ability
         }
         else
         {
-            owner.GetComponent<ActorStats>().currentHealth -= 10.0f;
+            owner.GetComponent<ActorStats>().ÑurrentHealth -= 10.0f;
         }
         speed = owner.GetComponent<ActorStats>().speed;
         owner.GetComponent<ActorStats>().speed = 0;

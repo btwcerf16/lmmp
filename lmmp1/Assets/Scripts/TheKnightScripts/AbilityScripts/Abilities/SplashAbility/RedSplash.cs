@@ -28,11 +28,12 @@ public class RedSplash : MonoBehaviour
         {
             if (enemy.GetComponent<IDamageable>() != null)
             {
-                if (player.currentStats.currentStamina >= 0)
-                { enemy.GetComponent<IDamageable>().Damage(((player.currentStats.attackDamage * 
+                if (player.currentStats.ÑurrentStamina >= 0)
+                { enemy.GetComponent<IDamageable>().Damage(((
+                    (player.currentStats.attackDamage + player.currentStats.BonusDamage) * 
                     player.currentStats.physicDamageMultiplyer) * DamagePercent/100.0f) * 0.6f); }
 
-                else { enemy.GetComponent<IDamageable>().Damage((player.currentStats.attackDamage * 
+                else { enemy.GetComponent<IDamageable>().Damage(((player.currentStats.attackDamage + player.currentStats.BonusDamage) * 
                     player.currentStats.physicDamageMultiplyer) * DamagePercent / 100.0f);
                     enemy.GetComponent<EffectHandler>().AddEffect(effect);
                 }    

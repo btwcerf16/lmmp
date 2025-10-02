@@ -23,7 +23,7 @@ public class BaseAttack : MonoBehaviour, IAttacker
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<IDamageable>()?.Damage(actorStats.attackDamage);
+            enemy.GetComponent<IDamageable>()?.Damage(actorStats.attackDamage + actorStats.BonusDamage);
             enemy.GetComponent<EffectHandler>()?.AddEffect(effect);
         }
     }

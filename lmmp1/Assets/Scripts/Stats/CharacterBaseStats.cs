@@ -18,4 +18,5 @@ public class CharacterBaseStats : ScriptableObject
     public float BaseInvincibleTimeFrame;
     public float BaseCritChanse;
     public float BaseCritDamage;
+    
 }

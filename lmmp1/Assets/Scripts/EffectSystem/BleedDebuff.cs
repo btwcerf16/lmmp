@@ -9,7 +9,7 @@ public class BleedDebuff :Effect
 
     public override void EffectTick(ActorStats owner)
     {
-        owner.currentHealth -= owner.currentHealth/100.0f * DamagePercent * Time.deltaTime;
+        owner.ÑurrentHealth -= owner.ÑurrentHealth/100.0f * DamagePercent * Time.deltaTime;
         
            
     }
