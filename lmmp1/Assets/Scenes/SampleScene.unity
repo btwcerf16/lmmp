@@ -15881,6 +15881,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1176420940619416247, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: staminaDebufs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176420940619416247, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: staminaDebufs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 33a5319df5fcca148a67633b95e10f66, type: 2}
+    - target: {fileID: 1176420940619416247, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: staminaDebufs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: d96e893b36c9a124cbab1c23ed661f5d, type: 2}
+    - target: {fileID: 1176420940619416247, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: staminaDebufs.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f6b5b03c18b4ba41b0af6df2473c56b, type: 2}
     - target: {fileID: 2773859233067137258, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: key
       value: 280
