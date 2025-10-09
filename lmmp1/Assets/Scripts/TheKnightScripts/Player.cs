@@ -10,7 +10,7 @@ public abstract class Player : MonoBehaviour, IDamageable
 {
     
    
-    [HideInInspector] public Stamina stamina; 
+    [HideInInspector] public Stamina PlayerStamina; 
     [HideInInspector] public Animator animator;
     [HideInInspector] public new Rigidbody2D rigidbody2D;
 
@@ -70,7 +70,7 @@ public abstract class Player : MonoBehaviour, IDamageable
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         //attack1 = GetComponent<Attack1>();
-        stamina = GetComponent<Stamina>();
+        PlayerStamina = GetComponent<Stamina>();
 
         PlayerEffectHandler = GetComponent<EffectHandler>();
 
@@ -105,6 +105,7 @@ public abstract class Player : MonoBehaviour, IDamageable
         if (moveVector.x == 0 && rigidbody2D.velocity.x == 0 && currentStats.canAttack && canRoll)
         {
             _SM.ChangeState(new IdleState(this));
+            if (!isAttacked) { PlayerStamina.ChangeStaminaAmount(currentStats.staminaRegeneration * Time.deltaTime); }
         }
         if (Input.GetKey(KeyCode.Mouse0))
         {
@@ -133,12 +134,7 @@ public abstract class Player : MonoBehaviour, IDamageable
         {
             canRoll = true;
         }
-        if (currentStats.assailable && !isAttacked)
-        {
-            if (currentStats.ÑurrentStamina < currentStats.maxStamina) {
-                stamina.RechargeStaminaAmount();
-            }
-        }
+        
     }
 
 

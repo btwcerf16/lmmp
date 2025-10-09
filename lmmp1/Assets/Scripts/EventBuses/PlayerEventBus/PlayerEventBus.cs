@@ -8,6 +8,7 @@ public static class PlayerEventBus
     public static Action<float> onPlayerHeal;
     public static Action<float> onPlayerDamaged;
     public static Action<float> onPlayerCast;
+    public static Action<float> onPlayerStaminaChanged;
 
 }
 
