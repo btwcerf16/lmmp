@@ -6,14 +6,7 @@ using UnityEngine;
 public class EvilEyeDebuff : Effect
 {
    public int HitCounter;
-    private void OnEnable()
-    {
-        PlayerEventBus.onHealhChanged += ConcoleMessage;
-    }
-    private void OnDisable()
-    {
-        PlayerEventBus.onHealhChanged -= ConcoleMessage;
-    }
+    
     public override void EffectEnd(ActorStats owner)
     {
         HitCounter = 0;
@@ -35,9 +28,6 @@ public class EvilEyeDebuff : Effect
         Debug.Log(HitCounter +" Владелец"+ gameObject.name);
 
     }
-    private void ConcoleMessage()
-    {
-        Debug.Log("ПОлучил урон");
-    }
+   
 
 }

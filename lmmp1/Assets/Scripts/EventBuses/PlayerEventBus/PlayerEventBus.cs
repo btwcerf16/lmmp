@@ -5,7 +5,9 @@ using UnityEngine;
 
 public static class PlayerEventBus 
 { 
-    public static Action onHealhChanged;
+    public static Action<float> onPlayerHeal;
+    public static Action<float> onPlayerDamaged;
+    public static Action<float> onPlayerCast;
 
 }
 
