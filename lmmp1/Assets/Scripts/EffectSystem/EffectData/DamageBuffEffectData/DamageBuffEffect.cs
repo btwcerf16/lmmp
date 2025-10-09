@@ -1,4 +1,6 @@
 
+using UnityEngine;
+
 public class DamageBuffEffect : Effect
 {
 
@@ -6,7 +8,10 @@ public class DamageBuffEffect : Effect
     {
         owner.attackDamage -= ((DamageBuffEffectData)EffectData).DamageBuff;
     }
-
+    public override void EffectTick(ActorStats owner)
+    {
+        TimeRemaining -= Time.deltaTime;
+    }
     public override void EffectStart(ActorStats owner)
     {
         owner.attackDamage += ((DamageBuffEffectData)EffectData).DamageBuff;

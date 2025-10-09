@@ -166,14 +166,14 @@ public abstract class Player : MonoBehaviour, IDamageable
 
             StartCoroutine(IFrame(currentStats.invincibleTimeFrame));
         }
-
+        PlayerEventBus.onHealhChanged?.Invoke();
 
 
     }
     public void Heal(float healAmount)
     {
         currentStats.ÑurrentHealth += healAmount;
-        
+        PlayerEventBus.onHealhChanged?.Invoke();
     }
     private void CheckingGround()
     {

@@ -26,7 +26,7 @@ public class EffectHandler : MonoBehaviour
         {
 
             ActiveEffects[i].EffectTick(OwnerActorStats);
-            ActiveEffects[i].TimeRemaining -= Time.deltaTime;
+            
             if (ActiveEffects[i].TimeRemaining <= 0 && ActiveEffects[i].TimeRemaining >=-5)
             {
 
