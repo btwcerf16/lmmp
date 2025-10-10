@@ -5,26 +5,33 @@ using UnityEngine.UI;
 
 public class Stamina : MonoBehaviour
 {
-    private Player player;
+    private ActorStats staminaStat;
+    [SerializeField] private Weakness weakness;
+    public bool IsWeak;
 
-    
     private void Awake()
     {
-        player = GetComponent<Player>();
+        staminaStat = GetComponent<ActorStats>();
+        weakness = GetComponent<Weakness>();
     }
-    //public void FixedUpdate()
-    //{
-    //    if (player.currentStats.ÑurrentStamina <= 0)
-    //    {
-    //        weaknessStaminaImage.fillAmount = (-(player.currentStats.ÑurrentStamina) / 100.0f);
-            
-
-    //    }
-    //}
     public void ChangeStaminaAmount(float amount)
     {
-            
-        player.currentStats.ÑurrentStamina -= amount;
+        staminaStat.ÑurrentStamina += amount;
         PlayerEventBus.onPlayerStaminaChanged?.Invoke(amount);
+        if(staminaStat.ÑurrentStamina <= 0 && !IsWeak)
+        {
+            if (weakness != null)
+            {
+                weakness.GetWeakness();
+
+            }
+           
+            IsWeak = true;
+        }
+        if(staminaStat.ÑurrentStamina > 0 && IsWeak)
+        {
+            IsWeak = false;
+            weakness.RemoveWeakness();
+        }
     }
 }

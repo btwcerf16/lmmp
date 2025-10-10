@@ -127,17 +127,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4337431725945913096, guid: da2dea0c0aa45704c93c429505db189c, type: 3}
   m_PrefabInstance: {fileID: 386328956}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &192707373 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4702391045355963756, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-  m_PrefabInstance: {fileID: 2022433189}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &226316498
 GameObject:
   m_ObjectHideFlags: 0
@@ -15317,17 +15306,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &761981111 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6528945055178987039, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-  m_PrefabInstance: {fileID: 2022433189}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &976125139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15617,6 +15595,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyDomainChildren: {fileID: 0}
+--- !u!1 &1546500801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8218874997577805778, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+  m_PrefabInstance: {fileID: 2022433189}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1546500818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546500801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42117c2544e24445a16ec4985e0843b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSprite: {fileID: 0}
+  DamageDebuff: 0
+  CurrentHealthDebuff: 0
+  CritChanceDebuff: 0
+  CritDamageDebuff: 0
+  isWeak: 0
 --- !u!1 &1663411667
 GameObject:
   m_ObjectHideFlags: 0
@@ -15919,26 +15920,10 @@ PrefabInstance:
       propertyPath: staminaDebufs.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 1f6b5b03c18b4ba41b0af6df2473c56b, type: 2}
-    - target: {fileID: 1993982093429234697, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-      propertyPath: staminaImage
-      value: 
-      objectReference: {fileID: 761981111}
-    - target: {fileID: 1993982093429234697, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-      propertyPath: weaknessStaminaImage
-      value: 
-      objectReference: {fileID: 192707373}
     - target: {fileID: 2773859233067137258, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: key
       value: 280
       objectReference: {fileID: 0}
-    - target: {fileID: 2843308023647757624, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-      propertyPath: effects.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 13878739826ed824f9f5061345ae3b1e, type: 2}
-    - target: {fileID: 2843308023647757624, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-      propertyPath: effects.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: ab5fb90fb3dc0134b843714d37deb539, type: 2}
     - target: {fileID: 4247552690938173698, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.9894
@@ -16000,7 +15985,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 6053650055669364425, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8218874997577805778, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1546500818}
   m_SourcePrefab: {fileID: 100100000, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

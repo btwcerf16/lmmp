@@ -7,8 +7,8 @@ public class StaminaDisplay : MonoBehaviour
 
     public Image staminaImage;
     public Image weaknessStaminaImage;
-
-
+    private ActorStats staminaStat;
+    
 
     private void OnEnable()
     {
@@ -21,21 +21,20 @@ public class StaminaDisplay : MonoBehaviour
 
     private void Start()
     {
-
+        staminaStat = GetComponent<ActorStats>();
         staminaImage.fillAmount = 1;
     }
     private void ChangeStaminaFillAmount(float amount)
     {
         
-        if (staminaImage.fillAmount <= 0)
+        if (staminaStat.ÑurrentStamina <= 0)
         {
-            weaknessStaminaImage.fillAmount += (amount) / 100.0f;
-
-
+            weaknessStaminaImage.fillAmount = -staminaStat.ÑurrentStamina / 100.0f;
+            
         }
         else
         {
-            staminaImage.fillAmount += (amount) / 100.0f;
+            staminaImage.fillAmount = staminaStat.ÑurrentStamina / 100.0f;
         }
     }
 }
