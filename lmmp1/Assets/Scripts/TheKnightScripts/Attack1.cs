@@ -35,11 +35,13 @@ public class Attack1 : MonoBehaviour, IAttacker
                     enemy.GetComponent<IDamageable>().Damage((actorStats.attackDamage + actorStats.BonusDamage) * actorStats.critDamage/100.0f * actorStats.physicDamageMultiplyer);
                    
                     enemy.GetComponent<EffectHandler>().AddEffect(AttackEffect);
+                    CameraShake.Instance.ShakeCamera(5f, 0.1f);
                 }
                 else
                 {
                     enemy.GetComponent<IDamageable>().Damage((actorStats.attackDamage + actorStats.BonusDamage) * actorStats.physicDamageMultiplyer);
-                    
+                    CameraShake.Instance.ShakeCamera(2.5f, 0.1f);
+
                 }
             }
         }

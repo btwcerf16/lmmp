@@ -2230,6 +2230,7 @@ GameObject:
   - component: {fileID: 2376032578666518494}
   - component: {fileID: 4722386234126243690}
   - component: {fileID: 1382891254230233947}
+  - component: {fileID: 843553534419220915}
   - component: {fileID: 1993982093429234697}
   - component: {fileID: 1176420940619416247}
   - component: {fileID: 398574908514996646}
@@ -2414,6 +2415,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &843553534419220915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8218874997577805778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42117c2544e24445a16ec4985e0843b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSprite: {fileID: 0}
+  DamageDebuff: 2
+  CurrentHealthDebuff: 10
+  CritChanceDebuff: 30
+  CritDamageDebuff: 20
+  isWeak: 0
 --- !u!114 &1993982093429234697
 MonoBehaviour:
   m_ObjectHideFlags: 0

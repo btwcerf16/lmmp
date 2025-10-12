@@ -12,7 +12,7 @@ public class EffectDisplay : MonoBehaviour
     public List<Effect> QueueEffects;
 
     public int busy = 0;
- //&& EffectSprites[1].GetComponent<SpriteRenderer>().sprite != null && EffectSprites[2].GetComponent<SpriteRenderer>().sprite != null
+
     public void AddEffectSprite(Effect effect)
     {
         if (busy == EffectSprites.Count)

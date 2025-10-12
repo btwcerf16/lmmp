@@ -21,7 +21,9 @@ public class Weakness : MonoBehaviour
     private void Update()
     {
         if (isWeak) {
-            playerSprite.color = new Color32(171, (byte)(255 * (playerActorStats.maxStamina + playerActorStats.ÑurrentStamina) / 200), (byte)(255 * (playerActorStats.maxStamina + playerActorStats.ÑurrentStamina) / 200), 255);
+            playerSprite.color = new Color32(171, 
+                (byte)(255 * (playerActorStats.maxStamina + playerActorStats.ÑurrentStamina) / 200),
+                (byte)(255 * (playerActorStats.maxStamina + playerActorStats.ÑurrentStamina) / 200), 255);
         }
         
     }
