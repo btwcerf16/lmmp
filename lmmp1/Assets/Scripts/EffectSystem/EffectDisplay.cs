@@ -23,7 +23,7 @@ public class EffectDisplay : MonoBehaviour
         {
             for (int i = 0; i < EffectSprites.Count; i++)
             {
-
+                
                 if (EffectSprites[i].GetComponent<SpriteRenderer>().sprite == null)
                 {
                     EffectSprites[i].GetComponent<SpriteRenderer>().sprite = effect.EffectData.SpriteIcon;

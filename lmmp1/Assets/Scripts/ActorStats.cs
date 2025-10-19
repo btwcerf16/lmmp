@@ -79,5 +79,9 @@ public class ActorStats : MonoBehaviour
         ÑurrentStamina = maxStamina;
         ÑurrentHealth = maxHealth;
     }
+    public float GetTotalDamage()
+    {
+        return (attackDamage + BonusDamage) * physicDamageMultiplyer;
+    }
     
 }

@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eea641d58b55fd4bae737d8083ba10d, type: 3}
-  m_Name: DamageBuffEffectData
+  m_Script: {fileID: 11500000, guid: e99aac1ecc08ab64bb6f403ce1f5b95a, type: 3}
+  m_Name: BleedDebuffEffectData
   m_EditorClassIdentifier: 
-  EffectName: "\u0423\u0441\u0438\u043B\u0435\u043D\u0438\u0435 \u0443\u0440\u043E\u043D\u0430"
-  EffectDuration: 10
+  EffectName: "\u041A\u0440\u043E\u0432\u043E\u0442\u0435\u0447\u0435\u043D\u0438\u0435"
+  EffectDuration: 8
   EffectDescription: 
-  SpriteIcon: {fileID: 21300000, guid: 20e5863525121c6419ff3e2370dc6f43, type: 3}
+  SpriteIcon: {fileID: 21300000, guid: 7e5bae18d8d17f14bb61b02d9e0edc06, type: 3}
   effectPref: {fileID: 0}
-  DamageBuff: 5
+  DamagePercent: 1

@@ -13,12 +13,12 @@ public class RedSplashAbility : Ability
         if (owner.GetComponent<ActorStats>().ÑurrentStamina > 0.0f)
         {
 
-            owner.GetComponent<Stamina>().ChangeStaminaAmount(20.0f);
+            owner.GetComponent<Stamina>().ChangeStaminaAmount(-20.0f);
             
         }
         else
         {
-            owner.GetComponent<ActorStats>().ÑurrentHealth -= 10.0f;
+            owner.GetComponent<IDamageable>().Damage(10.0f);
         }
         speed = owner.GetComponent<ActorStats>().speed;
         owner.GetComponent<ActorStats>().speed = 0;

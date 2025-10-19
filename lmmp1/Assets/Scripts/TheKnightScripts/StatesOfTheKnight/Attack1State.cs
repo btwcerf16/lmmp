@@ -14,6 +14,7 @@ public class Attack1State : State
         base.Enter();
         _player.animator.SetTrigger("Attack1");
         _player.State = "Attack";
+        
 
     }
     public override void Update()

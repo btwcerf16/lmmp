@@ -53,7 +53,7 @@ public abstract class Player : MonoBehaviour, IDamageable
     public List<PlayerAttributes> Attribute = new();
 
     public CharacterBaseStats baseStats { get;}
-    
+
     
 
     public ActorStats currentStats;
@@ -63,7 +63,10 @@ public abstract class Player : MonoBehaviour, IDamageable
     public List<EffectData> effects;
 
     public List<GameObject> HurtEffect;
+    [SerializeField]private int count = 0;
 
+    private float hurtCooldown;
+    const float HURT_TIMER = 0.5f;
     private void Start()
     {
         healthBar = GetComponent<HealthBar>();
@@ -87,13 +90,15 @@ public abstract class Player : MonoBehaviour, IDamageable
         moveVector.x = Input.GetAxis("Horizontal");
         CheckingGround();
 
-
-        if (Input.GetKeyDown(KeyCode.N))
+        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            PlayerEffectHandler.AddEffect(effects[0]);
-
-
-
+            PlayerEffectHandler.AddEffect(effects[count]);
+            count++;
+            if(count == 4)
+            {
+                count = 0;
+            }
         }
         if ((currentStats.canMove && currentStats.speed > 0 && Input.GetKey(KeyCode.A) )|| (Input.GetKey(KeyCode.D) && currentStats.canMove && currentStats.speed > 0))
         {
@@ -134,7 +139,10 @@ public abstract class Player : MonoBehaviour, IDamageable
         {
             canRoll = true;
         }
-        
+        if(hurtCooldown > 0)
+        {
+            hurtCooldown -= Time.deltaTime;
+        }
     }
 
 
@@ -156,9 +164,13 @@ public abstract class Player : MonoBehaviour, IDamageable
          
             isAttacked = true;
             currentStats.assailable = false;
-
-            Vector2 damagePos = new Vector2(transform.position.x + Random.Range(-1.0f, 1.0f), transform.position.y + Random.Range(-1.0f, .5f));
-            Instantiate(HurtEffect[Random.Range(0,2)], damagePos, Quaternion.identity);
+            if(hurtCooldown <= 0)
+            {
+                Vector2 damagePos = new Vector2(transform.position.x + Random.Range(-1.0f, 1.0f), transform.position.y + Random.Range(-1.0f, .5f));
+                Instantiate(HurtEffect[Random.Range(0, 2)], damagePos, Quaternion.identity);
+                hurtCooldown = HURT_TIMER;
+            }
+           
 
             StartCoroutine(IFrame(currentStats.invincibleTimeFrame));
         }

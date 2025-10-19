@@ -34,12 +34,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     #region IDamageable
     public void Damage(float damageAmount)
     {
-        System.Random randomX = new System.Random();
-        System.Random randomY = new System.Random();
+        var randomX = new System.Random();
+        var randomY = new System.Random();
         float randomPosX = randomX.Next(0, 2);
         float randomPosY = randomY.Next(0, 2);
         floatingDamage.GetComponentInChildren<FloatingDamage>().TotalDamage = damageAmount;
-        Vector2 damagePos = new Vector2(transform.position.x + randomPosX, transform.position.y + randomPosY);
+        Vector2 damagePos = new(transform.position.x + randomPosX, transform.position.y + randomPosY);
         Instantiate(floatingDamage, damagePos, Quaternion.identity);
 
         

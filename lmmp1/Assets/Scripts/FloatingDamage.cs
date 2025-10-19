@@ -6,19 +6,21 @@ using UnityEngine.UI;
 
 public class FloatingDamage : MonoBehaviour
 {
-    
-   private TextMeshPro damageText;
-    [SerializeField] public float TotalDamage;
+    [SerializeField] private GameObject fatherGameObject;
+    private TextMeshPro damageText;
+
+    public float TotalDamage;
 
     private void Start()
     {
+       
         damageText = GetComponent<TextMeshPro>();
         damageText.text = "-" + TotalDamage;
         
     }
 
-    public void AnimationEnd()
+    public void OnAnimationEnd()
     {
-        Destroy(gameObject);
+        Destroy(fatherGameObject);
     }
 }

@@ -9,7 +9,7 @@ public class Attack1 : MonoBehaviour, IAttacker
     [field: SerializeField ]public LayerMask enemyLayer { get; set; }
     [field:SerializeField] public Transform attack1point { get; set; }
     [field: SerializeField] public float attackArea { get; set; }
-    [field: SerializeField] public float attackCooldown { get; set; }
+    [field: SerializeField] public float AttackCooldown { get; set; }
     [field: SerializeField] public ActorStats actorStats { get; set; }
 
     
@@ -24,7 +24,7 @@ public class Attack1 : MonoBehaviour, IAttacker
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attack1point.position, attackArea, enemyLayer);
         float roll = Random.value;
-
+        PlayerEventBus.onPlayerAttack?.Invoke();
         foreach (Collider2D enemy in hitEnemies)
         {
             if (enemy.GetComponent<IDamageable>() != null)
@@ -32,16 +32,14 @@ public class Attack1 : MonoBehaviour, IAttacker
                 
                 if (roll <= actorStats.critChance/100.0f)
                 {
-                    enemy.GetComponent<IDamageable>().Damage((actorStats.attackDamage + actorStats.BonusDamage) * actorStats.critDamage/100.0f * actorStats.physicDamageMultiplyer);
-                   
+                    enemy.GetComponent<IDamageable>().Damage(actorStats.GetTotalDamage() * actorStats.critDamage/100.0f);
                     enemy.GetComponent<EffectHandler>().AddEffect(AttackEffect);
                     CameraShake.Instance.ShakeCamera(5f, 0.1f);
                 }
                 else
                 {
-                    enemy.GetComponent<IDamageable>().Damage((actorStats.attackDamage + actorStats.BonusDamage) * actorStats.physicDamageMultiplyer);
+                    enemy.GetComponent<IDamageable>().Damage(actorStats.GetTotalDamage());
                     CameraShake.Instance.ShakeCamera(2.5f, 0.1f);
-
                 }
             }
         }

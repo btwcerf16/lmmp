@@ -8,25 +8,14 @@ public class StaminaDisplay : MonoBehaviour
     public Image staminaImage;
     public Image weaknessStaminaImage;
     private ActorStats staminaStat;
-    
-
-    private void OnEnable()
-    {
-        PlayerEventBus.onPlayerStaminaChanged += ChangeStaminaFillAmount;
-    }
-    private void OnDisable()
-    {
-        PlayerEventBus.onPlayerStaminaChanged -= ChangeStaminaFillAmount;
-    }
 
     private void Start()
     {
         staminaStat = GetComponent<ActorStats>();
         staminaImage.fillAmount = 1;
     }
-    private void ChangeStaminaFillAmount(float amount)
+    private void Update()
     {
-        
         if (staminaStat.ÑurrentStamina <= 0)
         {
             weaknessStaminaImage.fillAmount = -staminaStat.ÑurrentStamina / 100.0f;
