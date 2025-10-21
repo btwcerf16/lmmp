@@ -39,13 +39,11 @@ public class EscMenu : MonoBehaviour
                 "\n" +
                 $"Бонусный урон от атак: {playerStats.BonusDamage}" +
                 "\n" +
-                $"Максимальное здоровье: {playerStats.maxHealth}" +
-                "\n" +
-                $"Текущее здоровье: {playerStats.СurrentHealth}" +
+                $"Здоровье: {playerStats.СurrentHealth}/{playerStats.maxHealth}" +
                 "\n" + 
-                $"Максимальная выносливость: {playerStats.maxStamina}" +
+                $"Выносливость: {playerStats.СurrentStamina}/{playerStats.maxStamina}" +
                 "\n" +
-                $"Текущая стамина: {playerStats.СurrentStamina}" +
+                $"Регенерация выносливости: {playerStats.staminaRegeneration}" +
                 "\n" +
                 $"Множитель физ урона: {playerStats.physicDamageMultiplyer}" +
                 "\n" +
