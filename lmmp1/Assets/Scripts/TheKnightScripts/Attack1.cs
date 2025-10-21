@@ -25,25 +25,36 @@ public class Attack1 : MonoBehaviour, IAttacker
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attack1point.position, attackArea, enemyLayer);
         float roll = Random.value;
         PlayerEventBus.onPlayerAttack?.Invoke();
-        foreach (Collider2D enemy in hitEnemies)
+        if (hitEnemies.Length==0)
         {
-            if (enemy.GetComponent<IDamageable>() != null)
+            CameraShake.Instance.ShakeCamera(0.5f, 0.1f);
+        }
+        else
+        {
+            foreach (Collider2D enemy in hitEnemies)
             {
-                
-                if (roll <= actorStats.critChance/100.0f)
+                if (enemy.GetComponent<IDamageable>() != null)
                 {
-                    enemy.GetComponent<IDamageable>().Damage(actorStats.GetTotalDamage() * actorStats.critDamage/100.0f);
-                    enemy.GetComponent<EffectHandler>().AddEffect(AttackEffect);
-                    CameraShake.Instance.ShakeCamera(5f, 0.1f);
+
+                    if (roll <= actorStats.critChance / 100.0f)
+                    {
+                        enemy.GetComponent<IDamageable>().Damage(actorStats.GetTotalDamage() * actorStats.critDamage / 100.0f);
+                        enemy.GetComponent<EffectHandler>()?.AddEffect(AttackEffect);
+                        CameraShake.Instance.ShakeCamera(5f, 0.1f);
+                    }
+                    else
+                    {
+                        enemy.GetComponent<IDamageable>().Damage(actorStats.GetTotalDamage());
+                        CameraShake.Instance.ShakeCamera(2.5f, 0.1f);
+                    }
                 }
-                else
-                {
-                    enemy.GetComponent<IDamageable>().Damage(actorStats.GetTotalDamage());
-                    CameraShake.Instance.ShakeCamera(2.5f, 0.1f);
-                }
+
             }
         }
-       
+        
+        
+
+
     }
     private void OnDrawGizmosSelected()
     {

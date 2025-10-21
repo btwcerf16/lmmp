@@ -16078,10 +16078,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 398574908514996646, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-      propertyPath: keys.Array.data[0]
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 1176420940619416247, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: staminaDebufs.Array.size
       value: 3
@@ -16102,18 +16098,6 @@ PrefabInstance:
       propertyPath: key
       value: 280
       objectReference: {fileID: 0}
-    - target: {fileID: 2843308023647757624, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-      propertyPath: effects.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2843308023647757624, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-      propertyPath: effects.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 22fd3001ec1766348bd2f1721b0f012f, type: 2}
-    - target: {fileID: 2843308023647757624, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-      propertyPath: effects.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 00ab5ca2257aaae4f932a175e10f3420, type: 2}
     - target: {fileID: 2971682160071961948, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -16166,10 +16150,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7708816049558792373, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-      propertyPath: AttackEffect
-      value: 
-      objectReference: {fileID: 11400000, guid: 5a0d45391e6320d44a08e15fe41710c5, type: 2}
     - target: {fileID: 8218874997577805778, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_Name
       value: TheKnight

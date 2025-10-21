@@ -15,6 +15,7 @@ public class RedSplashAbility : Ability
 
             owner.GetComponent<Stamina>().ChangeStaminaAmount(-20.0f);
             
+
         }
         else
         {

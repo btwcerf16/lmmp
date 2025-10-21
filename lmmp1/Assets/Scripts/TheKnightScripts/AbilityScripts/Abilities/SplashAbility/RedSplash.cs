@@ -28,18 +28,18 @@ public class RedSplash : MonoBehaviour
         {
             if (enemy.GetComponent<IDamageable>() != null)
             {
+                CameraShake.Instance.ShakeCamera(2.5f, 0.1f);
                 if (player.currentStats.ÑurrentStamina >= 0)
                 { enemy.GetComponent<IDamageable>().Damage(((
-                    (player.currentStats.attackDamage + player.currentStats.BonusDamage) * 
-                    player.currentStats.physicDamageMultiplyer) * DamagePercent/100.0f) * 0.6f); }
+                    (player.currentStats.GetTotalDamage()) * DamagePercent/100.0f) * 0.6f)); }
 
-                else { enemy.GetComponent<IDamageable>().Damage(((player.currentStats.attackDamage + player.currentStats.BonusDamage) * 
-                    player.currentStats.physicDamageMultiplyer) * DamagePercent / 100.0f);
+                else { enemy.GetComponent<IDamageable>().Damage(((player.currentStats.GetTotalDamage()) * DamagePercent / 100.0f));
                     enemy.GetComponent<EffectHandler>().AddEffect(effect);
-                }    
+                }
+                
             }
         }
-        Debug.Log("1");
+        
     }
     private void OnDrawGizmosSelected()
     {
