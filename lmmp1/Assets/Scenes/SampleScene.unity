@@ -16078,6 +16078,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 398574908514996646, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: keys.Array.data[0]
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1176420940619416247, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: staminaDebufs.Array.size
       value: 3

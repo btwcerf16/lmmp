@@ -22,8 +22,8 @@ public class TargetWithinAttackRadiusCheck : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
-            if ((collision.gameObject == enemy.TargetTransform.gameObject)) enemy.TargetWithinAttackRadius = false;
+
+        if ((collision.gameObject == enemy.TargetTransform.gameObject)) { enemy.TargetWithinAttackRadius = false; } 
 
         
     }

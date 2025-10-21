@@ -53,9 +53,9 @@ public class EscMenu : MonoBehaviour
                 "\n" +
                 $"Сопротивление маг урону: {playerStats.magicResistance}" +
                 "\n" +
-                $"Шанс крит урона: {playerStats.critChance}" +
+                $"Шанс крит урона: {playerStats.critChance}%" +
                 "\n" +
-                $"Крит урон: {playerStats.critDamage}";
+                $"Крит урон: {playerStats.critDamage}%";
 
             int effectsToShow = Mathf.Min(playerEffectHandler.ActiveEffects.Count, effectIcons.Count);
 
