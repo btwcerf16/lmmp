@@ -190,7 +190,7 @@ public abstract class Player : MonoBehaviour, IDamageable
 
     public void Die()
     {
-        Destroy(gameObject);
+        _SM.ChangeState(new DeathState(this));
     }
 
     IEnumerator IFrame(float invincibleTimeFrame)
@@ -199,7 +199,10 @@ public abstract class Player : MonoBehaviour, IDamageable
         isAttacked = false;
         currentStats.assailable = true;
     }
-
+    public  void DeathDestoy()
+    {
+        Destroy(gameObject);
+    }
    
    
 }
