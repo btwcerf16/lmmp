@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[CreateAssetMenu(fileName = "NewSkill", menuName = "Player/Create New Skill")]
 public class Ability : ScriptableObject
 {
     public string title;

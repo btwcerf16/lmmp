@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(menuName = "Player/Create Ability/Damage Ability")]
+
 public class DamageAbility : Ability
 {
     public float damageCount;

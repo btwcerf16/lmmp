@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-[CreateAssetMenu(menuName = "Player/Create Ability/Red Splash Ability")]
 public class RedSplashAbility : Ability
 {
     public GameObject RedSplash;
