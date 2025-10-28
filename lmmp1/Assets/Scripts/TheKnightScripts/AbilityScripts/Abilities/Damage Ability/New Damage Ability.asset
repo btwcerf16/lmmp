@@ -12,14 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1282401926f0ad543adae7026ebc6a7b, type: 3}
   m_Name: New Damage Ability
   m_EditorClassIdentifier: 
-  title: 
-  description: 
-  icon: {fileID: 0}
-  activeTime: 1
-  cooldownTime: 2
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  Buff: {fileID: 11400000, guid: 4a97f2f24c728754dbc5a0cdc3826507, type: 2}
+  TimeRemaining: 0
+  AbilityData: {fileID: 0}
   damageCount: 3
   attackArea: 61.96
+  BonusDamage: 7

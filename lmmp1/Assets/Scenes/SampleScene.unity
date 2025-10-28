@@ -16078,6 +16078,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 147729931716988697, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1176420940619416247, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: staminaDebufs.Array.size
       value: 3
@@ -16153,6 +16157,14 @@ PrefabInstance:
     - target: {fileID: 8218874997577805778, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_Name
       value: TheKnight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8690227015777278570, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857904497809734187, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

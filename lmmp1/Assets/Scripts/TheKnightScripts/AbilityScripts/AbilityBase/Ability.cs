@@ -2,24 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ability : ScriptableObject
+public abstract class Ability : MonoBehaviour
 {
-    public string title;
-    public string description;
-    public Sprite icon;
-    public float activeTime;
-    public float cooldownTime;
-    public LayerMask targetLayer;
-   
-
-
-
-    public virtual void Activate(GameObject owner)
+    public float TimeRemaining;
+    public AbilityData AbilityData;
+    public void Initialize(AbilityData _abilityData)
     {
-
+        AbilityData = _abilityData;
+        TimeRemaining = _abilityData.AbilityCooldown;
     }
-    public virtual void BeginCooldown(GameObject owner)
-    {
+    public virtual void EventTick() { }
+    public virtual void ApplyCast() { }
+    public virtual void CancelCast() { }
+    public virtual void Added() { }
 
-    }
 }

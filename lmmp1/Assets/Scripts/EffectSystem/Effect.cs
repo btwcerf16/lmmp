@@ -9,10 +9,10 @@ public abstract class Effect : MonoBehaviour
 
     public EffectData EffectData;
 
-    public void Initialize(EffectData effectData)
+    public void Initialize(EffectData _effectData)
     { 
-        EffectData = effectData;
-        TimeRemaining = effectData.EffectDuration; 
+        EffectData = _effectData;
+        TimeRemaining = _effectData.EffectDuration; 
     }
 
     public virtual void EffectStart(ActorStats owner) { }
