@@ -16102,6 +16102,10 @@ PrefabInstance:
       propertyPath: key
       value: 280
       objectReference: {fileID: 0}
+    - target: {fileID: 2843308023647757624, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: abilities
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b93b3d2d086613458ff784b6f40a9f5, type: 2}
     - target: {fileID: 2971682160071961948, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_IsActive
       value: 0

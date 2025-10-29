@@ -3199,17 +3199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225d8108cfbb7cb4185fef6e30f3290a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilities:
-  - {fileID: 11400000, guid: f5f080e532bc47f469642c452367c257, type: 2}
-  - {fileID: 11400000, guid: ad0e0418db4ac164385f32d0d375b752, type: 2}
-  currentCooldownTime:
-  - 0
-  - 0
-  currentActiveTime:
-  - 0
-  - 0
-  keys: 0900000019010000
-  states: 0000000000000000
+  abilities: []
 --- !u!114 &2843308023647757624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3225,6 +3215,7 @@ MonoBehaviour:
   PlayerStamina: {fileID: 0}
   animator: {fileID: 0}
   rigidbody2D: {fileID: 0}
+  PlayerAbilityHolder: {fileID: 0}
   dash: {fileID: 2702121651282502742}
   faceRight: 1
   moveVector: {x: 0, y: 0}
@@ -3245,11 +3236,7 @@ MonoBehaviour:
     amount: 0
   currentStats: {fileID: 6651834193416187304}
   PlayerEffectHandler: {fileID: 1739547793475942118}
-  effects:
-  - {fileID: 11400000, guid: 13878739826ed824f9f5061345ae3b1e, type: 2}
-  - {fileID: 11400000, guid: 5a0d45391e6320d44a08e15fe41710c5, type: 2}
-  - {fileID: 11400000, guid: 22fd3001ec1766348bd2f1721b0f012f, type: 2}
-  - {fileID: 11400000, guid: 00ab5ca2257aaae4f932a175e10f3420, type: 2}
+  abilities: {fileID: 0}
   HurtEffect:
   - {fileID: 3510177781130693405, guid: 998e988543e1d774db8efd37aae3af67, type: 3}
   - {fileID: 3510177781130693405, guid: cb379e90205019e41bb0768bd4346097, type: 3}

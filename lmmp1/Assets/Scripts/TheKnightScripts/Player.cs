@@ -13,7 +13,7 @@ public abstract class Player : MonoBehaviour, IDamageable
     [HideInInspector] public Stamina PlayerStamina; 
     [HideInInspector] public Animator animator;
     [HideInInspector] public new Rigidbody2D rigidbody2D;
-
+     public AbilityHolder PlayerAbilityHolder;
 
 
     [Header("Type of Attack")]
@@ -60,7 +60,7 @@ public abstract class Player : MonoBehaviour, IDamageable
     private HealthBar healthBar;
 
     public EffectHandler PlayerEffectHandler;
-    public List<EffectData> effects;
+    public AbilityData abilities;
 
     public List<GameObject> HurtEffect;
     [SerializeField]private int count = 0;
@@ -69,6 +69,7 @@ public abstract class Player : MonoBehaviour, IDamageable
     const float HURT_TIMER = 0.5f;
     private void Start()
     {
+        PlayerAbilityHolder = GetComponent<AbilityHolder>();
         healthBar = GetComponent<HealthBar>();
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -93,12 +94,10 @@ public abstract class Player : MonoBehaviour, IDamageable
         
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            PlayerEffectHandler.AddEffect(effects[count]);
-            count++;
-            if(count == 4)
-            {
-                count = 0;
-            }
+            Ability newAbility = abilities.CreateAbility(gameObject);
+            PlayerAbilityHolder.AddAbility(newAbility);
+            
+
         }
         if ((currentStats.canMove && currentStats.speed > 0 && Input.GetKey(KeyCode.A) )|| (Input.GetKey(KeyCode.D) && currentStats.canMove && currentStats.speed > 0))
         {

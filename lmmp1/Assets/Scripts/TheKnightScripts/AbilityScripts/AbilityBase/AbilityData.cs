@@ -6,10 +6,11 @@ public abstract class AbilityData : ScriptableObject
 {
     public string AbilityName;
     public float AbilityCooldown;
-    public float StaminaCost;
+    public float AbilityActiveTime;
     public string AbilityDescription;
     public Sprite AbilityIcon;
     public bool HasPassive;
+    public KeyCode KeyActivation;
 
-    public abstract void CreateAbility();
+    public abstract Ability CreateAbility(GameObject owner);
 }

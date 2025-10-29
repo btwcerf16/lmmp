@@ -7,5 +7,5 @@ public enum EAbilityStates
     Ready,
     Active,
     Cooldown,
-    NeedMana
+    NeedStamina
 }

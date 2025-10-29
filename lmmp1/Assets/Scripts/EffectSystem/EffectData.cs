@@ -11,5 +11,5 @@ public abstract class EffectData : ScriptableObject
     public Sprite SpriteIcon;
 
     public abstract Effect CreateEffect(GameObject owner);
-    //גלוסעמ גמטה בûכ Effect
+    
 }
