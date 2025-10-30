@@ -602,6 +602,7 @@ MonoBehaviour:
   magicDamageMultiplyer: 0
   physicDamageMultiplyer: 0
   invincibleTimeFrame: 0
+  BonusDamage: 0
   _currentStamina: 0
   _currentHealth: 0
   staminaRegeneration: 0
@@ -751,6 +752,7 @@ MonoBehaviour:
   TargetWithinCastRadius: 0
   TargetWithinAttackRadius: 0
   TargetTransform: {fileID: 0}
+  floatingDamage: {fileID: 2443399759038765761, guid: 17ee882498ba84d40bf890d8a3bca58d, type: 3}
   PatrolByPoints: {fileID: 0}
   rigidBody2D: {fileID: 0}
   ChaseForward: {fileID: 0}
@@ -772,6 +774,7 @@ MonoBehaviour:
   <attack1point>k__BackingField: {fileID: 8058387929997619541}
   <attackArea>k__BackingField: 1
   <actorStats>k__BackingField: {fileID: 0}
+  effect: {fileID: 0}
 --- !u!114 &7738468427022325528
 MonoBehaviour:
   m_ObjectHideFlags: 0

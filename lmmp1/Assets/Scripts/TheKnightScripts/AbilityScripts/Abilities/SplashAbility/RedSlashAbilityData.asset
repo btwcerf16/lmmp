@@ -9,19 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d18151a61ad44a459ea0a4d05d8cccb, type: 3}
-  m_Name: DamageAbilityData
+  m_Script: {fileID: 11500000, guid: c6125b9496a8cbd4dba629c76f68a30e, type: 3}
+  m_Name: RedSlashAbilityData
   m_EditorClassIdentifier: 
   AbilityName: 
-  AbilityCooldown: 4
-  AbilityActiveTime: 1
+  AbilityCooldown: 0
+  AbilityActiveTime: 0
   AbilityDescription: 
   AbilityIcon: {fileID: 0}
   HasPassive: 0
-  KeyActivation: 48
-  damageCount: 30
-  attackArea: 100
-  BonusDamage: 2
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 512
+  KeyActivation: 0
+  RedSplashPrefab: {fileID: 0}

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(menuName = "Player/Ability/Create Ability Data", fileName = "DamageAbilityData")]
+[CreateAssetMenu(menuName = "Player/Create Ability/Damage Ability Data", fileName = "DamageAbilityData")]
 public class DamageAbilityData : AbilityData
 {
     public float damageCount;
@@ -10,7 +10,7 @@ public class DamageAbilityData : AbilityData
     public LayerMask targetLayer;
     public override Ability CreateAbility(GameObject owner)
     {
-        Ability effect = owner.AddComponent<Ability>();
+        Ability effect = owner.AddComponent<DamageAbility>();
         effect.Initialize(this);
         return effect;
     }

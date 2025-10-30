@@ -6,6 +6,7 @@ using UnityEngine;
 public class AbilityHolder : MonoBehaviour
 {
     public List<Ability> Abilities = new();
+    public KeyCode CancelKey = KeyCode.Tab;
 
     private void Update()
     {
@@ -30,7 +31,7 @@ public class AbilityHolder : MonoBehaviour
                         Abilities[i].ActiveTimeRemaining -= Time.deltaTime;//перенеси в метод евент тик потом 
                         if (Input.GetKeyDown(KeyCode.Tab))
                         {
-                            abilities[i].State = EAbilityStates.Ready;
+                            Abilities[i].State = EAbilityStates.Ready;
                         }
                     }
                     else
@@ -75,10 +76,8 @@ public class AbilityHolder : MonoBehaviour
         }
         else
         {
-            Effect newEffect = effectData.CreateEffect(gameObject);
-            ActiveEffects.Add(newEffect);
-            newEffect.EffectStart(OwnerActorStats);
-            CharacterEffectDisplay.AddEffectSprite(newEffect);
+            Ability newAbility = _abilityData.CreateAbility(gameObject);
+            Abilities.Add(newAbility);
         }
     }
 }

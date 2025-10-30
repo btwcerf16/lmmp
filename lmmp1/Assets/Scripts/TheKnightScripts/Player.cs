@@ -94,9 +94,7 @@ public abstract class Player : MonoBehaviour, IDamageable
         
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Ability newAbility = abilities.CreateAbility(gameObject);
-            PlayerAbilityHolder.AddAbility(newAbility);
-            
+            PlayerAbilityHolder.AddAbility(abilities);   
 
         }
         if ((currentStats.canMove && currentStats.speed > 0 && Input.GetKey(KeyCode.A) )|| (Input.GetKey(KeyCode.D) && currentStats.canMove && currentStats.speed > 0))
