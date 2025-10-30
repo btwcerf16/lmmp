@@ -39,7 +39,8 @@ public class FallState : State
     {
         base.Exit();
         _player.animator.SetBool("Fall", false);
-        _player.currentStats.canAttack = true;
+        //_player.currentStats.canAttack = true;
         _player.currentStats.canMove = true;
+        
     }
 }

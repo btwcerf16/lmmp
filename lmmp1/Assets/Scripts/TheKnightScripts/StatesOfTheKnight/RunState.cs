@@ -39,5 +39,6 @@ public class RunState : State
         base.Exit();
         _player.animator.SetBool("Run", false);
         _player.currentStats.canAttack = true;
+
     }
 }

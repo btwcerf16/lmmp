@@ -30,7 +30,6 @@ public class JumpState : State
     public override void Update()
     {
         base.Update();
-        float currentPlayerAtitude = _player.transform.position.y;
         
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))

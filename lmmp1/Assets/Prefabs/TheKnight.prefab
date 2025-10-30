@@ -3199,7 +3199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225d8108cfbb7cb4185fef6e30f3290a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilities: []
+  Abilities: []
+  CancelKey: 9
 --- !u!114 &2843308023647757624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4271,10 +4272,6 @@ PrefabInstance:
     - target: {fileID: 7782261186937727499, guid: 5f6bacb348b6aad408bd5fd24effc98a, type: 3}
       propertyPath: m_Name
       value: EscCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782261186937727499, guid: 5f6bacb348b6aad408bd5fd24effc98a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

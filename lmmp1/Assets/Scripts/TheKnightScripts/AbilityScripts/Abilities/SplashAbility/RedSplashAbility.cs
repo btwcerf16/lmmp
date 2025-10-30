@@ -37,10 +37,6 @@ public class RedSplashAbility : Ability
         { Instantiate(((RedSplashAbilityData)AbilityData).RedSplashPrefab, SlashPosition, Quaternion.Euler(0, 0, 0), transform); }
         else 
         { Instantiate(((RedSplashAbilityData)AbilityData).RedSplashPrefab, SlashPosition, Quaternion.Euler(0, 180, 0), transform); }
-        while(State == EAbilityStates.Active)
-        {
-            Debug.Log("Не может бить");
-        }
     }
 
     public override void BeginCooldown()
