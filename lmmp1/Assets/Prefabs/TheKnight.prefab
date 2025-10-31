@@ -2962,7 +2962,6 @@ GameObject:
   - component: {fileID: 1739547793475942118}
   - component: {fileID: 6651834193416187304}
   - component: {fileID: 7708816049558792373}
-  - component: {fileID: 2702121651282502742}
   - component: {fileID: 9180389348985231776}
   - component: {fileID: 2460966803087813656}
   m_Layer: 8
@@ -3217,7 +3216,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   rigidbody2D: {fileID: 0}
   PlayerAbilityHolder: {fileID: 0}
-  dash: {fileID: 2702121651282502742}
+  dash: {fileID: 0}
   faceRight: 1
   moveVector: {x: 0, y: 0}
   baseGravityScale: 0
@@ -3328,22 +3327,6 @@ MonoBehaviour:
   <AttackCooldown>k__BackingField: 0
   <actorStats>k__BackingField: {fileID: 0}
   AttackEffect: {fileID: 0}
---- !u!114 &2702121651282502742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8218874997577805778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8726b4668c27134c92fddee420b1455, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashTime: 0.2
-  dashPower: 20
-  trailRenderer: {fileID: 9180389348985231776}
-  coolDown: 1.5
 --- !u!96 &9180389348985231776
 TrailRenderer:
   serializedVersion: 3

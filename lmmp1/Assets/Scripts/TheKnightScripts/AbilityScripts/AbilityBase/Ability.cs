@@ -4,10 +4,11 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
-    public float CooldownTimeRemaining;
-    public float ActiveTimeRemaining;
+   
     public AbilityData AbilityData;
     public EAbilityStates State;
+    public float CooldownTimeRemaining;
+    public float ActiveTimeRemaining;
     public void Initialize(AbilityData _abilityData)
     {
         AbilityData = _abilityData;

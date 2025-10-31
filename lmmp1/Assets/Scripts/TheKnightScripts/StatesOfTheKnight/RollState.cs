@@ -22,7 +22,7 @@ public class RollState : State
         _player.State = "Dash";
         
         _player.animator.SetBool("Roll", true);
-        _player.dash.DodgeDash();
+        
         
     }
     public override void Update()

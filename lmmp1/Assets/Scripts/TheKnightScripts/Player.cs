@@ -18,8 +18,6 @@ public abstract class Player : MonoBehaviour, IDamageable
 
     [Header("Type of Attack")]
     //public Attack1 attack1;
-    [Header("Dash Specimen")]
-    public Dash dash;
     [Header("Move variable")]
     public bool faceRight = true;
     public Vector2 moveVector;
@@ -122,10 +120,7 @@ public abstract class Player : MonoBehaviour, IDamageable
         {
             _SM.ChangeState(new JumpState(this));
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canRoll && dash.timer == 0)
-        {
-            _SM.ChangeState(new RollState(this));
-        }
+
 
         if (rigidbody2D.velocity.y < 0)
         {
@@ -200,6 +195,9 @@ public abstract class Player : MonoBehaviour, IDamageable
     {
         Destroy(gameObject);
     }
-   
+   public void ChangePlayerState(State _state)
+    {
+        _SM.ChangeState(_state);
+    }
    
 }
