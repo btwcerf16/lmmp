@@ -10,7 +10,6 @@ public abstract class AbilityData : ScriptableObject
     public bool HasPassive;
     public KeyCode KeyActivation;
     public int MaxAbilityLevel;
-    public int CurrentAbilityLevel;
     [Header("Ability Settings")]
     public float AbilityCooldown;
     public float AbilityActiveTime;

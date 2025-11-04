@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ActorStats : MonoBehaviour
 {
-    public CharacterBaseStats ConfigStats;
+        public CharacterBaseStats ConfigStats;
 
         public float speed;
         public float maxHealth;
@@ -19,14 +19,14 @@ public class ActorStats : MonoBehaviour
         public float physicDamageMultiplyer;
         public float invincibleTimeFrame;
         public float BonusDamage;
-    
+        public float AttackSpeed;
 
 
         [SerializeField] private float _currentStamina;
         [SerializeField] private float _currentHealth;
 
         private HealthBar healthBar;
-
+        private Animator animator;
         public float ÑurrentStamina { get => _currentStamina; 
             set => _currentStamina = Mathf.Clamp(value, -100, maxStamina);
 
@@ -50,11 +50,11 @@ public class ActorStats : MonoBehaviour
         public float critChance;
         public float critDamage;
 
-    public bool assailable = true;
-    public bool canAttack = true;
-    public bool canMove = true;
+        public bool assailable = true;
+        public bool canAttack = true;
+        public bool canMove = true;
 
-    public bool Dead;
+        public bool Dead;
     private void Awake()
     {
         speed = ConfigStats.BaseSpeed;
@@ -70,8 +70,9 @@ public class ActorStats : MonoBehaviour
         critChance = ConfigStats.BaseCritChanse;
         critDamage = ConfigStats.BaseCritDamage;
         staminaRegeneration = ConfigStats.BaseStaminaRegeneration;
-
+        AttackSpeed = ConfigStats.BaseAttackSpeed;
         healthBar = GetComponent<HealthBar>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -82,6 +83,11 @@ public class ActorStats : MonoBehaviour
     public float GetTotalDamage()
     {
         return (attackDamage + BonusDamage) * physicDamageMultiplyer;
+    }
+    public void RefreshAttackSpeed(float _attackSpeed)
+    {
+        AttackSpeed += _attackSpeed;
+        animator.SetFloat("AttackSpeed",(AttackSpeed/100.0f));
     }
     
 }

@@ -59,9 +59,9 @@ public abstract class Player : MonoBehaviour, IDamageable
 
     public EffectHandler PlayerEffectHandler;
     public AbilityData abilities;
-
+    public float AttackSpeedBonus;
     public List<GameObject> HurtEffect;
-    [SerializeField]private int count = 0;
+    
 
     private float hurtCooldown;
     const float HURT_TIMER = 0.5f;
@@ -92,7 +92,7 @@ public abstract class Player : MonoBehaviour, IDamageable
         
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            PlayerAbilityHolder.AddAbility(abilities);   
+            currentStats.RefreshAttackSpeed(AttackSpeedBonus);
 
         }
         if ((currentStats.canMove && currentStats.speed > 0 && Input.GetKey(KeyCode.A) )|| (Input.GetKey(KeyCode.D) && currentStats.canMove && currentStats.speed > 0))

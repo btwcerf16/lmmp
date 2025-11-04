@@ -24,7 +24,7 @@ public class DashAbility : Ability
 
     public override void ApplyCast()
     {
-        StartCoroutine(Roll());
+        StartCoroutine(Dash());
     }
 
     public override void BeginCooldown()
@@ -41,13 +41,13 @@ public class DashAbility : Ability
     {
         base.EventTick();
     }
-    IEnumerator Roll()
+    IEnumerator Dash()
     {
         player.ChangePlayerState(new RollState(player));
         player.rigidbody2D.gravityScale = 0.0f;
-        player.rigidbody2D.velocity = new Vector2(transform.localScale.x * ((DashAbilityData)AbilityData).DashPower * player.currentStats.speed / 10.0f, 0f);
+        player.rigidbody2D.velocity = new Vector2(transform.localScale.x * ((DashAbilityData)AbilityData).DashPower[CurrentAbilityLevel-1] * player.currentStats.speed / 10.0f, 0f);
         trailRenderer.emitting = true;
-        yield return new WaitForSeconds(((DashAbilityData)AbilityData).DashTime);
+        yield return new WaitForSeconds(((DashAbilityData)AbilityData).DashTime[CurrentAbilityLevel-1]);
         trailRenderer.emitting = false;
         player.rigidbody2D.gravityScale = player.baseGravityScale;
         //_isDashing = false;

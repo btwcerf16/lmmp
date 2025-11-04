@@ -16184,7 +16184,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1f6b5b03c18b4ba41b0af6df2473c56b, type: 2}
     - target: {fileID: 1258815607756079140, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2773859233067137258, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: key
@@ -16194,17 +16194,9 @@ PrefabInstance:
       propertyPath: dash
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 2843308023647757624, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-      propertyPath: abilities
-      value: 
-      objectReference: {fileID: 11400000, guid: 9404940938b88924dacd04bfd9e84e6b, type: 2}
     - target: {fileID: 2971682160071961948, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4247552690938173698, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9894
       objectReference: {fileID: 0}
     - target: {fileID: 4247552690938173698, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16254,9 +16246,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: TheKnight
       objectReference: {fileID: 0}
+    - target: {fileID: 8532554866194832224, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: AvailableAbilityPoints
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8690227015777278570, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8857904497809734187, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_IsActive

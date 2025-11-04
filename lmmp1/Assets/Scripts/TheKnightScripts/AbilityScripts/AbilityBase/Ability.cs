@@ -6,6 +6,7 @@ public abstract class Ability : MonoBehaviour
 {
    
     public AbilityData AbilityData;
+    public int CurrentAbilityLevel;
     public EAbilityStates State;
     public float CooldownTimeRemaining;
     public float ActiveTimeRemaining;

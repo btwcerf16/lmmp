@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: DamageAbilityData
   m_EditorClassIdentifier: 
   AbilityName: 
-  AbilityCooldown: 4
-  AbilityActiveTime: 1
   AbilityDescription: 
-  AbilityIcon: {fileID: 0}
+  AbilityIcon: {fileID: -1497455324, guid: 32337045c0535a04087096259aada950, type: 3}
   HasPassive: 0
   KeyActivation: 48
+  MaxAbilityLevel: 3
+  AbilityCooldown: 4
+  AbilityActiveTime: 1
   damageCount: 30
   attackArea: 100
   BonusDamage: 2

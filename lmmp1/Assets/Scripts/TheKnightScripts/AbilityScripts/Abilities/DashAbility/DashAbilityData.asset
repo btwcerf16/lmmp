@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityName: 
   AbilityDescription: 
-  AbilityIcon: {fileID: 0}
+  AbilityIcon: {fileID: -309517984, guid: 32337045c0535a04087096259aada950, type: 3}
   HasPassive: 0
   KeyActivation: 51
-  MaxAbilityLevel: 0
+  MaxAbilityLevel: 3
   CurrentAbilityLevel: 0
   AbilityCooldown: 1
   AbilityActiveTime: 0.1

@@ -25,3 +25,4 @@ MonoBehaviour:
   BaseInvincibleTimeFrame: 1
   BaseCritChanse: 30
   BaseCritDamage: 130
+  BaseAttackSpeed: 100
