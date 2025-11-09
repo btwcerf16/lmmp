@@ -5,11 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using Unity.VisualScripting;
+using System.Linq;
 public class SkillSlot : MonoBehaviour
 {
     public AbilityData AbilitySlotData;
     [SerializeField]private Ability ability;
-    public AbilityHolder PlayerAbilityHolder;
+    private AbilityStorage abilityStorage;
     public List<SkillSlot> PrerequisiteAbilitySlots;
     public Image AbilitySlotIcon;
     public Button SlotButton;
@@ -21,7 +22,8 @@ public class SkillSlot : MonoBehaviour
     public static event Action<SkillSlot> OnAbilityMaxed;
     private void Awake()
     {
-        PlayerAbilityHolder = GetComponentInParent<AbilityHolder>();
+        abilityStorage = GetComponentInParent<AbilityStorage>();
+        
     }
     private void OnValidate()
     {
@@ -54,9 +56,14 @@ public class SkillSlot : MonoBehaviour
         {
             if (CurrentLevel == 0)
             {
-                PlayerAbilityHolder.AddAbility(AbilitySlotData);
-                int abilityIndex = Mathf.Max(0, PlayerAbilityHolder.Abilities.Count - 1);
-                ability = PlayerAbilityHolder.Abilities[abilityIndex];
+
+
+
+                abilityStorage.GiveOutAbility(AbilitySlotData);
+                //int abilityIndex = Mathf.Max(0, PlayerAbilityHolder.Abilities.Count - 1);
+                //ability = PlayerAbilityHolder.Abilities[abilityIndex];
+                
+                ability = abilityStorage.AbilityDatas.Last().Key;
             }
             CurrentLevel++;
             ability.CurrentAbilityLevel = CurrentLevel;

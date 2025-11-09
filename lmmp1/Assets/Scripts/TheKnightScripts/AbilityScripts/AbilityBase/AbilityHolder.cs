@@ -7,7 +7,6 @@ public class AbilityHolder : MonoBehaviour
 {
     public List<Ability> Abilities = new();
     public KeyCode CancelKey = KeyCode.Tab;
-
     private void Update()
     {
         for (int i = 0; i < Abilities.Count; i++)
@@ -66,19 +65,29 @@ public class AbilityHolder : MonoBehaviour
 
 
     }
-    public void AddAbility(AbilityData _abilityData)
+    
+    public void AddAbility(Ability ability)
     {
-        Ability existing = Abilities.Find(ability => ability.AbilityData == _abilityData);
+        
+        Ability existing = Abilities.Find(_ability => ability == _ability);
         if (existing != null)
         {
             return;
-
         }
-        else
+        else 
         {
-            Ability newAbility = _abilityData.CreateAbility(gameObject);
-            Abilities.Add(newAbility);
+            Abilities.Add(ability);
+        }
+        
+    }
+    public void RemoveAbility(Ability ability) 
+    {
+        Ability existing = Abilities.Find(_ability => ability == _ability);
+        if (existing != null)
+        {
+            Abilities.Remove(ability);
         }
     }
+
 }
 

@@ -18,8 +18,13 @@ MonoBehaviour:
   HasPassive: 0
   KeyActivation: 51
   MaxAbilityLevel: 3
-  CurrentAbilityLevel: 0
   AbilityCooldown: 1
   AbilityActiveTime: 0.1
-  DashTime: 0.2
-  DashPower: 30
+  DashTime:
+  - 0.2
+  - 0.3
+  - 0.01
+  DashPower:
+  - 80
+  - 90
+  - 150
