@@ -15871,11 +15871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25e96462608ad049b14578dca1b1863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1546496743 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6013719039021916814, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-  m_PrefabInstance: {fileID: 2022433189}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1546500834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4247552690938173698, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
@@ -16171,6 +16166,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 381957942688347086, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1176420940619416247, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: staminaDebufs.Array.size
       value: 3
@@ -16189,7 +16188,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1f6b5b03c18b4ba41b0af6df2473c56b, type: 2}
     - target: {fileID: 1258815607756079140, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2773859233067137258, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: key
@@ -16206,6 +16205,10 @@ PrefabInstance:
     - target: {fileID: 3074054513872678387, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3542518128414263208, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3908655335123794401, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_IsActive
@@ -16251,14 +16254,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4275989773101687043, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146598880858161806, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146598880858161806, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5278880543271004620, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6339125427970183056, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
-      propertyPath: AbilityStoragePanel
-      value: 
-      objectReference: {fileID: 1546496743}
     - target: {fileID: 7528507146326112261, guid: 47e3166e74376a24a95e7ebe3d9c7a9f, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
