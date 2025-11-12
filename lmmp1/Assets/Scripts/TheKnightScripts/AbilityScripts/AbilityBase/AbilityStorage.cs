@@ -26,12 +26,13 @@ public class AbilityStorage : MonoBehaviour
     {
         abilityHolder.AddAbility(_ability);
         AbilityDatas[_ability] = true;
+        display.SetPreviewAbility(_ability.AbilityData.AbilityIcon);
     }
     public void ReturnAbilityToStorage(Ability _ability)
     {
         AbilityDatas[_ability] = false;
         abilityHolder.RemoveAbility(_ability);
-       
+        display.UnSetPreviewAbility(_ability.AbilityData.AbilityIcon);
     }
     public void GiveOutAbility(AbilityData _abilityData)
     {

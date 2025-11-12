@@ -33,7 +33,7 @@ public class AbilityItemDisplay : MonoBehaviour
             ButtonText.text = "Выключить";
         }
     }
-
+    
 
 
 }
