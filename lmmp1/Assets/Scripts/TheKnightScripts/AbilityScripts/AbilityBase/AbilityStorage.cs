@@ -11,6 +11,9 @@ public class AbilityStorage : MonoBehaviour
     public Dictionary<Ability, bool> AbilityDatas = new Dictionary<Ability, bool>(); //false - not active; true - is active
     [SerializeField] private AbilityHolder abilityHolder;
     [SerializeField] private AbilityStorageDisplay display;
+    [SerializeField] private SkillDisplay skillDisplay;
+    public int MaxCountActiveAbilities = 4;
+    public int CurrentCountActiveAbilities;
     private void Start()
     {
         abilityHolder = GetComponent<AbilityHolder>();
@@ -24,15 +27,21 @@ public class AbilityStorage : MonoBehaviour
     }
     public void TransferAbilityToHolder(Ability _ability)
     {
-        abilityHolder.AddAbility(_ability);
-        AbilityDatas[_ability] = true;
-        display.SetPreviewAbility(_ability.AbilityData.AbilityIcon);
+        if(CurrentCountActiveAbilities < MaxCountActiveAbilities) 
+        {
+            abilityHolder.AddAbility(_ability);
+            AbilityDatas[_ability] = true;
+            display.SetPreviewAbility(_ability.AbilityData.AbilityIcon);
+            CurrentCountActiveAbilities++;
+        }
+
     }
     public void ReturnAbilityToStorage(Ability _ability)
     {
         AbilityDatas[_ability] = false;
         abilityHolder.RemoveAbility(_ability);
         display.UnSetPreviewAbility(_ability.AbilityData.AbilityIcon);
+        CurrentCountActiveAbilities--;
     }
     public void GiveOutAbility(AbilityData _abilityData)
     {

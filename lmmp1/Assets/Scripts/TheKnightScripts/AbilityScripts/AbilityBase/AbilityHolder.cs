@@ -6,6 +6,7 @@ using UnityEngine;
 public class AbilityHolder : MonoBehaviour
 {
     public List<Ability> Abilities = new();
+
     public KeyCode CancelKey = KeyCode.Tab;
     private void Update()
     {

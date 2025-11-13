@@ -10,9 +10,14 @@ public class AbilityItemDisplay : MonoBehaviour
     [SerializeField]private Ability ability;
     private AbilityStorage abilityStorage;
     public TMP_Text ButtonText;
+    public bool IsActive;
     private void Start()
     {
         abilityStorage = GetComponentInParent<AbilityStorage>();
+    }
+    private void Update()
+    {
+        IsActive = abilityStorage.AbilityDatas[ability];
     }
     public void ChangeItemData(Ability _ability)
     {
@@ -21,16 +26,18 @@ public class AbilityItemDisplay : MonoBehaviour
     }
     public void ChangeAbilityState()
     {
-        bool isActive = abilityStorage.AbilityDatas[ability];
-        if (isActive)
+        switch (IsActive)
         {
-            abilityStorage.ReturnAbilityToStorage(ability);
-            ButtonText.text = "Включить";
-        }
-        else
-        {
-            abilityStorage.TransferAbilityToHolder(ability);
-            ButtonText.text = "Выключить";
+            case true:
+                abilityStorage.ReturnAbilityToStorage(ability);
+                ButtonText.text = "Включить";
+                Debug.Log("ВЫПОЛНЕНО");
+                break;
+            case false:
+                abilityStorage.TransferAbilityToHolder(ability);
+                ButtonText.text = "Выключить";
+                Debug.Log("!ВЫПОЛНЕНО");
+                break;
         }
     }
     
