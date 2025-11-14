@@ -1,6 +1,7 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +19,7 @@ public class AbilityDisplay : MonoBehaviour
         if (_ability != null) 
         {
             ContentAbility = _ability;
-            keyText.text = _ability.AbilityData.KeyActivation.ToString();
+            keyText.text = PrettyKey(_ability.AbilityData.KeyActivation);
             abilityImage.sprite = _ability.AbilityData.AbilityIcon;
         }
         else { RemoveData(); }
@@ -34,8 +35,33 @@ public class AbilityDisplay : MonoBehaviour
     {
         if (ContentAbility != null) 
         {
-            coolDownText.text = ContentAbility.CooldownTimeRemaining.ToString();
+            
+            if(ContentAbility.CooldownTimeRemaining > 0)
+            {
+                coolDownText.text = ContentAbility.CooldownTimeRemaining.ToString("F1");
+                abilityImage.color = Color.gray;
+            }
+            else
+            {
+                coolDownText.text = "";
+                abilityImage.color = Color.white;
+            }
         }
     }
+    private string PrettyKey(KeyCode key)
+    {
+        string s = key.ToString();
+        if (s.StartsWith("Alpha"))
+            return s.Replace("Alpha", "");
+        if (s.StartsWith("Keypad"))
+            return "Num " + s.Replace("Keypad", "");
+        if (s.Contains("Shift"))
+            return "Shift";
+        if (s.Contains("Control"))
+            return "Ctrl";
+        if (s.Contains("Alt"))
+            return "Alt";
 
+        return s;
+    }
 }
