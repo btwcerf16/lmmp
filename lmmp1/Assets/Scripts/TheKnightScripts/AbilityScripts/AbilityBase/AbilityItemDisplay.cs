@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class AbilityItemDisplay : MonoBehaviour
+public class AbilityItemDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Image AbilityItemImage;
     [SerializeField]private Ability ability;
@@ -40,7 +41,16 @@ public class AbilityItemDisplay : MonoBehaviour
                 break;
         }
     }
-    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        string tooltipText = ability.AbilityData.GetAbilityUpgradeDescription();
+        TooltipUI.Instance.Show(tooltipText);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        TooltipUI.Instance.Hide();
+    }
 
 
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TooltipUI : MonoBehaviour
 {
@@ -9,17 +10,25 @@ public class TooltipUI : MonoBehaviour
 
     [SerializeField] private TMP_Text text;
     [SerializeField] private GameObject parent;
+    private RectTransform parentRectTransform;
 
     private void Awake()
     {
         Instance = this;
         Hide();
+        parentRectTransform = parent.GetComponent<RectTransform>();
+
     }
 
     public void Show(string tooltipText, Vector2 position)
     {
         text.text = tooltipText;
-        parent.transform.position = position;
+        parent.transform.position = new Vector2(position.x, position.y-300.0f);
+        parent.SetActive(true);
+    }
+    public void Show(string tooltipText)
+    {
+        text.text = tooltipText;
         parent.SetActive(true);
     }
 

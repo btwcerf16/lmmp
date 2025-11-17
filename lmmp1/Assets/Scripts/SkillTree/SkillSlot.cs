@@ -94,7 +94,7 @@ public class SkillSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerEnter(PointerEventData eventData)
     {
         string tooltipText = AbilitySlotData.GetAbilityUpgradeDescription();
-        TooltipUI.Instance.Show(tooltipText, Input.mousePosition);
+        TooltipUI.Instance.Show(tooltipText);
     }
 
     public void OnPointerExit(PointerEventData eventData)
