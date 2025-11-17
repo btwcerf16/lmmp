@@ -11,7 +11,8 @@ public abstract class AbilityData : ScriptableObject
     public KeyCode KeyActivation;
     public int MaxAbilityLevel;
     [Header("Ability Settings")]
-    public float AbilityCooldown;
-    public float AbilityActiveTime;
+    public List<float> AbilityCooldown;
+    public List<float> AbilityActiveTime;
     public abstract Ability CreateAbility(GameObject owner);
+    public abstract string GetAbilityUpgradeDescription();
 }

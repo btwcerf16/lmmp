@@ -18,8 +18,14 @@ MonoBehaviour:
   HasPassive: 0
   KeyActivation: 48
   MaxAbilityLevel: 3
-  AbilityCooldown: 4
-  AbilityActiveTime: 1
+  AbilityCooldown:
+  - 20
+  - 17
+  - 14
+  AbilityActiveTime:
+  - 3
+  - 2
+  - 1
   damageCount: 30
   attackArea: 100
   BonusDamage: 2

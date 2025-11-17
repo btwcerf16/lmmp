@@ -53,7 +53,7 @@ public class DashAbility : Ability
         //_isDashing = false;
         player.currentStats.canMove = true;
         player.rigidbody2D.velocity = new Vector2(0f, 0f);
-        yield return new WaitForSeconds(((DashAbilityData)AbilityData).AbilityCooldown);
+        yield return new WaitForSeconds(((DashAbilityData)AbilityData).AbilityCooldown[CurrentAbilityLevel]);
         player.canRoll = true;
     }
 }

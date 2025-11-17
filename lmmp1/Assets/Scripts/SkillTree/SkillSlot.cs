@@ -6,7 +6,8 @@ using TMPro;
 using System;
 using Unity.VisualScripting;
 using System.Linq;
-public class SkillSlot : MonoBehaviour
+using UnityEngine.EventSystems;
+public class SkillSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public AbilityData AbilitySlotData;
     [SerializeField]private Ability ability;
@@ -89,6 +90,16 @@ public class SkillSlot : MonoBehaviour
         
         IsUnlocked = true;
         UpdateUI();
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        string tooltipText = AbilitySlotData.GetAbilityUpgradeDescription();
+        TooltipUI.Instance.Show(tooltipText, Input.mousePosition);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        TooltipUI.Instance.Hide();
     }
 
 

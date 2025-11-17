@@ -18,6 +18,12 @@ MonoBehaviour:
   HasPassive: 0
   KeyActivation: 50
   MaxAbilityLevel: 3
-  AbilityCooldown: 3
-  AbilityActiveTime: 1
+  AbilityCooldown:
+  - 25
+  - 20
+  - 15
+  AbilityActiveTime:
+  - 2
+  - 1.5
+  - 1
   RedSplashPrefab: {fileID: 5485044127888080786, guid: 9bbc2e36b8affe841b1b7f42cd691f95, type: 3}
