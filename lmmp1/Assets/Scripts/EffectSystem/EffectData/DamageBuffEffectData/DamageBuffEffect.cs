@@ -7,6 +7,7 @@ public class DamageBuffEffect : Effect
     public override void EffectEnd(ActorStats owner)
     {
         owner.attackDamage -= ((DamageBuffEffectData)EffectData).DamageBuff;
+        owner.critChance -= ((DamageBuffEffectData)EffectData).CritChanceBuff; 
     }
     public override void EffectTick(ActorStats owner)
     {
@@ -15,5 +16,6 @@ public class DamageBuffEffect : Effect
     public override void EffectStart(ActorStats owner)
     {
         owner.attackDamage += ((DamageBuffEffectData)EffectData).DamageBuff;
+        owner.critChance += ((DamageBuffEffectData)EffectData).CritChanceBuff;
     }
 }

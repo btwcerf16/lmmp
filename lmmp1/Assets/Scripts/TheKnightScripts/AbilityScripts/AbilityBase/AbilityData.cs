@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class AbilityData : ScriptableObject
 {
     public string AbilityName;
-    public string AbilityDescription;
+    [TextArea]public string AbilityDescription;
     public Sprite AbilityIcon;
     public bool HasPassive;
     public KeyCode KeyActivation;

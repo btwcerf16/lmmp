@@ -39,9 +39,9 @@ public class RedSplashAbility : Ability
         ownerPlayer.GetComponent<MonoBehaviour>().StartCoroutine(WhileActive());
         if(CurrentAbilityLevel == 3)
         {
-            Vector2 SecondSlashPosition = new Vector2(transform.position.x - 10.0f * transform.localScale.x, transform.position.y);
+            Vector2 SecondSlashPosition = new Vector2(transform.position.x - 3.0f * transform.localScale.x, transform.position.y);
             transform.localScale = transform.localScale;
-            Instantiate(((RedSplashAbilityData)AbilityData).RedSplashPrefab, SlashPosition, Quaternion.Euler(0, 180, 0), transform);
+            Instantiate(((RedSplashAbilityData)AbilityData).RedSplashPrefab, SecondSlashPosition, Quaternion.Euler(0, 180, 0), transform);
         }
     }
 

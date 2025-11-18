@@ -7,7 +7,7 @@ public abstract class EffectData : ScriptableObject
 {
     public string EffectName;
     public float EffectDuration;
-    public string EffectDescription;
+    [TextArea]public string EffectDescription;
     public Sprite SpriteIcon;
 
     public abstract Effect CreateEffect(GameObject owner);

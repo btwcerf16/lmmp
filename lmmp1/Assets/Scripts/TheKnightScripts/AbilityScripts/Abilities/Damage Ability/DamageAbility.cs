@@ -20,6 +20,10 @@ public class DamageAbility : Ability
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<IDamageable>()?.Damage(((DamageAbilityData)AbilityData).damageCount * player.currentStats.physicDamageMultiplyer);
+            if(CurrentAbilityLevel == 3)
+            {
+                player.GetComponent<EffectHandler>().AddEffect(((DamageAbilityData)AbilityData).BonusEffect);
+            }
         }
     }
 

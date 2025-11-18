@@ -6,7 +6,7 @@ public class DamageAbilityData : AbilityData
 {
     public float damageCount;
     public float attackArea;
-    public float BonusDamage;
+    public EffectData BonusEffect;
     public LayerMask targetLayer;
     public override Ability CreateAbility(GameObject owner)
     {

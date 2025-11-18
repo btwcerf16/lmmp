@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eea641d58b55fd4bae737d8083ba10d, type: 3}
   m_Name: DamageBuffEffectData
   m_EditorClassIdentifier: 
-  EffectName: "\u0423\u0441\u0438\u043B\u0435\u043D\u0438\u0435 \u0443\u0440\u043E\u043D\u0430"
+  EffectName: Lock In
   EffectDuration: 10
-  EffectDescription: 
+  EffectDescription: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+    \u0443\u0440\u043E\u043D \u043D\u0430 5 \u0438 \u0448\u0430\u043D\u0441 \u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E
+    \u0443\u0434\u0430\u0440\u0430 \u043D\u0430 30 % \u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0438
+    10 \u0441\u0435\u043A\u0443\u043D\u0434"
   SpriteIcon: {fileID: 21300000, guid: 20e5863525121c6419ff3e2370dc6f43, type: 3}
-  effectPref: {fileID: 0}
   DamageBuff: 5
+  CritChanceBuff: 30
