@@ -17,12 +17,13 @@ public class DamageAbilityData : AbilityData
     public override string GetAbilityUpgradeDescription()
     {
         return
-       $"<b>{AbilityName}</b>\n" +
+       $"{AbilityName}\n" +
        $"{AbilityDescription}\n" +
-       $"<color=#9acd32>Улучшение:</color>\n " +
-       $"1 level Перезарядка: {AbilityCooldown[0]} Время активации: {AbilityActiveTime[0]} Урон: {damageCount} Радиус: {attackArea} \n" +
-       $"2 level Перезарядка: {AbilityCooldown[1]} Время активации: {AbilityActiveTime[1]} Урон: {damageCount} Радиус: {attackArea} \n" +
-       $"3 level Перезарядка: {AbilityCooldown[2]} Время активации: {AbilityActiveTime[2]} Урон: {damageCount} Радиус: {attackArea}"
+       $"<color=#9acd32>Улучшение {AbilityName}:</color>\n" +
+       $"Радиус: {attackArea}\n"+
+       $"Урон: {damageCount}\n"+
+       $"Перезарядка: {AbilityCooldown[0]}/{AbilityCooldown[1]}/{AbilityCooldown[2]}\n" +
+       $"Время активации: {AbilityActiveTime[0]}/{AbilityActiveTime[1]}/{AbilityActiveTime[2]}\n"
        ;
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine.Rendering;
 
 public class RedSplashAbility : Ability
 {
+
+    private float bufferSpeed; 
     private ActorStats ownerStats;
     private Player ownerPlayer;
     private void Start()
@@ -30,13 +32,17 @@ public class RedSplashAbility : Ability
         {
             ownerPlayer.GetComponent<IDamageable>().Damage(10.0f);
         }
-
+        ownerStats.canMove = false;
         Vector2 SlashPosition = new Vector2(transform.position.x + 1.5f * transform.localScale.x, transform.position.y);
         transform.localScale = transform.localScale;
-        if (transform.localScale.x == 1) 
-        { Instantiate(((RedSplashAbilityData)AbilityData).RedSplashPrefab, SlashPosition, Quaternion.Euler(0, 0, 0), transform); }
-        else 
-        { Instantiate(((RedSplashAbilityData)AbilityData).RedSplashPrefab, SlashPosition, Quaternion.Euler(0, 180, 0), transform); }
+        Instantiate(((RedSplashAbilityData)AbilityData).RedSplashPrefab, SlashPosition, Quaternion.Euler(0, 0, 0), transform);
+        ownerPlayer.GetComponent<MonoBehaviour>().StartCoroutine(WhileActive());
+        if(CurrentAbilityLevel == 3)
+        {
+            Vector2 SecondSlashPosition = new Vector2(transform.position.x - 10.0f * transform.localScale.x, transform.position.y);
+            transform.localScale = transform.localScale;
+            Instantiate(((RedSplashAbilityData)AbilityData).RedSplashPrefab, SlashPosition, Quaternion.Euler(0, 180, 0), transform);
+        }
     }
 
     public override void BeginCooldown()
@@ -84,11 +90,9 @@ public class RedSplashAbility : Ability
     //    owner.GetComponent<MonoBehaviour>().StartCoroutine(WhileActive(owner));
     //}
 
-    //IEnumerator WhileActive(GameObject owner)
-    //{
-
-
-    //    yield return new WaitForSeconds(1.0f);
-    //    owner.GetComponent<ActorStats>().speed = speed;
-    //}
+    IEnumerator WhileActive()
+    {
+        yield return new WaitForSeconds(1.0f);
+        ownerStats.canMove = true;
+    }
 }

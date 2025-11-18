@@ -17,12 +17,13 @@ public class RedSplashAbilityData : AbilityData
     public override string GetAbilityUpgradeDescription()
     {
         return
-        $"<b>{AbilityName}</b>\n" +
+       $"{AbilityName}\n" +
        $"{AbilityDescription}\n" +
-       $"<color=#9acd32>Улучшение:</color>\n " +
-       $"1 level Перезарядка: {AbilityCooldown[0]} Время активации: {AbilityActiveTime[0]} Процент от урона от атак: 50 \n" +
-       $"2 level Перезарядка: {AbilityCooldown[1]} Время активации: {AbilityActiveTime[1]} Процент от урона от атак: 50 \n" + 
-       $"3 level Перезарядка: {AbilityCooldown[2]} Время активации: {AbilityActiveTime[2]} Процент от урона от атак: 50"
+       $"<color=#9acd32>Улучшение {AbilityName}:</color>\n " +
+       $"Урон от атаки: 50%\n"+
+       $"Дополнительный множитель без усталости: 60%\n" +
+       $"Перезарядка: {AbilityCooldown[0]}/{AbilityCooldown[1]}/{AbilityCooldown[2]}\n" +
+       $"Время активации: {AbilityActiveTime[0]}/{AbilityActiveTime[1]}/{AbilityActiveTime[2]}\n"
        ;
     }
 }

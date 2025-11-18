@@ -17,10 +17,14 @@ public class DashAbilityData : AbilityData
         return
        $"{AbilityName}\n" +
        $"{AbilityDescription}\n" +
-       $"<color=#9acd32>Улучшение {AbilityName}:</color>\n " +
-       $"1 level Перезарядка: {AbilityCooldown[0]} Время активации: {AbilityActiveTime[0]} Продолжительность: {DashTime[0]} Сила дэша: {DashPower[0]} \n" +
-       $"2 level Перезарядка: {AbilityCooldown[1]} Время активации: {AbilityActiveTime[1]} Продолжительность: {DashTime[1]} Сила дэша: {DashPower[1]} \n" +
-       $"3 level Перезарядка: {AbilityCooldown[2]} Время активации: {AbilityActiveTime[2]} Продолжительность: {DashTime[2]} Сила дэша: {DashPower[2]}"
+       $"<color=#9acd32>Улучшение {AbilityName}:</color>\n" +
+       $"Сила рывка: {DashPower[0]}/{DashPower[1]}/{DashPower[2]}\n"+
+       $"Перезарядка: {AbilityCooldown[0]}/{AbilityCooldown[1]}/{AbilityCooldown[2]}\n" +
+       $"Длительность рывка: {DashTime[0]}/{DashTime[1]}/{DashTime[2]}\n" +
+       $"Время активации: {AbilityActiveTime[0]}/{AbilityActiveTime[1]}/{AbilityActiveTime[2]}\n"
+       //$"1 level Перезарядка: {AbilityCooldown[0]} Время активации: {AbilityActiveTime[0]} Продолжительность: {DashTime[0]} Сила дэша: {DashPower[0]} \n" +
+       //$"2 level Перезарядка: {AbilityCooldown[1]} Время активации: {AbilityActiveTime[1]} Продолжительность: {DashTime[1]} Сила дэша: {DashPower[1]} \n" +
+       //$"3 level Перезарядка: {AbilityCooldown[2]} Время активации: {AbilityActiveTime[2]} Продолжительность: {DashTime[2]} Сила дэша: {DashPower[2]}"
        ;
     }
 }

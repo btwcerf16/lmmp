@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d18151a61ad44a459ea0a4d05d8cccb, type: 3}
   m_Name: DamageAbilityData
   m_EditorClassIdentifier: 
-  AbilityName: 
-  AbilityDescription: 
+  AbilityName: Rage Blast
+  AbilityDescription: "\u0417\u0430\u043F\u0443\u0441\u043A\u0430\u0435\u0442 \u0432\u043E\u043B\u043D\u0443
+    \u0432\u043E\u043A\u0440\u0443\u0433 \u0438\u0433\u0440\u043E\u043A\u0430 \u043D\u0430\u043D\u043E\u0441\u044F\u0449\u0443\u044E
+    \u0443\u0440\u043E\u043D"
   AbilityIcon: {fileID: -1497455324, guid: 32337045c0535a04087096259aada950, type: 3}
   HasPassive: 0
   KeyActivation: 48

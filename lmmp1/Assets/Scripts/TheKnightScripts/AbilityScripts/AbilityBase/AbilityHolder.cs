@@ -20,7 +20,7 @@ public class AbilityHolder : MonoBehaviour
                     {
 
                         Abilities[i].State = EAbilityStates.Active;
-                        Abilities[i].ActiveTimeRemaining = Abilities[i].AbilityData.AbilityActiveTime[Abilities[i].CurrentAbilityLevel];
+                        Abilities[i].ActiveTimeRemaining = Abilities[i].AbilityData.AbilityActiveTime[Abilities[i].CurrentAbilityLevel-1];
                     }
                     break;
 
@@ -40,7 +40,7 @@ public class AbilityHolder : MonoBehaviour
                         Abilities[i].ApplyCast();
 
                         Abilities[i].State = EAbilityStates.Cooldown;
-                        Abilities[i].CooldownTimeRemaining = Abilities[i].AbilityData.AbilityCooldown[Abilities[i].CurrentAbilityLevel];
+                        Abilities[i].CooldownTimeRemaining = Abilities[i].AbilityData.AbilityCooldown[Abilities[i].CurrentAbilityLevel-1];
                     }
                     break;
 
