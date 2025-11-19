@@ -116,6 +116,8 @@ MonoBehaviour:
   magicDamageMultiplyer: 0
   physicDamageMultiplyer: 0
   invincibleTimeFrame: 0
+  BonusDamage: 0
+  AttackSpeed: 0
   _currentStamina: 0
   _currentHealth: 0
   staminaRegeneration: 0
@@ -221,6 +223,7 @@ MonoBehaviour:
   TargetWithinCastRadius: 0
   TargetWithinAttackRadius: 0
   TargetTransform: {fileID: 0}
+  floatingDamage: {fileID: 2443399759038765761, guid: 17ee882498ba84d40bf890d8a3bca58d, type: 3}
   handSpellCurrentCooldown: 0
   handSpellCooldown: 0
 --- !u!114 &8270957821076446739
