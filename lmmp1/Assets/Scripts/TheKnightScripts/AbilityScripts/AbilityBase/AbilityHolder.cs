@@ -6,8 +6,13 @@ using UnityEngine;
 public class AbilityHolder : MonoBehaviour
 {
     public List<Ability> Abilities = new();
+    private ActorStats actorStats;
 
     public KeyCode CancelKey = KeyCode.Tab;
+    private void Start()
+    {
+        actorStats = GetComponent<ActorStats>();
+    }
     private void Update()
     {
         for (int i = 0; i < Abilities.Count; i++)
@@ -16,7 +21,7 @@ public class AbilityHolder : MonoBehaviour
             switch (Abilities[i].State)
             {
                 case EAbilityStates.Ready:
-                    if (Input.GetKeyDown(Abilities[i].AbilityData.KeyActivation))
+                    if (Input.GetKeyDown(Abilities[i].AbilityData.KeyActivation) && !actorStats.IsSilenced)
                     {
 
                         Abilities[i].State = EAbilityStates.Active;

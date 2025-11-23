@@ -14,10 +14,9 @@ public class AbilityStorage : MonoBehaviour
     [SerializeField] private List<AbilityDisplay> abilityDisplays;
     public int MaxCountActiveAbilities = 4;
     public int CurrentCountActiveAbilities;
-    private void Start()
+    private void Awake()
     {
         abilityHolder = GetComponent<AbilityHolder>();
-        display = GetComponentInChildren<AbilityStorageDisplay>();
     }
     public void AddAbility(Ability _ability)
     {

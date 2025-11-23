@@ -6,55 +6,57 @@ using UnityEngine.UI;
 
 public class ActorStats : MonoBehaviour
 {
-        public CharacterBaseStats ConfigStats;
+public CharacterBaseStats ConfigStats;
 
-        public float speed;
-        public float maxHealth;
-        public float attackDamage;
-        public float maxStamina;
-        public float jumpForce;
-        public float magicResistance;
-        public float physicResistance;
-        public float magicDamageMultiplyer;
-        public float physicDamageMultiplyer;
-        public float invincibleTimeFrame;
-        public float BonusDamage;
-        public float AttackSpeed;
+    public float speed;
+    public float maxHealth;
+    public float attackDamage;
+    public float maxStamina;
+    public float jumpForce;
+    public float magicResistance;
+    public float physicResistance;
+    public float magicDamageMultiplyer;
+    public float physicDamageMultiplyer;
+    public float invincibleTimeFrame;
+    public float BonusDamage;
+    public float AttackSpeed;
 
 
-        [SerializeField] private float _currentStamina;
-        [SerializeField] private float _currentHealth;
+    [SerializeField] private float _currentStamina;
+    [SerializeField] private float _currentHealth;
 
-        private HealthBar healthBar;
-        private Animator animator;
-        public float ÑurrentStamina { get => _currentStamina; 
-            set => _currentStamina = Mathf.Clamp(value, -100, maxStamina);
+    private HealthBar healthBar;
+    private Animator animator;
+    public float ÑurrentStamina { get => _currentStamina; 
+        set => _currentStamina = Mathf.Clamp(value, -100, maxStamina);
 
     
+    }
+    public float ÑurrentHealth { get => _currentHealth;
+        set 
+        {
+            _currentHealth = Mathf.Min(maxHealth, value);
+            if (healthBar != null) { healthBar.ChangeValue(_currentHealth, maxHealth); }
+            if(_currentHealth <= 0 && !IsDead) {
+                IsDead = true;
+                gameObject.GetComponent<IDamageable>().Die(); }
+
         }
-        public float ÑurrentHealth { get => _currentHealth;
-            set 
-            {
-                _currentHealth = Mathf.Min(maxHealth, value);
-                if (healthBar != null) { healthBar.ChangeValue(_currentHealth, maxHealth); }
-                if(_currentHealth <= 0 && !Dead) {
-                    Dead = true;
-                    gameObject.GetComponent<IDamageable>().Die(); }
-
-            }
-        }
+    }
 
 
 
-        public float staminaRegeneration;
-        public float critChance;
-        public float critDamage;
+    public float staminaRegeneration;
+    public float critChance;
+    public float critDamage;
 
-        public bool assailable = true;
-        public bool canAttack = true;
-        public bool canMove = true;
+    public bool assailable = true;
+    public bool canAttack = true;
+    public bool canMove = true;
+    public bool IsStaned;
+    public bool IsSilenced;
 
-        public bool Dead;
+        public bool IsDead;
     private void Awake()
     {
         speed = ConfigStats.BaseSpeed;

@@ -15,13 +15,16 @@ public class RollState : State
     {
         base.Enter();
 
+        if (!_player.currentStats.IsStaned)
+        {
+            _player.currentStats.canMove = false;
+            _player.currentStats.assailable = false;
+            _player.State = "Dash";
 
-        
-        _player.currentStats.canMove = false;
-        _player.currentStats.assailable = false;
-        _player.State = "Dash";
-        
-        _player.animator.SetBool("Roll", true);
+            _player.animator.SetBool("Roll", true);
+        }
+
+
         
         
     }

@@ -12,26 +12,32 @@ public class RunState : State
     public override void Enter()
     {
         base.Enter();
-      
-        _player.animator.SetBool("Run", true);
-        _player.currentStats.canAttack = false;
-        _player.State = "Run";
+        if (!_player.currentStats.IsStaned) 
+        {
+            _player.animator.SetBool("Run", true);
+            _player.currentStats.canAttack = false;
+            _player.State = "Run";
+        }
+            
     }
     public override void Update()
     {
         base.Update();
-        
-
-        _player.transform.position = new Vector2(_player.transform.position.x + (_player.currentStats.speed * Time.deltaTime * _player.moveVector.x), _player.transform.position.y);
-        
-        if (_player.moveVector.x > 0 && !_player.faceRight || _player.moveVector.x < 0 && _player.faceRight )
+        if (!_player.currentStats.IsStaned)
         {
-           
+            _player.transform.position = new Vector2(_player.transform.position.x + (_player.currentStats.speed * Time.deltaTime * _player.moveVector.x), _player.transform.position.y);
 
-            _player.Flip();
-            _player.animator.SetTrigger("TurnAround");
+            if (_player.moveVector.x > 0 && !_player.faceRight || _player.moveVector.x < 0 && _player.faceRight)
+            {
 
+
+                _player.Flip();
+                _player.animator.SetTrigger("TurnAround");
+
+            }
         }
+
+
 
     }
     public override void Exit()

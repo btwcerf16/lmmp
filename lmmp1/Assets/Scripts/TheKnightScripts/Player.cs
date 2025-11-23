@@ -89,52 +89,47 @@ public abstract class Player : MonoBehaviour, IDamageable
         moveVector.x = Input.GetAxis("Horizontal");
         CheckingGround();
 
-        
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            currentStats.RefreshAttackSpeed(AttackSpeedBonus);
-
-        }
-        if ((currentStats.canMove && currentStats.speed > 0 && Input.GetKey(KeyCode.A) )|| (Input.GetKey(KeyCode.D) && currentStats.canMove && currentStats.speed > 0))
-        {
-
-            _SM.ChangeState(new RunState(this));
-
-        }
-       
-        if (moveVector.x == 0 && rigidbody2D.velocity.x == 0 && currentStats.canAttack && canRoll)
-        {
-            _SM.ChangeState(new IdleState(this));
-            if (!isAttacked) { PlayerStamina.ChangeStaminaAmount(currentStats.staminaRegeneration * Time.deltaTime); }
-        }
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            if (currentStats.canAttack)
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                    _SM.ChangeState(new Attack1State(this));
+                currentStats.RefreshAttackSpeed(AttackSpeedBonus);
 
             }
-        }
+            if ((currentStats.canMove && currentStats.speed > 0 && Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D) && currentStats.canMove && currentStats.speed > 0))
+            {
 
-        if (Input.GetKeyDown(KeyCode.Space) && canJump && isGrounded)
-        {
-            _SM.ChangeState(new JumpState(this));
-        }
+                _SM.ChangeState(new RunState(this));
+
+            }
+
+            if (moveVector.x == 0 && rigidbody2D.velocity.x == 0 && currentStats.canAttack && canRoll)
+            {
+                _SM.ChangeState(new IdleState(this));
+                if (!isAttacked) { PlayerStamina.ChangeStaminaAmount(currentStats.staminaRegeneration * Time.deltaTime); }
+            }
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                if (currentStats.canAttack)
+                {
+                    _SM.ChangeState(new Attack1State(this));
+
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && canJump && isGrounded)
+            {
+                _SM.ChangeState(new JumpState(this));
+            }
 
 
-        if (rigidbody2D.velocity.y < 0)
-        {
-            _SM.ChangeState(new FallState(this));
-        }
+            if (rigidbody2D.velocity.y < 0)
+            {
+                _SM.ChangeState(new FallState(this));
+            }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            canRoll = true;
-        }
-        if(hurtCooldown > 0)
-        {
-            hurtCooldown -= Time.deltaTime;
-        }
+            if (hurtCooldown > 0)
+            {
+                hurtCooldown -= Time.deltaTime;
+            }
     }
 
 

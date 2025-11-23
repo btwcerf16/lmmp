@@ -30,7 +30,7 @@ MonoBehaviour:
   DashTime:
   - 0.2
   - 0.3
-  - 0.01
+  - 0.05
   DashPower:
   - 80
   - 90

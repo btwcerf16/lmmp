@@ -11,9 +11,14 @@ public class Attack1State : State
 
     public override void Enter()
     {
+
         base.Enter();
-        _player.animator.SetTrigger("Attack1");
-        _player.State = "Attack";
+        if (!_player.currentStats.IsStaned)
+        {
+            _player.animator.SetTrigger("Attack1");
+            _player.State = "Attack";
+        }
+            
         
 
     }

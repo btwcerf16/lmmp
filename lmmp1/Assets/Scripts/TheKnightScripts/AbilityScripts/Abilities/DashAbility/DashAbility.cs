@@ -24,7 +24,15 @@ public class DashAbility : Ability
 
     public override void ApplyCast()
     {
-        StartCoroutine(Dash());
+        if (!player.currentStats.IsStaned)
+        {
+            StartCoroutine(Dash());
+        }
+        if(player.currentStats.IsStaned)
+        {
+            
+        }
+        
     }
 
     public override void BeginCooldown()
@@ -53,7 +61,7 @@ public class DashAbility : Ability
         //_isDashing = false;
         player.currentStats.canMove = true;
         player.rigidbody2D.velocity = new Vector2(0f, 0f);
-        yield return new WaitForSeconds(((DashAbilityData)AbilityData).AbilityCooldown[CurrentAbilityLevel]);
+        yield return new WaitForSeconds(((DashAbilityData)AbilityData).AbilityCooldown[CurrentAbilityLevel-1]);
         player.canRoll = true;
     }
 }
