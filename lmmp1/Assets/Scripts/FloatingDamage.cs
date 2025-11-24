@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,8 +16,8 @@ public class FloatingDamage : MonoBehaviour
     {
        
         damageText = GetComponent<TextMeshPro>();
-        damageText.text = "-" + TotalDamage;
-        
+        damageText.text = "-" + TotalDamage.ToString("F1");
+
     }
 
     public void OnAnimationEnd()

@@ -31,9 +31,10 @@ MonoBehaviour:
   - 3
   - 2
   - 1
-  damageCount: 30
-  attackArea: 100
+  RoarPrefab: {fileID: 3851317714280766326, guid: f306b9bbbfce4914e9f7626b7d3ca50c, type: 3}
+  AttackArea: 30
+  WeakEffect: {fileID: 11400000, guid: 22fd3001ec1766348bd2f1721b0f012f, type: 2}
   BonusEffect: {fileID: 11400000, guid: 13878739826ed824f9f5061345ae3b1e, type: 2}
-  targetLayer:
+  TargetLayer:
     serializedVersion: 2
     m_Bits: 512

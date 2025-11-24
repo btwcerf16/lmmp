@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DamageAbility : Ability
@@ -14,8 +15,11 @@ public class DamageAbility : Ability
     public override void ApplyCast()
     {
         base.ApplyCast();
-        Debug.Log("Used");
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, ((DamageAbilityData)AbilityData).attackArea, ((DamageAbilityData)AbilityData).targetLayer);
+        player = GetComponent<Player>();
+        Vector3 spawnPos = new Vector3((player.transform.position.x + 1) * player.transform.localScale.x, player.transform.position.y +1, player.transform.position.z);
+        Instantiate(((DamageAbilityData)AbilityData).RoarPrefab,spawnPos ,Quaternion.identity, player.transform);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, ((DamageAbilityData)AbilityData).AttackArea, 
+            ((DamageAbilityData)AbilityData).TargetLayer);
         player = GetComponent<Player>();
         foreach (Collider2D enemy in hitEnemies)
         {

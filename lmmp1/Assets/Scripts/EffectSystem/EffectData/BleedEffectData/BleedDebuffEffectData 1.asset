@@ -17,5 +17,5 @@ MonoBehaviour:
   EffectDuration: 9
   EffectDescription: 
   SpriteIcon: {fileID: -707123725, guid: 32337045c0535a04087096259aada950, type: 3}
-  effectPref: {fileID: 0}
   DamagePercent: 1
+  DamageTick: 1
