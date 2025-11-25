@@ -16,8 +16,9 @@ public class DamageAbility : Ability
     {
         base.ApplyCast();
         player = GetComponent<Player>();
-        Vector3 spawnPos = new Vector3((player.transform.position.x + 1) * player.transform.localScale.x, player.transform.position.y +1, player.transform.position.z);
+        Vector3 spawnPos = new Vector3((player.transform.position.x + 1 * player.transform.localScale.x) , player.transform.position.y +1, player.transform.position.z);
         Instantiate(((DamageAbilityData)AbilityData).RoarPrefab,spawnPos ,Quaternion.identity, player.transform);
+        CameraShake.Instance.ShakeCamera(5f, 0.1f);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, ((DamageAbilityData)AbilityData).AttackArea, 
             ((DamageAbilityData)AbilityData).TargetLayer);
         player = GetComponent<Player>();
