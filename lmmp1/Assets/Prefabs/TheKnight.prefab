@@ -445,10 +445,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -715,10 +715,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6240119075087932881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.000015258789}
-  m_SizeDelta: {x: 404, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2235784967766053724
 CanvasRenderer:
@@ -2431,6 +2431,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6694884611670026556, guid: d7b7ffe788c91f7439204fe1b5033b87, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2843308023647757624}
     - target: {fileID: 8126319861538182477, guid: d7b7ffe788c91f7439204fe1b5033b87, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2585,6 +2589,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 8.794922
       objectReference: {fileID: 0}
+    - target: {fileID: 3117510296010796950, guid: 5f6bacb348b6aad408bd5fd24effc98a, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2843308023647757624}
     - target: {fileID: 5959510060195457359, guid: 5f6bacb348b6aad408bd5fd24effc98a, type: 3}
       propertyPath: m_IsActive
       value: 0

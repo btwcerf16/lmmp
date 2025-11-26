@@ -21,7 +21,7 @@ public class AbilityHolder : MonoBehaviour
             switch (Abilities[i].State)
             {
                 case EAbilityStates.Ready:
-                    if (Input.GetKeyDown(Abilities[i].AbilityData.KeyActivation) && !actorStats.IsSilenced)
+                    if (Input.GetKeyDown(Abilities[i].AbilityData.KeyActivation) && !actorStats.IsSilenced  && !actorStats.IsStaned)
                     {
 
                         Abilities[i].State = EAbilityStates.Active;
