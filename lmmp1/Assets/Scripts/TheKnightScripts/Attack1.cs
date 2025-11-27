@@ -25,12 +25,7 @@ public class Attack1 : MonoBehaviour, IAttacker
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attack1point.position, attackArea, enemyLayer);
         float roll = Random.value;
         PlayerEventBus.onPlayerAttack?.Invoke();
-        if (hitEnemies.Length==0)
-        {
-            CameraShake.Instance.ShakeCamera(0.5f, 0.1f);
-        }
-        else
-        {
+
             foreach (Collider2D enemy in hitEnemies)
             {
                 if (enemy.GetComponent<IDamageable>() != null)
@@ -39,7 +34,6 @@ public class Attack1 : MonoBehaviour, IAttacker
                     if (roll <= actorStats.critChance / 100.0f)
                     {
                         enemy.GetComponent<IDamageable>().Damage(actorStats.GetTotalDamage() * actorStats.critDamage / 100.0f);
-                        enemy.GetComponent<EffectHandler>()?.AddEffect(AttackEffect);
                         CameraShake.Instance.ShakeCamera(5f, 0.1f);
                     }
                     else
@@ -50,7 +44,7 @@ public class Attack1 : MonoBehaviour, IAttacker
                 }
 
             }
-        }
+        
         
         
 
